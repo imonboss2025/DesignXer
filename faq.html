@@ -1,0 +1,188 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Web Design FAQ | Common Questions About Our Services | DesigXner</title>
+<meta name="description" content="Answers to common questions about web design, development, SEO, pricing, timelines, and support. Find quick answers and next steps.">
+<link rel="canonical" href="https://designxner.com/faq">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{fontFamily:{heading:['"Cormorant Garamond"','serif'],sans:['Outfit','sans-serif']}}}}</script>
+<link rel="stylesheet" href="assets/css/style.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does a website cost?","acceptedAnswer":{"@type":"Answer","text":"Our packages start at $5K for starter sites, $10K–$25K for growth-level projects, and $25K+ for enterprise solutions."}},{"@type":"Question","name":"How long does a website project take?","acceptedAnswer":{"@type":"Answer","text":"Simple sites take 6–8 weeks, small eCommerce 10–16 weeks, custom platforms 3–6+ months."}},{"@type":"Question","name":"Do you guarantee SEO rankings?","acceptedAnswer":{"@type":"Answer","text":"No — no legitimate agency can guarantee rankings. We use white-hat practices and provide transparent reporting."}}]}</script>
+</head>
+<body>
+
+<nav id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Desig<span>X</span>ner</a>
+    <div class="nav-links">
+      <a href="services/web-design.html">Web Design</a>
+      <a href="services/seo-services.html">SEO</a>
+      <a href="blog/index.html">Blog</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="nav-cta">Free Audit</a>
+    </div>
+    <button class="hamburger" id="ham-btn" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div id="mobile-menu">
+    <a href="services/web-design.html" onclick="closeMenu()">Web Design</a>
+    <a href="services/seo-services.html" onclick="closeMenu()">SEO</a>
+    <a href="blog/index.html" onclick="closeMenu()">Blog</a>
+    <a href="pricing.html" onclick="closeMenu()">Pricing</a>
+    <a href="about.html" onclick="closeMenu()">About</a>
+    <a href="contact.html" class="nav-cta" onclick="closeMenu()">Free Audit</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section style="padding:10rem 0 5rem;background:var(--bg);position:relative;overflow:hidden;" class="bg-mesh dot-grid">
+  <div class="container" style="position:relative;z-index:1;max-width:760px;">
+    <div class="badge reveal" style="margin-bottom:1.5rem;">Frequently Asked Questions</div>
+    <h1 class="display reveal d1" style="font-size:clamp(2.75rem,6vw,4.5rem);margin-bottom:1.5rem;">Answers to Your <span class="text-gradient">Top Questions</span></h1>
+    <p class="reveal d2" style="font-size:1.125rem;color:var(--muted);line-height:1.75;">We've compiled the most common questions from prospective clients about our process, pricing, timelines, and services.</p>
+  </div>
+</section>
+
+<!-- FAQ CONTENT -->
+<section class="section">
+  <div class="container" style="max-width:860px;margin:0 auto;">
+    <div style="display:grid;grid-template-columns:1fr;gap:4rem;">
+
+      <!-- GENERAL -->
+      <div class="reveal">
+        <div style="display:flex;align-items:center;gap:.875rem;margin-bottom:2rem;">
+          <div class="icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+          <h2 style="font-size:1.375rem;font-weight:600;">General Questions</h2>
+        </div>
+        <div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">What types of businesses do you work with?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-a">We primarily serve small and medium-sized businesses across the USA and Canada, including eCommerce, professional services, SaaS, health &amp; wellness, and local service providers.</div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">Do you only build websites or offer marketing services too?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-a">We offer full-service web design, development, and SEO, plus content strategy, CRO, and ongoing maintenance plans — all under one roof.</div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">Are you remote or do you meet in person?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-a">We are remote-first and serve clients nationwide. In-person meetings are available in select cities by appointment.</div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">How do we get started?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-a">Start by scheduling a free 30-minute consultation or submitting the contact form with project details. We'll be in touch within 24 business hours.</div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">Do you sign NDAs?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-a">Yes. We can sign an NDA or engage under confidentiality terms within our service contract.</div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">Do you work with agencies or take white-label work?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-a">Yes — we offer partnerships and white-label services for agencies and resellers. Contact us for partnership details.</div></div>
+        </div>
+      </div>
+
+      <!-- SERVICES & PROCESS -->
+      <div class="reveal">
+        <div style="display:flex;align-items:center;gap:.875rem;margin-bottom:2rem;">
+          <div class="icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+          <h2 style="font-size:1.375rem;font-weight:600;">Services &amp; Process</h2>
+        </div>
+        <div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">What is your typical project process?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-a">Our five-phase process: Discovery &amp; Strategy → Planning → Design → Development &amp; Launch → Optimization &amp; Growth. Each phase has defined deliverables and milestones.</div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">How long does a website project take?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-a">Typical timelines: Simple brochure sites (6–8 weeks), growth-level projects (10–12 weeks), small eCommerce (10–16 weeks), custom platforms (3–6+ months).</div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">Can you redesign our existing site?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-a">Yes — we offer redesigns, platform migrations, performance optimization, and full rebuilds for existing sites.</div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">Will my site be mobile-friendly?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-a">All sites are built mobile-first and tested across devices, browsers, and screen sizes.</div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">What platforms do you build on?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-a">Common platforms: WordPress (custom themes), Webflow, Shopify for eCommerce, and custom Next.js/React frameworks when performance or scalability requires it.</div></div>
+        </div>
+      </div>
+
+      <!-- PRICING & CONTRACTS -->
+      <div class="reveal">
+        <div style="display:flex;align-items:center;gap:.875rem;margin-bottom:2rem;">
+          <div class="icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+          <h2 style="font-size:1.375rem;font-weight:600;">Pricing &amp; Contracts</h2>
+        </div>
+        <div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">How much does a website cost?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-a">Our packages start at $5K for starter sites, $10K–$25K for growth-level projects, and $25K+ for enterprise solutions. Exact pricing depends on scope and requirements.</div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">Do you offer payment plans?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-a">Yes — standard is 50% deposit / 50% on delivery. For projects $10K+, we offer milestone payment plans (3–6 installments). SEO services are billed monthly.</div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">Are deposits refundable?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-a">Deposits are generally non-refundable once work begins. Specific terms are detailed in the contract. SEO retainers can be canceled with 30-day notice.</div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">Do you charge for revisions?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-a">Revisions within the agreed scope are included. Out-of-scope changes are billed hourly at $150/hour per our terms. We clearly define scope upfront to avoid surprises.</div></div>
+        </div>
+      </div>
+
+      <!-- TIMELINES -->
+      <div class="reveal">
+        <div style="display:flex;align-items:center;gap:.875rem;margin-bottom:2rem;">
+          <div class="icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <h2 style="font-size:1.375rem;font-weight:600;">Timelines &amp; Deliverables</h2>
+        </div>
+        <div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">When will we see results from SEO?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-a">SEO is a medium-to-long-term strategy. Expect foundational improvements in 3–6 months and compounding results over 6–12+ months. We recommend a minimum 6-month commitment.</div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">What happens after launch?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-a">We offer post-launch support, monitoring, and optimization packages. We monitor performance, fix issues, and execute agreed growth strategies to continuously improve results.</div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">Do you provide training after launch?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-a">Yes — we provide CMS training sessions, handoff documentation, and video walkthroughs so your team can confidently manage the site.</div></div>
+        </div>
+      </div>
+
+      <!-- TECHNICAL -->
+      <div class="reveal">
+        <div style="display:flex;align-items:center;gap:.875rem;margin-bottom:2rem;">
+          <div class="icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+          <h2 style="font-size:1.375rem;font-weight:600;">Technical &amp; Security</h2>
+        </div>
+        <div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">Who owns the website code and content?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-a">Clients retain ownership of all content. Upon full payment, you receive full ownership of all custom code and design deliverables created for your project.</div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">Do you provide backups and security?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-a">Yes — we include baseline security hardening, SSL certificates, and can provide backup and maintenance plans for ongoing protection.</div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">Will my site be accessible?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-a">We follow WCAG accessibility best practices and can include a full accessibility audit as part of the project scope.</div></div>
+        </div>
+      </div>
+
+      <!-- SEO -->
+      <div class="reveal">
+        <div style="display:flex;align-items:center;gap:.875rem;margin-bottom:2rem;">
+          <div class="icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+          <h2 style="font-size:1.375rem;font-weight:600;">SEO &amp; Content</h2>
+        </div>
+        <div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">Do you guarantee rankings?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-a">No — we do not guarantee specific rankings (no legitimate agency can). We use white-hat SEO best practices and provide transparent reporting. Beware agencies that promise guaranteed rankings.</div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">How do you measure SEO success?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-a">We track organic traffic, keyword rankings, conversions, engagement metrics, and technical health via GA4, Google Search Console, and other reporting tools.</div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">What's included in SEO retainers?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-a">SEO retainers typically include technical fixes, on-page optimization, content strategy and creation, monthly reporting, and link building outreach as agreed in scope.</div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="background:linear-gradient(145deg,rgba(79,110,255,.1),rgba(200,150,62,.05));border-top:1px solid var(--border);padding:6rem 0;text-align:center;">
+  <div class="container">
+    <div class="reveal" style="max-width:640px;margin:0 auto;">
+      <div class="label" style="margin-bottom:1rem;">Still Have Questions?</div>
+      <h2 class="section-title" style="font-size:clamp(2rem,4vw,3rem);margin-bottom:1.25rem;">Let's Talk About Your <span class="text-gradient">Specific Project</span></h2>
+      <p style="color:var(--muted);margin-bottom:2rem;font-size:1.0625rem;">If your question isn't listed here, schedule a free consultation and we'll address everything specific to your situation.</p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+        <a href="contact.html" class="btn btn-primary">Schedule Free Consultation</a>
+        <a href="pricing.html" class="btn btn-ghost">View Pricing</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer style="background:var(--bg2);border-top:1px solid var(--border);padding:5rem 0 2.5rem;">
+  <div class="container">
+    <div id="footer-grid" style="display:grid;grid-template-columns:1fr;gap:3rem;margin-bottom:3rem;">
+      <div><a href="index.html" class="nav-logo" style="display:inline-block;margin-bottom:1rem;">Desig<span style="color:var(--accent);">X</span>ner</a><p style="color:var(--muted);font-size:.9375rem;line-height:1.7;max-width:320px;">Premium web design &amp; SEO for ambitious businesses.</p></div>
+      <div><h4 style="font-weight:600;margin-bottom:1.25rem;font-size:.9375rem;">Services</h4><div style="display:flex;flex-direction:column;gap:.625rem;"><a href="services/web-design.html" class="footer-link">Web Design</a><a href="services/seo-services.html" class="footer-link">SEO Services</a></div></div>
+      <div><h4 style="font-weight:600;margin-bottom:1.25rem;font-size:.9375rem;">Company</h4><div style="display:flex;flex-direction:column;gap:.625rem;"><a href="about.html" class="footer-link">About Us</a><a href="pricing.html" class="footer-link">Pricing</a><a href="faq.html" class="footer-link">FAQ</a><a href="contact.html" class="footer-link">Contact</a></div></div>
+      <div><h4 style="font-weight:600;margin-bottom:1.25rem;font-size:.9375rem;">Contact</h4><a href="mailto:mdshaheimranimon@gmail.com" class="footer-link">mdshaheimranimon@gmail.com</a><br><a href="contact.html" class="btn btn-primary" style="margin-top:1.25rem;font-size:.875rem;padding:.75rem 1.5rem;">Free Consultation</a></div>
+    </div>
+    <div class="gline" style="margin-bottom:1.75rem;"></div>
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem;">
+      <p style="color:var(--subtle);font-size:.8125rem;">© 2026 DesigXner. All rights reserved.</p>
+      <div style="display:flex;gap:1.5rem;"><a href="legal/privacy-policy.html" style="color:var(--subtle);font-size:.8125rem;text-decoration:none;" onmouseover="this.style.color='var(--muted)'" onmouseout="this.style.color='var(--subtle)'">Privacy Policy</a><a href="legal/terms.html" style="color:var(--subtle);font-size:.8125rem;text-decoration:none;" onmouseover="this.style.color='var(--muted)'" onmouseout="this.style.color='var(--subtle)'">Terms</a></div>
+    </div>
+  </div>
+</footer>
+<style>@media(min-width:640px){#footer-grid{grid-template-columns:1fr 1fr!important;}}@media(min-width:1024px){#footer-grid{grid-template-columns:2fr 1fr 1fr 1fr!important;}}</style>
+
+<script>
+const navbar=document.getElementById('navbar');
+window.addEventListener('scroll',()=>{navbar.classList.toggle('scrolled',window.scrollY>60);});
+function toggleMenu(){const m=document.getElementById('mobile-menu');const b=document.getElementById('ham-btn');const o=m.classList.toggle('open');b.setAttribute('aria-expanded',o);}
+function closeMenu(){document.getElementById('mobile-menu').classList.remove('open');document.getElementById('ham-btn').setAttribute('aria-expanded','false');}
+document.addEventListener('click',(e)=>{const n=document.getElementById('navbar');if(!n.contains(e.target))closeMenu();});
+const ro=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target);}});},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+function toggleFaq(btn){const item=btn.closest('.faq-item');const answer=item.querySelector('.faq-a');const isOpen=btn.classList.contains('active');document.querySelectorAll('.faq-q').forEach(q=>{q.classList.remove('active');q.setAttribute('aria-expanded','false');q.closest('.faq-item').querySelector('.faq-a').classList.remove('open');});if(!isOpen){btn.classList.add('active');btn.setAttribute('aria-expanded','true');answer.classList.add('open');}}
+</script>
+<a href="https://wa.me/8801839422352?text=Hi%2C%20I%27m%20interested%20in%20your%20web%20design%20services" target="_blank" rel="noopener noreferrer" class="wa-float" aria-label="Chat on WhatsApp"><div class="wa-btn"><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><span class="wa-pulse"></span></div><div class="wa-tooltip">Chat on WhatsApp</div></a></body>
+</html>

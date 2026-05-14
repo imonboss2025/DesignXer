@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mobile-First Design: Why It Matters & How to Implement | DesigXner</title>
+<meta name="description" content="Learn why mobile-first design is essential in 2026 and how to design responsive, accessible, and high-converting mobile experiences for any business.">
+<link rel="canonical" href="https://designxner.com/blog/mobile-first-design">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{fontFamily:{heading:['"Cormorant Garamond"','serif'],sans:['Outfit','sans-serif']}}}}</script>
+<link rel="stylesheet" href="../assets/css/style.css">
+<style>
+.article-body h2{font-family:'Cormorant Garamond',serif;font-size:1.75rem;color:var(--text);margin:2.75rem 0 .875rem;line-height:1.25;}
+.article-body h3{font-family:'Cormorant Garamond',serif;font-size:1.25rem;color:var(--text);margin:1.75rem 0 .625rem;line-height:1.3;}
+.article-body p{color:var(--muted);font-size:1rem;line-height:1.9;margin-bottom:1.35rem;}
+.article-body ul,.article-body ol{padding-left:1.5rem;margin-bottom:1.35rem;}
+.article-body ul li,.article-body ol li{color:var(--muted);font-size:1rem;line-height:1.85;margin-bottom:.5rem;}
+.article-body strong{color:var(--text);}
+.article-body code{background:var(--surface2);border:1px solid var(--border);border-radius:.375rem;padding:.125rem .375rem;font-size:.875rem;color:var(--accent);}
+.stats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin:2rem 0 2.5rem;}
+@media(min-width:640px){.stats-grid{grid-template-columns:repeat(4,1fr);}}
+.stat-card{background:var(--surface);border:1px solid var(--border);border-radius:.875rem;padding:1.25rem 1rem;text-align:center;}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:2.25rem;font-weight:700;color:var(--accent);line-height:1;margin-bottom:.375rem;}
+.stat-label{color:var(--muted);font-size:.8rem;line-height:1.4;}
+.key-box{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:.875rem;padding:1.75rem;margin:2.5rem 0;}
+.key-box h4{font-family:'Cormorant Garamond',serif;font-size:1.25rem;color:var(--text);margin-bottom:1rem;}
+.key-box ul{padding-left:1.25rem;margin:0;}
+.key-box ul li{color:var(--muted);font-size:.9375rem;line-height:1.7;margin-bottom:.5rem;}
+.article-img{margin:2.5rem 0;border-radius:1rem;overflow:hidden;border:1px solid var(--border);}
+.article-img img{width:100%;height:auto;display:block;}
+.article-img figcaption{padding:.875rem 1.25rem;background:var(--surface);color:var(--subtle);font-size:.8125rem;line-height:1.5;}
+blockquote{margin:2.5rem 0;padding:1.5rem 1.75rem;background:var(--surface);border-left:4px solid var(--accent);border-radius:0 .875rem .875rem 0;}
+blockquote p{color:var(--text);font-size:1.125rem;font-style:italic;line-height:1.7;margin:0;}
+.tip-box{background:rgba(79,110,255,.06);border:1px solid rgba(79,110,255,.2);border-radius:.875rem;padding:1.5rem 1.75rem;margin:2rem 0;}
+.tip-box p{color:var(--muted);font-size:.9375rem;line-height:1.7;margin:0;}
+.tip-box strong{color:var(--accent);}
+@media(min-width:640px){#footer-grid{grid-template-columns:1fr 1fr!important;}}
+@media(min-width:1024px){#footer-grid{grid-template-columns:2fr 1fr 1fr 1fr!important;}}
+</style>
+</head>
+<body>
+<nav id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">Desig<span>X</span>ner</a>
+    <div class="nav-links">
+      <a href="../services/web-design.html">Web Design</a>
+      <a href="../services/seo-services.html">SEO</a>
+      <a href="index.html" style="color:var(--accent);">Blog</a>
+      <a href="../pricing.html">Pricing</a>
+      <a href="../about.html">About</a>
+      <a href="../contact.html" class="nav-cta">Free Audit</a>
+    </div>
+    <button class="hamburger" id="ham-btn" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+  <div id="mobile-menu">
+    <a href="../services/web-design.html" onclick="closeMenu()">Web Design</a>
+    <a href="../services/seo-services.html" onclick="closeMenu()">SEO</a>
+    <a href="index.html" onclick="closeMenu()">Blog</a>
+    <a href="../pricing.html" onclick="closeMenu()">Pricing</a>
+    <a href="../about.html" onclick="closeMenu()">About</a>
+    <a href="../contact.html" class="nav-cta" onclick="closeMenu()">Free Audit</a>
+  </div>
+</nav>
+
+<section style="padding:10rem 0 4rem;background:var(--bg);position:relative;overflow:hidden;" class="bg-mesh">
+  <div class="container" style="position:relative;z-index:1;max-width:780px;">
+    <div style="display:flex;gap:.75rem;flex-wrap:wrap;margin-bottom:1.5rem;align-items:center;" class="reveal">
+      <a href="index.html" style="color:var(--muted);font-size:.8125rem;text-decoration:none;">Blog</a>
+      <span style="color:var(--subtle);">›</span>
+      <span style="background:var(--accent-subtle);color:var(--accent);font-size:.75rem;font-weight:600;padding:.25rem .625rem;border-radius:2rem;border:1px solid var(--border-accent);">Web Design</span>
+    </div>
+    <h1 class="display reveal d1" style="font-size:clamp(2.25rem,5vw,3.75rem);margin-bottom:1.25rem;line-height:1.15;"><span class="text-gradient">Mobile-First Design:</span> Why It Matters and How to Implement It</h1>
+    <div class="reveal d2" style="display:flex;gap:1.5rem;align-items:center;flex-wrap:wrap;margin-bottom:2rem;">
+      <span style="color:var(--muted);font-size:.875rem;">By Md Shahe Imran Imon</span>
+      <span style="color:var(--subtle);font-size:.875rem;">March 10, 2026</span>
+      <span style="color:var(--subtle);font-size:.875rem;">9 min read</span>
+    </div>
+    <p class="reveal d3" style="font-size:1.125rem;color:var(--muted);line-height:1.8;border-left:3px solid var(--accent);padding-left:1.25rem;">Mobile-first design means designing for the smallest screen first, then scaling up — ensuring the experience is efficient, accessible, and conversion-ready on the device most of your users are actually holding right now.</p>
+  </div>
+</section>
+
+<section style="padding:3rem 0 5rem;background:var(--bg);">
+  <div class="container" style="max-width:780px;">
+
+    <figure class="article-img">
+      <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=900&q=80&auto=format&fit=crop" alt="Person using a smartphone to browse a website" loading="lazy" width="900" height="500">
+      <figcaption>Over 60% of global web traffic now comes from mobile devices — and Google ranks sites based on their mobile experience first, making mobile-first design a business imperative.</figcaption>
+    </figure>
+
+    <div class="article-body">
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-num">63%</div>
+          <div class="stat-label">of global web traffic comes from mobile devices</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">100%</div>
+          <div class="stat-label">of Google's index is mobile-first since 2021</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">53%</div>
+          <div class="stat-label">of mobile users abandon a site that takes over 3 seconds to load</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">5s</div>
+          <div class="stat-label">is how long users take to form an impression of your mobile site</div>
+        </div>
+      </div>
+
+      <h2>1. Why Mobile-First Is Not Optional Anymore</h2>
+      <p>Over 60% of global web traffic now comes from mobile devices. That percentage has been rising consistently for a decade and shows no signs of reversing. But beyond raw traffic share, there's a more urgent reason to take mobile seriously: Google switched to mobile-first indexing in 2021, meaning the mobile version of your site is the version Google crawls, evaluates, and ranks — for all devices, including desktop searches.</p>
+      <p>A site that displays perfectly on desktop but is difficult to use on mobile isn't just losing mobile users — it's losing search rankings for every user. If your mobile experience is slower, the content is different or less structured than desktop, or interactive elements are too small to use comfortably, those issues directly suppress your search visibility. For businesses that depend on organic search as a lead source, this is an existential concern.</p>
+      <p>Beyond SEO, the economics of mobile conversion are compelling. Businesses with strong mobile experiences see 2–3x higher mobile conversion rates than the industry average for their category. Given that mobile users often represent the majority of traffic, closing even part of the mobile conversion gap represents substantial revenue at minimal additional acquisition cost.</p>
+
+      <h2>2. The Philosophy: Constraints as a Design Tool</h2>
+      <p>Mobile-first is a design philosophy before it's a technical approach. Designing for a 375px viewport first imposes discipline that actually improves the desktop experience too. When you start with a 1440px canvas, it's easy to fill space with decorative elements, verbose copy, and complex navigation patterns that don't serve users. When you start with 375px, you're forced to make hard decisions: what does a visitor actually need first? What can be secondary? What can be removed entirely?</p>
+      <p>This constraint-driven clarity produces cleaner, faster, more focused interfaces. Navigation becomes simpler because it has to be. Copy becomes tighter because it has to be. CTAs become more prominent because you've removed the visual noise competing with them. When you then scale that clean design up to tablet and desktop, you add space and depth without the clutter that desktop-first designs typically accumulate.</p>
+      <p>The practical implication: when designing any new page or component, start by sketching the mobile layout first. Establish the content hierarchy, the primary action, and the minimal necessary information. Only then design the tablet and desktop breakpoints as enhancements rather than starting points.</p>
+
+      <h2>3. Content Hierarchy and Information Priority</h2>
+      <p>The most important decision in mobile design is what comes first. Mobile users are often in contexts where attention is partial — commuting, waiting, multitasking — which means your most critical content and action must appear above the fold on small screens. For a service business, this means your value proposition, credibility signal, and contact/booking CTA need to be visible without scrolling on a 375px screen. For an eCommerce product page, it means the product image, price, and Add to Cart button.</p>
+      <p>Progressive disclosure is the mobile designer's best tool. Information that's important but not immediately decision-critical — detailed product specifications, long FAQ sections, policy details — should be available via accordions, "Read more" links, or collapsible sections. This keeps the primary flow clean while preserving access to complete information for users who need it. The mistake is hiding genuinely critical information behind progressive disclosure; the skill is correctly categorizing what's primary versus secondary.</p>
+      <p>Mobile navigation design follows from hierarchy decisions. A hamburger menu with 6–8 top-level items is the standard pattern and works well when the menu items are clearly named and the most critical page (Contact, Book, Shop) also has a dedicated CTA button visible in the header. For sites where navigation is itself a primary user task — eCommerce category browsing, documentation sites — a bottom navigation bar can outperform a hamburger by keeping core navigation accessible without a tap-to-open step.</p>
+
+      <h2>4. Touch Interaction Design</h2>
+      <p>Desktop interfaces are designed for cursors: a precise, frictionless input device that can hover, detect proximity, and select individual pixels. Touch interfaces are designed for fingers: imprecise, area-based input that can't hover. The design implications are significant and frequently overlooked, especially by designers who primarily work on large screens.</p>
+      <p>The 44×44px minimum touch target — Apple's Human Interface Guideline standard, also endorsed by Google — exists because the average fingertip contact area is about 40–57px. Elements smaller than 44px require precise tapping that a significant portion of users can't reliably achieve, particularly older users, users with motor impairments, or anyone using their phone one-handed. Misfire rates on small targets lead directly to frustration and abandonment.</p>
+      <p>Think about the thumb zone. When holding a phone naturally in one hand, the thumb can comfortably reach the bottom two-thirds of the screen — the top corners are awkward to reach without shifting grip. Primary actions (Add to Cart, Submit, Call Now) perform better in the lower portion of the screen on mobile. Navigation items placed at the very top of the screen on mobile require a grip shift that breaks flow. Bottom navigation bars and sticky footer CTAs are thumb-zone-friendly patterns that consistently outperform top-heavy designs for primary mobile actions.</p>
+
+      <blockquote>
+        <p>"Desktop design is about filling space. Mobile design is about respecting scarcity — of screen, of attention, and of user patience."</p>
+      </blockquote>
+
+      <h2>5. Typography and Readability on Small Screens</h2>
+      <p>Text readability on mobile has three variables: size, line length, and contrast. The 16px minimum for body text on mobile is not arbitrary — it's the smallest size that most users can read comfortably without zooming at arm's length. Anything smaller on a phone requires the user to bring the screen closer or zoom in, and many will simply leave instead.</p>
+      <p>Line length on mobile is determined by screen width, but you can influence it. A full-width paragraph on a 375px screen is typically 50–60 characters wide — near the optimal 60–75 character range. Use appropriate padding (at least 16px on each side) to prevent text from running edge-to-edge, which reads as overwhelming. Line height of 1.6–1.8 for body text on mobile improves readability significantly over the 1.4 default many developers use.</p>
+      <p>Contrast requirements on mobile are actually higher than on desktop because screens are often viewed in variable lighting conditions — bright sunlight, dimly lit rooms, at angles. Aim for 5:1 or higher contrast for body text on mobile rather than the minimum 4.5:1, and test your contrast ratios in both default and reduced-brightness modes. Thin font weights (300 or below) that look elegant on a retina desktop display can become illegible on mid-range Android screens.</p>
+
+      <figure class="article-img">
+        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=900&q=80&auto=format&fit=crop" alt="Multiple devices showing responsive web design at different screen sizes" loading="lazy" width="900" height="500">
+        <figcaption>Responsive design adapts a single codebase to multiple screen sizes — but mobile-first design ensures the smallest-screen experience is a design priority, not an afterthought.</figcaption>
+      </figure>
+
+      <h2>6. Performance as a Mobile UX Priority</h2>
+      <p>Mobile performance and mobile design are inseparable. A visually excellent design that loads in 6 seconds on a 4G connection will perform worse than a mediocre design that loads in 2 seconds. Mobile networks are inherently slower and more variable than broadband, and mobile CPUs process JavaScript more slowly than desktop CPUs. These physical realities mean that mobile performance requires deliberate design and development decisions, not just desktop optimizations applied to a smaller viewport.</p>
+      <p>The most impactful mobile performance improvements, in order of typical impact: optimize images (convert to WebP, use proper sizing with <code>srcset</code>, lazy-load below-fold images); reduce JavaScript bundle size (defer non-critical scripts, remove unused dependencies); minimize render-blocking resources (inline critical CSS, defer non-critical CSS); and use a CDN to serve assets from geographically close servers. These four changes can move a 5-second mobile load time to under 2 seconds on most sites.</p>
+      <p>Core Web Vitals have mobile-specific thresholds in Google's assessment. Largest Contentful Paint (LCP) — how quickly your main content loads — should be under 2.5 seconds on mobile. Cumulative Layout Shift (CLS) — the visual stability metric — should be under 0.1. Interaction to Next Paint (INP) — response time to user input — should be under 200ms. These metrics directly affect search rankings and are measured on real user devices through Chrome's experience report, so optimizing them genuinely improves both SEO and user experience simultaneously.</p>
+
+      <h2>7. Forms and Input Optimization</h2>
+      <p>Forms are where mobile UX failures are most directly measurable in lost revenue. A contact form with poor mobile usability might achieve a 5% submission rate on desktop but 1.5% on mobile — a 70% mobile form conversion gap that represents significant lost leads. Closing that gap through thoughtful mobile form design is one of the highest-ROI improvements available to most service businesses.</p>
+      <p>Use the correct <code>input type</code> attribute for every field. <code>type="email"</code> shows the email-optimized keyboard (@ symbol prominent). <code>type="tel"</code> shows the numeric dial pad. <code>type="number"</code> with <code>inputmode="numeric"</code> shows the number pad without increment/decrement arrows. <code>type="date"</code> shows the native date picker. These details are invisible on desktop but materially improve mobile form usability — users don't have to switch keyboards or hunt for special characters.</p>
+      <p>Minimize form fields aggressively for mobile. Every optional field you include increases abandonment. If name and email are sufficient to follow up, don't add company, phone, and project type as required fields — make them optional or eliminate them. For mobile, consider a two-step form: show only name and email on the first screen, then show extended fields on the second screen after the initial commitment is made. This approach typically increases mobile form completion rates by 15–30%.</p>
+
+      <h2>8. Testing: Beyond Browser Emulation</h2>
+      <p>Chrome DevTools' mobile emulation is useful for catching obvious layout issues but cannot replicate real mobile device behavior. Touch event handling, GPU rendering performance, iOS Safari-specific rendering quirks, Android Chrome's auto-zoom on focus, and the behavior of the virtual keyboard all require real hardware to test properly. Emulation is a development convenience, not a substitute for device testing before launch.</p>
+      <p>Test your site on at minimum: one recent iPhone (for iOS Safari), one mid-range Android device (for Android Chrome — this is where most real users are), and one older or lower-spec Android device (for performance regression detection). Pay particular attention to form behavior when the keyboard opens, scroll behavior on fixed elements, and touch target accuracy for your primary CTA buttons.</p>
+      <p>Google's PageSpeed Insights provides both lab and field data from real user devices. The field data (Core Web Vitals "field data" section) is particularly valuable because it reflects actual user experiences on actual devices and connections in your target region. Lighthouse in Chrome DevTools provides a simulated mobile audit that catches common issues but may miss field performance problems related to real-world network conditions. Use both.</p>
+
+      <h2>9. Accessibility on Mobile — Often Overlooked</h2>
+      <p>Mobile accessibility receives considerably less attention than desktop accessibility in most projects, despite being equally important. Screen reader users on mobile (primarily VoiceOver on iOS, TalkBack on Android) navigate very differently than desktop screen reader users — they swipe through elements sequentially, use explore-by-touch, and interact with a touch-based cursor rather than a keyboard. ARIA attributes, semantic HTML, and proper focus management matter as much on mobile as desktop.</p>
+      <p>Gesture-based interactions — swipe carousels, swipe-to-delete, pinch-to-zoom galleries — are a mobile accessibility challenge. Any gesture-only interaction excludes users who can't perform that gesture reliably. Provide tap-based alternatives for all gesture-dependent functionality. Carousels should have visible prev/next buttons in addition to swipe support. Zoom should not be disabled via <code>user-scalable=no</code> in the viewport meta tag — this prevents low-vision users from enlarging content they need to read.</p>
+      <p>Prefers-reduced-motion should be respected on mobile as well as desktop. Animations that feel smooth on a high-end iPhone may trigger motion sickness on users who are sensitive to motion, and may also perform poorly (causing jank) on lower-end devices. Implement <code>@media (prefers-reduced-motion: reduce)</code> to disable non-essential animations for users who have this preference set.</p>
+
+      <div class="key-box">
+        <h4>Mobile-First Design Implementation Checklist</h4>
+        <ul>
+          <li>Design at 375px viewport width first — scale up to tablet and desktop as enhancements</li>
+          <li>All interactive elements minimum 44×44px — verified on a real device</li>
+          <li>Primary CTA accessible in the thumb zone (lower portion of screen)</li>
+          <li>Body text minimum 16px — tested without zooming at arm's length</li>
+          <li>All images in WebP format with explicit width/height to prevent layout shift</li>
+          <li>Correct <code>input type</code> attributes on all form fields (email, tel, number)</li>
+          <li>No <code>user-scalable=no</code> in viewport meta (accessibility violation)</li>
+          <li>Tested on real iOS and Android devices, not just browser emulation</li>
+          <li>Forms minimize required fields — mobile completion rate optimized</li>
+          <li>Core Web Vitals: LCP under 2.5s, CLS under 0.1, INP under 200ms</li>
+          <li>Navigation accessible with one thumb without grip shift</li>
+          <li>Prefers-reduced-motion respected for all animations</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="card" style="margin-top:3rem;padding:2rem 2.5rem;background:var(--accent-subtle);border-color:var(--border-accent);">
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.625rem;color:var(--text);margin-bottom:.75rem;">Need a Mobile-First Overhaul?</h3>
+      <p style="color:var(--muted);font-size:.9375rem;line-height:1.7;margin-bottom:1.5rem;">Request a free mobile UX audit and we'll provide prioritized recommendations to improve your mobile experience, search rankings, and conversion rate — no obligation.</p>
+      <a href="../contact.html" class="btn btn-primary">Request a Free Mobile Audit</a>
+    </div>
+
+    <div style="margin-top:4rem;">
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--text);margin-bottom:1.5rem;">Related Articles</h3>
+      <div style="display:flex;flex-direction:column;gap:1rem;">
+        <a href="10-essential-elements.html" style="text-decoration:none;"><div class="card" style="padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;cursor:pointer;"><span style="background:var(--accent-subtle);color:var(--accent);font-size:.75rem;font-weight:600;padding:.2rem .5rem;border-radius:2rem;flex-shrink:0;">Design</span><span style="color:var(--text);font-size:.9375rem;">10 Essential Elements of High-Converting Websites →</span></div></a>
+        <a href="improve-website-speed.html" style="text-decoration:none;"><div class="card" style="padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;cursor:pointer;"><span style="background:rgba(200,150,62,.1);color:var(--gold);font-size:.75rem;font-weight:600;padding:.2rem .5rem;border-radius:2rem;flex-shrink:0;">Perf</span><span style="color:var(--text);font-size:.9375rem;">How to Improve Website Speed for SEO →</span></div></a>
+        <a href="ecommerce-best-practices.html" style="text-decoration:none;"><div class="card" style="padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;cursor:pointer;"><span style="background:rgba(200,150,62,.1);color:var(--gold);font-size:.75rem;font-weight:600;padding:.2rem .5rem;border-radius:2rem;flex-shrink:0;">eCommerce</span><span style="color:var(--text);font-size:.9375rem;">eCommerce Website Design Best Practices →</span></div></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer style="background:var(--bg2);border-top:1px solid var(--border);padding:4rem 0 2rem;">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr;gap:2.5rem;margin-bottom:3rem;" id="footer-grid">
+      <div><a href="../index.html" class="nav-logo" style="font-size:1.5rem;text-decoration:none;display:inline-block;margin-bottom:1rem;">Desig<span style="color:var(--accent);">X</span>ner</a><p style="color:var(--muted);font-size:.9375rem;line-height:1.75;max-width:300px;">Expert web design and SEO for small businesses ready to grow.</p></div>
+      <div><p style="color:var(--text);font-weight:600;font-size:.875rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:1rem;">Services</p><div style="display:flex;flex-direction:column;gap:.625rem;"><a href="../services/web-design.html" class="footer-link">Web Design</a><a href="../services/seo-services.html" class="footer-link">SEO Services</a><a href="../pricing.html" class="footer-link">Pricing</a><a href="../contact.html" class="footer-link">Free Audit</a></div></div>
+      <div><p style="color:var(--text);font-weight:600;font-size:.875rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:1rem;">More Articles</p><div style="display:flex;flex-direction:column;gap:.625rem;"><a href="web-design-trends-2026.html" class="footer-link">Design Trends 2026</a><a href="ecommerce-best-practices.html" class="footer-link">eCommerce Best Practices</a><a href="website-security.html" class="footer-link">Website Security</a><a href="index.html" class="footer-link">All Articles</a></div></div>
+      <div><p style="color:var(--text);font-weight:600;font-size:.875rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:1rem;">Company</p><div style="display:flex;flex-direction:column;gap:.625rem;"><a href="../about.html" class="footer-link">About</a><a href="../testimonials.html" class="footer-link">Results</a><a href="index.html" class="footer-link">Blog</a><a href="../contact.html" class="footer-link">Contact</a></div></div>
+    </div>
+    <div style="border-top:1px solid var(--border);padding-top:1.75rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;"><p style="color:var(--subtle);font-size:.875rem;margin:0;">© 2026 DesigXner. All rights reserved.</p><div style="display:flex;gap:1.5rem;"><a href="../legal/privacy-policy.html" class="footer-link" style="font-size:.8125rem;">Privacy</a><a href="../legal/terms.html" class="footer-link" style="font-size:.8125rem;">Terms</a><a href="../legal/cookie-policy.html" class="footer-link" style="font-size:.8125rem;">Cookies</a></div></div>
+  </div>
+</footer>
+<script>
+const navbar=document.getElementById('navbar');
+window.addEventListener('scroll',()=>{navbar.classList.toggle('scrolled',window.scrollY>60);});
+function toggleMenu(){const m=document.getElementById('mobile-menu');const b=document.getElementById('ham-btn');const o=m.classList.toggle('open');b.setAttribute('aria-expanded',o);}
+function closeMenu(){document.getElementById('mobile-menu').classList.remove('open');document.getElementById('ham-btn').setAttribute('aria-expanded','false');}
+document.addEventListener('click',(e)=>{const n=document.getElementById('navbar');if(!n.contains(e.target))closeMenu();});
+const ro=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target);}});},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+</script>
+<a href="https://wa.me/8801839422352?text=Hi%2C%20I%27m%20interested%20in%20your%20web%20design%20services" target="_blank" rel="noopener noreferrer" class="wa-float" aria-label="Chat on WhatsApp"><div class="wa-btn"><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><span class="wa-pulse"></span></div><div class="wa-tooltip">Chat on WhatsApp</div></a>
+</body>
+</html>

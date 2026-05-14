@@ -1,0 +1,1036 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DesigXner — Web Design Agency for Small Business | USA &amp; Canada</title>
+<meta name="description" content="Professional web design and SEO for small businesses in USA &amp; Canada. Custom designs that convert visitors into customers. 200+ clients served. Free website audit.">
+<meta property="og:title" content="DesigXner — Web Design Agency">
+<meta property="og:description" content="We build websites that make money. 200+ SMBs served across USA &amp; Canada.">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://designxner.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: {
+        heading: ['"Cormorant Garamond"', 'serif'],
+        sans: ['Outfit', 'sans-serif'],
+      }
+    }
+  }
+}
+</script>
+<style>
+:root {
+  --bg: #05050F;
+  --bg2: #090918;
+  --surface: #0D0D22;
+  --surface2: #12122E;
+  --accent: #4F6EFF;
+  --accent-glow: rgba(79,110,255,0.18);
+  --accent-subtle: rgba(79,110,255,0.07);
+  --gold: #C8963E;
+  --gold-subtle: rgba(200,150,62,0.1);
+  --text: #EDF0FF;
+  --muted: #7B84B0;
+  --subtle: #3A3F65;
+  --border: rgba(255,255,255,0.055);
+  --border-accent: rgba(79,110,255,0.16);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{background:var(--bg);scroll-behavior:smooth;}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.65;}
+::selection{background:rgba(79,110,255,0.28);}
+::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--subtle);border-radius:3px;}
+
+/* NOISE GRAIN */
+body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");opacity:.025;pointer-events:none;z-index:9000;}
+
+/* TYPOGRAPHY */
+.font-heading{font-family:'Cormorant Garamond',serif;}
+.display{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;line-height:.93;letter-spacing:-.02em;}
+.section-title{font-family:'Cormorant Garamond',serif;font-weight:600;line-height:1.1;letter-spacing:-.015em;}
+.label{font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);}
+
+/* NAV */
+#navbar{position:fixed;top:.875rem;left:.875rem;right:.875rem;z-index:9999;background:rgba(5,5,15,.7);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(--border);border-radius:1rem;transition:all .3s ease;}
+#navbar.scrolled{background:rgba(5,5,15,.92);border-color:var(--border-accent);box-shadow:0 8px 40px rgba(0,0,0,.5);}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:.875rem 1.5rem;}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:700;font-size:1.5rem;color:var(--text);text-decoration:none;letter-spacing:-.01em;}
+.nav-logo span{color:var(--accent);}
+.nav-links{display:flex;align-items:center;gap:2rem;}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:.9375rem;font-weight:500;transition:color .2s;cursor:pointer;}
+.nav-links a:hover{color:var(--text);}
+.nav-cta{background:var(--accent);color:#fff;padding:.625rem 1.375rem;border-radius:.625rem;font-size:.875rem;font-weight:600;text-decoration:none;transition:all .2s;cursor:pointer;border:none;}
+.nav-cta:hover{background:#3D5CE8;box-shadow:0 4px 20px rgba(79,110,255,.4);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:.25rem;}
+.hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:all .3s;}
+#mobile-menu{display:none;position:absolute;top:calc(100% + .5rem);left:0;right:0;background:rgba(5,5,15,.98);border:1px solid var(--border);border-radius:1rem;padding:1.25rem;flex-direction:column;gap:.75rem;}
+#mobile-menu.open{display:flex;}
+#mobile-menu a{color:var(--muted);text-decoration:none;font-size:1rem;padding:.5rem 0;border-bottom:1px solid var(--border);cursor:pointer;}
+#mobile-menu .nav-cta{text-align:center;margin-top:.5rem;}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.9rem 2rem;border-radius:.625rem;font-weight:600;font-size:.9375rem;cursor:pointer;transition:all .2s;text-decoration:none;white-space:nowrap;border:none;}
+.btn-primary{background:var(--accent);color:#fff;}
+.btn-primary:hover{background:#3D5CE8;transform:translateY(-2px);box-shadow:0 8px 28px rgba(79,110,255,.4);}
+.btn-ghost{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,.13);}
+.btn-ghost:hover{border-color:rgba(79,110,255,.4);background:var(--accent-subtle);color:#fff;}
+.btn:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+
+/* CARDS */
+.card{background:var(--surface);border:1px solid var(--border);border-radius:1.25rem;transition:all .3s ease;}
+.card:hover{border-color:var(--border-accent);background:var(--surface2);box-shadow:0 0 40px rgba(79,110,255,.07);transform:translateY(-3px);}
+
+/* GRADIENT TEXT */
+.text-gradient{background:linear-gradient(135deg,#fff 0%,#8BA4FF 55%,#C8963E 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.text-accent{color:var(--accent);}
+.text-gold{color:var(--gold);}
+.text-muted{color:var(--muted);}
+
+/* SECTION */
+.section{padding:7rem 0;}
+.container{max-width:1280px;margin:0 auto;padding:0 1.5rem;}
+@media(min-width:768px){.container{padding:0 2.5rem;}}
+@media(min-width:1024px){.container{padding:0 3rem;}}
+
+/* ICON WRAP */
+.icon-box{width:3.25rem;height:3.25rem;background:var(--accent-subtle);border:1px solid var(--border-accent);border-radius:.875rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+
+/* STAT */
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:3.25rem;font-weight:700;line-height:1;background:linear-gradient(135deg,#fff,#8BA4FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+
+/* PRICE CARD */
+.price-featured{background:linear-gradient(145deg,rgba(79,110,255,.13) 0%,rgba(79,110,255,.04) 100%);border:1px solid rgba(79,110,255,.28)!important;position:relative;overflow:hidden;}
+.price-featured::after{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(79,110,255,.06) 0%,transparent 70%);pointer-events:none;}
+
+/* TESTIMONIAL */
+.tcard{background:var(--surface);border:1px solid var(--border);border-radius:1.25rem;padding:2rem;position:relative;}
+.tcard::before{content:'\201C';position:absolute;top:1.25rem;left:1.75rem;font-family:'Cormorant Garamond',serif;font-size:5rem;line-height:1;color:var(--accent);opacity:.25;pointer-events:none;}
+
+/* FAQ */
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:1.375rem 0;cursor:pointer;font-weight:500;font-size:1.0625rem;border:none;background:transparent;color:var(--text);width:100%;text-align:left;transition:color .2s;}
+.faq-q:hover{color:#fff;}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease;color:var(--muted);line-height:1.7;font-size:.9375rem;}
+.faq-a.open{max-height:250px;padding-bottom:1.5rem;}
+.faq-icon{width:1.125rem;height:1.125rem;color:var(--accent);flex-shrink:0;transition:transform .3s;}
+.faq-q.active .faq-icon{transform:rotate(45deg);}
+.faq-item{border-bottom:1px solid var(--border);}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.visible{opacity:1;transform:none;}
+.d1{transition-delay:.1s;}.d2{transition-delay:.2s;}.d3{transition-delay:.3s;}.d4{transition-delay:.4s;}.d5{transition-delay:.5s;}
+
+/* PROCESS LINE */
+.step-num{width:3rem;height:3rem;border-radius:50%;background:var(--accent-subtle);border:1px solid var(--border-accent);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.375rem;font-weight:700;color:var(--accent);flex-shrink:0;}
+
+/* METRIC CHIP */
+.chip{display:inline-flex;align-items:center;gap:.3rem;background:rgba(200,150,62,.1);border:1px solid rgba(200,150,62,.2);color:var(--gold);font-size:.8125rem;font-weight:600;padding:.3rem .75rem;border-radius:100px;}
+
+/* GRADIENT LINE */
+.gline{height:1px;background:linear-gradient(90deg,transparent,rgba(79,110,255,.25),transparent);}
+
+/* FOOTER */
+.footer-link{color:var(--muted);text-decoration:none;font-size:.9375rem;transition:color .2s;cursor:pointer;display:block;}
+.footer-link:hover{color:#fff;}
+
+/* BG MESH */
+.bg-mesh{background-image:radial-gradient(ellipse at 12% 18%,rgba(79,110,255,.18) 0%,transparent 55%),radial-gradient(ellipse at 88% 82%,rgba(200,150,62,.09) 0%,transparent 50%);}
+.dot-grid{position:relative;}
+.dot-grid::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(148,163,184,.07) 1px,transparent 1px);background-size:42px 42px;pointer-events:none;z-index:0;}
+
+/* OWNER IMAGE */
+.owner-img{width:100%;max-width:380px;border-radius:1.25rem;object-fit:cover;border:1px solid var(--border);filter:grayscale(10%);}
+
+/* BADGE */
+.badge{display:inline-flex;align-items:center;gap:.375rem;background:var(--accent-subtle);border:1px solid var(--border-accent);color:#8BA4FF;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.375rem .875rem;border-radius:100px;}
+
+/* CHECK ITEM */
+.check-li{display:flex;align-items:flex-start;gap:.625rem;font-size:.9375rem;color:var(--muted);}
+.check-li svg{color:var(--accent);flex-shrink:0;margin-top:.15rem;}
+
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;}
+.reveal{opacity:1;transform:none;}}
+
+@media(max-width:768px){
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  .section{padding:5rem 0;}
+  .stat-num{font-size:2.5rem;}
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"ProfessionalService",
+  "name":"DesigXner",
+  "description":"Web design and SEO agency for small and medium-sized businesses in USA and Canada.",
+  "url":"https://designxner.com",
+  "email":"mdshaheimranimon@gmail.com",
+  "foundingDate":"2020",
+  "founder":{"@type":"Person","name":"Md Shahe Imran Imon","jobTitle":"Founder & CEO"},
+  "areaServed":["US","CA"],
+  "serviceType":["Web Design","Web Development","SEO","Brand Strategy"],
+  "priceRange":"$5,000–$50,000+",
+  "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"40","bestRating":"5"}
+}
+</script>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Desig<span>X</span>ner</a>
+    <div class="nav-links">
+      <a href="services/web-design.html">Web Design</a>
+      <a href="services/seo-services.html">SEO</a>
+      <a href="blog/index.html">Blog</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="about.html">About</a>
+    </div>
+    <a href="contact.html" class="nav-cta">Free Audit</a>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle menu" aria-expanded="false" id="ham-btn">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div id="mobile-menu" role="menu">
+    <a href="services/web-design.html" onclick="closeMenu()">Web Design</a>
+    <a href="services/seo-services.html" onclick="closeMenu()">SEO</a>
+    <a href="blog/index.html" onclick="closeMenu()">Blog</a>
+    <a href="pricing.html" onclick="closeMenu()">Pricing</a>
+    <a href="about.html" onclick="closeMenu()">About</a>
+    <a href="contact.html" class="nav-cta" onclick="closeMenu()">Free Audit</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="home" class="dot-grid bg-mesh" style="min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding-top:8rem;padding-bottom:5rem;">
+  <!-- Orbs -->
+  <div style="position:absolute;top:15%;left:5%;width:500px;height:500px;background:radial-gradient(circle,rgba(79,110,255,.14) 0%,transparent 70%);pointer-events:none;"></div>
+  <div style="position:absolute;bottom:10%;right:5%;width:380px;height:380px;background:radial-gradient(circle,rgba(200,150,62,.08) 0%,transparent 70%);pointer-events:none;"></div>
+
+  <div class="container" style="position:relative;z-index:1;width:100%;">
+    <div style="max-width:950px;">
+      <div class="badge reveal" style="margin-bottom:2rem;">
+        <svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="4"/></svg>
+        Web Design Agency · USA &amp; Canada
+      </div>
+
+      <h1 class="display reveal d1" style="font-size:clamp(3.5rem,8vw,7.5rem);color:var(--text);margin-bottom:1.75rem;">
+        We Build<br>
+        <span class="text-gradient">Websites That</span><br>
+        Make Money.
+      </h1>
+
+      <p class="reveal d2" style="font-size:1.1875rem;color:var(--muted);max-width:580px;margin-bottom:2.5rem;line-height:1.7;">
+        Stop competing with template sites. Get a custom-designed, conversion-optimized website that turns visitors into paying customers — starting with a free audit.
+      </p>
+
+      <div class="reveal d3" style="display:flex;flex-wrap:wrap;gap:1rem;align-items:center;margin-bottom:3.5rem;">
+        <a href="#contact" class="btn btn-primary">
+          Get Your Free Audit
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#results" class="btn btn-ghost">See Client Results</a>
+      </div>
+
+      <!-- Mini trust bar -->
+      <div class="reveal d4" style="display:flex;flex-wrap:wrap;gap:2rem;align-items:center;">
+        <div style="display:flex;align-items:center;gap:.5rem;">
+          <div style="display:flex;">
+            <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#4F6EFF,#7B9FFF);border:2px solid var(--bg);display:flex;align-items:center;justify-content:center;font-size:.625rem;font-weight:700;color:#fff;font-family:'Cormorant Garamond',serif;margin-left:-6px;">S</div>
+            <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#C8963E,#E5B869);border:2px solid var(--bg);display:flex;align-items:center;justify-content:center;font-size:.625rem;font-weight:700;color:#fff;font-family:'Cormorant Garamond',serif;margin-left:-6px;">M</div>
+            <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#4F6EFF,#C8963E);border:2px solid var(--bg);display:flex;align-items:center;justify-content:center;font-size:.625rem;font-weight:700;color:#fff;font-family:'Cormorant Garamond',serif;margin-left:-6px;">L</div>
+          </div>
+          <span style="font-size:.875rem;color:var(--muted);">200+ clients trust us</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:.375rem;">
+          <div style="display:flex;gap:2px;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#C8963E"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#C8963E"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#C8963E"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#C8963E"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#C8963E"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <span style="font-size:.875rem;color:var(--muted);">4.9/5 on Google &amp; Clutch</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<section style="padding:3.5rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--bg2);">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:2rem;" id="stats-grid">
+      <div class="reveal" style="text-align:center;padding:1.5rem 1rem;">
+        <div class="stat-num" data-count="200">200+</div>
+        <div style="font-size:.875rem;color:var(--muted);margin-top:.375rem;font-weight:500;">Clients Served</div>
+      </div>
+      <div class="reveal d1" style="text-align:center;padding:1.5rem 1rem;">
+        <div class="stat-num">$50M+</div>
+        <div style="font-size:.875rem;color:var(--muted);margin-top:.375rem;font-weight:500;">Revenue Generated</div>
+      </div>
+      <div class="reveal d2" style="text-align:center;padding:1.5rem 1rem;">
+        <div class="stat-num" data-count="150">150+</div>
+        <div style="font-size:.875rem;color:var(--muted);margin-top:.375rem;font-weight:500;">Websites Launched</div>
+      </div>
+      <div class="reveal d3" style="text-align:center;padding:1.5rem 1rem;">
+        <div class="stat-num">9/10</div>
+        <div style="font-size:.875rem;color:var(--muted);margin-top:.375rem;font-weight:500;">Client Satisfaction</div>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+@media(min-width:640px){#stats-grid{grid-template-columns:repeat(4,1fr)!important;}}
+</style>
+
+<!-- PROBLEM SECTION -->
+<section class="section">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr;gap:4rem;" id="problem-grid">
+      <div class="reveal">
+        <div class="label" style="margin-bottom:1.25rem;">The Problem</div>
+        <h2 class="section-title" style="font-size:clamp(2.25rem,4vw,3.5rem);margin-bottom:1.5rem;">Your Website Is <br><em style="font-style:italic;color:var(--accent);">Losing You Business</em></h2>
+        <p style="color:var(--muted);font-size:1.0625rem;line-height:1.75;max-width:520px;margin-bottom:2rem;">Most small business websites look fine but fail silently. Poor design, slow load times, and weak messaging cost you real customers every single day.</p>
+        <div style="display:flex;flex-direction:column;gap:1rem;">
+          <div class="check-li">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <span><strong style="color:var(--text);">68% of visitors bounce</strong> within seconds if your site isn't optimized</span>
+          </div>
+          <div class="check-li">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <span><strong style="color:var(--text);">88% won't return</strong> after a single bad experience</span>
+          </div>
+          <div class="check-li">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <span><strong style="color:var(--text);">53% abandon</strong> mobile sites that take over 3 seconds to load</span>
+          </div>
+          <div class="check-li">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <span><strong style="color:var(--text);">72% of businesses</strong> say improving website ROI is critical to growth</span>
+          </div>
+        </div>
+      </div>
+      <div class="reveal d2">
+        <div class="label" style="margin-bottom:1.25rem;">The Solution</div>
+        <h2 class="section-title" style="font-size:clamp(2.25rem,4vw,3.5rem);margin-bottom:1.5rem;">Design Built to <br><em style="font-style:italic;color:var(--gold);">Drive Real Results</em></h2>
+        <p style="color:var(--muted);font-size:1.0625rem;line-height:1.75;max-width:520px;margin-bottom:2rem;">We don't just build pretty websites. We build conversion machines. Every element — design, copy, speed, SEO — is engineered to turn visitors into customers.</p>
+        <a href="#contact" class="btn btn-primary" style="width:fit-content;">
+          Fix My Website
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+<style>@media(min-width:900px){#problem-grid{grid-template-columns:1fr 1fr!important;}}</style>
+
+<div class="gline"></div>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:4rem;">
+      <div class="label reveal" style="margin-bottom:1rem;">What We Do</div>
+      <h2 class="section-title reveal d1" style="font-size:clamp(2.5rem,5vw,4rem);margin-bottom:1.25rem;">Our Services</h2>
+      <p class="reveal d2" style="color:var(--muted);font-size:1.0625rem;max-width:540px;margin:0 auto;">Custom design, development, and SEO — everything under one roof for a unified strategy that actually works.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(1,1fr);gap:1.5rem;" id="services-grid">
+      <div class="card reveal" style="padding:2rem;">
+        <div class="icon-box" style="margin-bottom:1.5rem;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <h3 style="font-size:1.25rem;font-weight:600;margin-bottom:.75rem;">Web Design</h3>
+        <p style="color:var(--muted);line-height:1.7;margin-bottom:1.25rem;font-size:.9375rem;">Custom-designed layouts built on conversion psychology and user experience principles. No templates — ever.</p>
+        <a href="#contact" style="color:var(--accent);font-size:.875rem;font-weight:600;text-decoration:none;display:flex;align-items:center;gap:.375rem;cursor:pointer;">
+          Learn more <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+      <div class="card reveal d1" style="padding:2rem;">
+        <div class="icon-box" style="margin-bottom:1.5rem;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <h3 style="font-size:1.25rem;font-weight:600;margin-bottom:.75rem;">Web Development</h3>
+        <p style="color:var(--muted);line-height:1.7;margin-bottom:1.25rem;font-size:.9375rem;">Clean, performant code with SEO-friendly architecture. Fast-loading, secure, and built to scale with your business.</p>
+        <a href="#contact" style="color:var(--accent);font-size:.875rem;font-weight:600;text-decoration:none;display:flex;align-items:center;gap:.375rem;cursor:pointer;">
+          Learn more <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+      <div class="card reveal d2" style="padding:2rem;">
+        <div class="icon-box" style="margin-bottom:1.5rem;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v3l2 2"/></svg>
+        </div>
+        <h3 style="font-size:1.25rem;font-weight:600;margin-bottom:.75rem;">SEO Services</h3>
+        <p style="color:var(--muted);line-height:1.7;margin-bottom:1.25rem;font-size:.9375rem;">Strategic SEO that drives qualified organic traffic. Technical, on-page, local, and content — all covered from day one.</p>
+        <a href="#contact" style="color:var(--accent);font-size:.875rem;font-weight:600;text-decoration:none;display:flex;align-items:center;gap:.375rem;cursor:pointer;">
+          Learn more <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+      <div class="card reveal d3" style="padding:2rem;">
+        <div class="icon-box" style="margin-bottom:1.5rem;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <h3 style="font-size:1.25rem;font-weight:600;margin-bottom:.75rem;">Brand Strategy</h3>
+        <p style="color:var(--muted);line-height:1.7;margin-bottom:1.25rem;font-size:.9375rem;">Positioning and messaging that makes your business impossible to ignore. Stand out from every competitor in your market.</p>
+        <a href="#contact" style="color:var(--accent);font-size:.875rem;font-weight:600;text-decoration:none;display:flex;align-items:center;gap:.375rem;cursor:pointer;">
+          Learn more <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+<style>@media(min-width:640px){#services-grid{grid-template-columns:repeat(2,1fr)!important;}}
+@media(min-width:1024px){#services-grid{grid-template-columns:repeat(4,1fr)!important;}}</style>
+
+<div class="gline"></div>
+
+<!-- PROCESS -->
+<section class="section" id="process" style="background:var(--bg2);">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:4rem;">
+      <div class="label reveal" style="margin-bottom:1rem;">How We Work</div>
+      <h2 class="section-title reveal d1" style="font-size:clamp(2.5rem,5vw,4rem);">Our Proven Process</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr;gap:3rem;max-width:800px;margin:0 auto;" id="process-grid">
+      <div class="reveal" style="display:flex;gap:1.5rem;align-items:flex-start;">
+        <div class="step-num">1</div>
+        <div>
+          <h3 style="font-size:1.1875rem;font-weight:600;margin-bottom:.625rem;">Discovery &amp; Strategy</h3>
+          <p style="color:var(--muted);line-height:1.7;font-size:.9375rem;">We dive deep into your business, goals, and target audience. Competitor analysis, strategic roadmap, and a clear plan before a single pixel is designed.</p>
+        </div>
+      </div>
+      <div class="reveal d1" style="display:flex;gap:1.5rem;align-items:flex-start;">
+        <div class="step-num">2</div>
+        <div>
+          <h3 style="font-size:1.1875rem;font-weight:600;margin-bottom:.625rem;">Design &amp; Refinement</h3>
+          <p style="color:var(--muted);line-height:1.7;font-size:.9375rem;">Custom mockups built on conversion psychology. We iterate until every detail is perfect — you're involved throughout, not just at the end.</p>
+        </div>
+      </div>
+      <div class="reveal d2" style="display:flex;gap:1.5rem;align-items:flex-start;">
+        <div class="step-num">3</div>
+        <div>
+          <h3 style="font-size:1.1875rem;font-weight:600;margin-bottom:.625rem;">Development &amp; Launch</h3>
+          <p style="color:var(--muted);line-height:1.7;font-size:.9375rem;">Fast, secure, SEO-optimized code. Every line tested for quality and performance. We don't launch until it's flawless.</p>
+        </div>
+      </div>
+      <div class="reveal d3" style="display:flex;gap:1.5rem;align-items:flex-start;">
+        <div class="step-num">4</div>
+        <div>
+          <h3 style="font-size:1.1875rem;font-weight:600;margin-bottom:.625rem;">Optimization &amp; Growth</h3>
+          <p style="color:var(--muted);line-height:1.7;font-size:.9375rem;">Your website is never "done." We monitor performance, track metrics, and continuously improve — evolving with your business.</p>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:3.5rem;" class="reveal">
+      <p style="color:var(--muted);margin-bottom:1.5rem;font-size:.9375rem;">Most projects complete in 8–12 weeks.</p>
+      <a href="#contact" class="btn btn-primary">Start Your Project</a>
+    </div>
+  </div>
+</section>
+<style>@media(min-width:768px){#process-grid{grid-template-columns:1fr 1fr!important;}}</style>
+
+<!-- RESULTS / TESTIMONIALS -->
+<section class="section" id="results">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:4rem;">
+      <div class="label reveal" style="margin-bottom:1rem;">Client Results</div>
+      <h2 class="section-title reveal d1" style="font-size:clamp(2.5rem,5vw,4rem);margin-bottom:1rem;">Real Results, <em style="font-style:italic;">Real Businesses</em></h2>
+      <p class="reveal d2" style="color:var(--muted);font-size:1.0625rem;max-width:520px;margin:0 auto;">Here's what happens when you partner with DesigXner. Not projections — actual client outcomes.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr;gap:1.5rem;margin-bottom:3rem;" id="test-grid">
+      <div class="tcard reveal">
+        <div style="padding-top:3rem;">
+          <p style="font-size:1.0625rem;line-height:1.75;color:var(--text);margin-bottom:1.5rem;">"DesigXner completely redesigned our website and the results were immediate. Sales increased 340% in the first 8 months. They understood our business, listened to our needs, and delivered something that actually drove revenue."</p>
+          <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+            <div>
+              <div style="font-weight:600;font-size:.9375rem;">Sarah Johnson</div>
+              <div style="color:var(--muted);font-size:.875rem;">CEO, TechStore Online</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:.5rem;">
+              <span class="chip">↑ 340% Sales</span>
+              <span class="chip">↑ 45% AOV</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tcard reveal d1">
+        <div style="padding-top:3rem;">
+          <p style="font-size:1.0625rem;line-height:1.75;color:var(--text);margin-bottom:1.5rem;">"Before DesigXner, our website was basically a digital brochure. Within 6 months we went from 5 leads/month to 20+. This year alone the website has generated over $500K in attributed revenue."</p>
+          <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+            <div>
+              <div style="font-weight:600;font-size:.9375rem;">Michael Chen</div>
+              <div style="color:var(--muted);font-size:.875rem;">Founder, M&amp;M Consulting</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:.5rem;">
+              <span class="chip">300% More Leads</span>
+              <span class="chip">$500K Revenue</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tcard reveal d2">
+        <div style="padding-top:3rem;">
+          <p style="font-size:1.0625rem;line-height:1.75;color:var(--text);margin-bottom:1.5rem;">"We were buried on page 4 of Google. Now we're on the first page for all our target keywords and getting 3–4 appointment requests per day from our website alone."</p>
+          <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+            <div>
+              <div style="font-weight:600;font-size:.9375rem;">Lisa Martinez</div>
+              <div style="color:var(--muted);font-size:.875rem;">Director, HealthWellness Medical Spa</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:.5rem;">
+              <span class="chip">↑ 450% Visibility</span>
+              <span class="chip">80+ Monthly Bookings</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Review platforms -->
+    <div class="reveal" style="display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:center;align-items:center;">
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:1rem;padding:1rem 1.75rem;text-align:center;">
+        <div style="font-size:1.5rem;font-weight:700;font-family:'Cormorant Garamond',serif;color:#fff;">4.9<span style="font-size:.875rem;color:var(--muted);font-family:'Outfit',sans-serif;">/5</span></div>
+        <div style="font-size:.8125rem;color:var(--muted);margin-top:.25rem;">Google Reviews</div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:1rem;padding:1rem 1.75rem;text-align:center;">
+        <div style="font-size:1.5rem;font-weight:700;font-family:'Cormorant Garamond',serif;color:#fff;">4.9<span style="font-size:.875rem;color:var(--muted);font-family:'Outfit',sans-serif;">/5</span></div>
+        <div style="font-size:.8125rem;color:var(--muted);margin-top:.25rem;">Clutch</div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:1rem;padding:1rem 1.75rem;text-align:center;">
+        <div style="font-size:1.5rem;font-weight:700;font-family:'Cormorant Garamond',serif;color:#fff;">4.8<span style="font-size:.875rem;color:var(--muted);font-family:'Outfit',sans-serif;">/5</span></div>
+        <div style="font-size:.8125rem;color:var(--muted);margin-top:.25rem;">GoodFirms</div>
+      </div>
+    </div>
+  </div>
+</section>
+<style>@media(min-width:768px){#test-grid{grid-template-columns:1fr 1fr!important;}}
+@media(min-width:1024px){#test-grid{grid-template-columns:repeat(3,1fr)!important;}}</style>
+
+<div class="gline"></div>
+
+<!-- WHY DESIGNXNER -->
+<section class="section" style="background:var(--bg2);">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr;gap:4rem;" id="why-grid">
+      <div>
+        <div class="label reveal" style="margin-bottom:1.25rem;">Why Choose Us</div>
+        <h2 class="section-title reveal d1" style="font-size:clamp(2.5rem,5vw,4rem);margin-bottom:1.5rem;">Why Businesses <br><em style="font-style:italic;">Choose DesigXner</em></h2>
+        <p class="reveal d2" style="color:var(--muted);font-size:1.0625rem;line-height:1.75;max-width:480px;margin-bottom:2rem;">We're not the cheapest. We're not the biggest. But we're the right choice for businesses serious about digital growth.</p>
+        <a href="#contact" class="btn btn-primary reveal d3" style="width:fit-content;">See If We're a Fit</a>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr;gap:1.5rem;" id="why-cards">
+        <div class="reveal" style="display:flex;gap:1.25rem;align-items:flex-start;">
+          <div class="icon-box" style="flex-shrink:0;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <div>
+            <h3 style="font-weight:600;margin-bottom:.5rem;">Results-Focused</h3>
+            <p style="color:var(--muted);font-size:.9375rem;line-height:1.65;">We measure success by your business outcomes — leads, sales, and growth. Not page views.</p>
+          </div>
+        </div>
+        <div class="reveal d1" style="display:flex;gap:1.25rem;align-items:flex-start;">
+          <div class="icon-box" style="flex-shrink:0;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          </div>
+          <div>
+            <h3 style="font-weight:600;margin-bottom:.5rem;">Custom Solutions Only</h3>
+            <p style="color:var(--muted);font-size:.9375rem;line-height:1.65;">No templates. No cookie-cutter approach. Every website is built specifically for your business.</p>
+          </div>
+        </div>
+        <div class="reveal d2" style="display:flex;gap:1.25rem;align-items:flex-start;">
+          <div class="icon-box" style="flex-shrink:0;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <div>
+            <h3 style="font-weight:600;margin-bottom:.5rem;">Radical Transparency</h3>
+            <p style="color:var(--muted);font-size:.9375rem;line-height:1.65;">No hidden fees. No surprise charges. You'll know exactly what we're doing and why, every step.</p>
+          </div>
+        </div>
+        <div class="reveal d3" style="display:flex;gap:1.25rem;align-items:flex-start;">
+          <div class="icon-box" style="flex-shrink:0;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div>
+            <h3 style="font-weight:600;margin-bottom:.5rem;">Genuine Partnership</h3>
+            <p style="color:var(--muted);font-size:.9375rem;line-height:1.65;">We don't disappear after launch. We're long-term partners in your growth, not just vendors.</p>
+          </div>
+        </div>
+        <div class="reveal d4" style="display:flex;gap:1.25rem;align-items:flex-start;">
+          <div class="icon-box" style="flex-shrink:0;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <div>
+            <h3 style="font-weight:600;margin-bottom:.5rem;">USA &amp; Canada Experts</h3>
+            <p style="color:var(--muted);font-size:.9375rem;line-height:1.65;">We understand North American markets, consumer behavior, and local SEO at a granular level.</p>
+          </div>
+        </div>
+        <div class="reveal d5" style="display:flex;gap:1.25rem;align-items:flex-start;">
+          <div class="icon-box" style="flex-shrink:0;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+          </div>
+          <div>
+            <h3 style="font-weight:600;margin-bottom:.5rem;">SEO from Day One</h3>
+            <p style="color:var(--muted);font-size:.9375rem;line-height:1.65;">SEO isn't an afterthought — it's woven into every decision we make from the first wireframe.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+@media(min-width:900px){#why-grid{grid-template-columns:1fr 1fr!important;}#why-cards{grid-template-columns:1fr 1fr!important;}}
+</style>
+
+<!-- PRICING -->
+<section class="section" id="pricing">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:4rem;">
+      <div class="label reveal" style="margin-bottom:1rem;">Transparent Pricing</div>
+      <h2 class="section-title reveal d1" style="font-size:clamp(2.5rem,5vw,4rem);margin-bottom:1rem;">Straightforward <em style="font-style:italic;">Investment</em></h2>
+      <p class="reveal d2" style="color:var(--muted);font-size:1.0625rem;max-width:520px;margin:0 auto;">No surprise fees. No hidden costs. Just great value and proven results. Most clients see full ROI within 12 months.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr;gap:1.5rem;max-width:1050px;margin:0 auto;" id="price-grid">
+      <!-- Starter -->
+      <div class="card reveal" style="padding:2.25rem;">
+        <div style="font-size:.8125rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;">Starter</div>
+        <div style="margin-bottom:1.5rem;">
+          <span style="font-family:'Cormorant Garamond',serif;font-size:3.25rem;font-weight:700;color:#fff;">$5K</span>
+          <span style="color:var(--muted);font-size:1rem;"> – $10K</span>
+        </div>
+        <p style="color:var(--muted);font-size:.9375rem;margin-bottom:1.75rem;line-height:1.65;">For startups and small businesses ready to establish a serious online presence.</p>
+        <div style="display:flex;flex-direction:column;gap:.75rem;margin-bottom:2rem;">
+          <div class="check-li"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>5–8 custom pages</div>
+          <div class="check-li"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Mobile-first responsive design</div>
+          <div class="check-li"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>SEO-friendly architecture</div>
+          <div class="check-li"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Domain + hosting (year 1)</div>
+          <div class="check-li"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>30 days post-launch support</div>
+          <div class="check-li"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Analytics setup</div>
+        </div>
+        <p style="font-size:.8125rem;color:var(--subtle);margin-bottom:1.25rem;">Timeline: 8–10 weeks</p>
+        <a href="#contact" class="btn btn-ghost" style="width:100%;justify-content:center;">Get Started</a>
+      </div>
+      <!-- Growth (Featured) -->
+      <div class="card price-featured reveal d1" style="padding:2.25rem;position:relative;">
+        <div style="position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:var(--accent);color:#fff;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.375rem 1rem;border-radius:0 0 .625rem .625rem;">Most Popular</div>
+        <div style="font-size:.8125rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;margin-top:.75rem;">Growth</div>
+        <div style="margin-bottom:1.5rem;">
+          <span style="font-family:'Cormorant Garamond',serif;font-size:3.25rem;font-weight:700;color:#fff;">$10K</span>
+          <span style="color:var(--muted);font-size:1rem;"> – $25K</span>
+        </div>
+        <p style="color:var(--muted);font-size:.9375rem;margin-bottom:1.75rem;line-height:1.65;">For established businesses serious about using their website as a growth engine.</p>
+        <div style="display:flex;flex-direction:column;gap:.75rem;margin-bottom:2rem;">
+          <div class="check-li"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>8–15 custom pages</div>
+          <div class="check-li"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Advanced features &amp; animations</div>
+          <div class="check-li"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>eCommerce integration (optional)</div>
+          <div class="check-li"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Full SEO implementation</div>
+          <div class="check-li"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Conversion rate optimization</div>
+          <div class="check-li"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>60 days post-launch support</div>
+          <div class="check-li"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>200–400% ROI projected Year 1</div>
+        </div>
+        <p style="font-size:.8125rem;color:var(--subtle);margin-bottom:1.25rem;">Timeline: 10–12 weeks</p>
+        <a href="#contact" class="btn btn-primary" style="width:100%;justify-content:center;">Get Started</a>
+      </div>
+      <!-- Enterprise -->
+      <div class="card reveal d2" style="padding:2.25rem;">
+        <div style="font-size:.8125rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;">Enterprise</div>
+        <div style="margin-bottom:1.5rem;">
+          <span style="font-family:'Cormorant Garamond',serif;font-size:3.25rem;font-weight:700;color:#fff;">$25K+</span>
+        </div>
+        <p style="color:var(--muted);font-size:.9375rem;margin-bottom:1.75rem;line-height:1.65;">For scaling companies that need complex applications, custom features, and dedicated partnership.</p>
+        <div style="display:flex;flex-direction:column;gap:.75rem;margin-bottom:2rem;">
+          <div class="check-li"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Unlimited pages</div>
+          <div class="check-li"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Custom functionality &amp; APIs</div>
+          <div class="check-li"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Dedicated project team</div>
+          <div class="check-li"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Priority support</div>
+          <div class="check-li"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Monthly performance reviews</div>
+          <div class="check-li"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Full digital strategy</div>
+        </div>
+        <p style="font-size:.8125rem;color:var(--subtle);margin-bottom:1.25rem;">Timeline: 12+ weeks</p>
+        <a href="#contact" class="btn btn-ghost" style="width:100%;justify-content:center;">Contact Us</a>
+      </div>
+    </div>
+    <p class="reveal" style="text-align:center;color:var(--muted);font-size:.9rem;margin-top:2rem;">50/50 payment split available. Flexible 3–6 month plans. Free consultation to scope your project.</p>
+  </div>
+</section>
+<style>@media(min-width:900px){#price-grid{grid-template-columns:repeat(3,1fr)!important;}}</style>
+
+<div class="gline"></div>
+
+<!-- ABOUT + OWNER -->
+<section class="section" id="about" style="background:var(--bg2);">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr;gap:4rem;align-items:center;" id="about-grid">
+      <div class="reveal" style="display:flex;justify-content:center;">
+        <div style="position:relative;">
+          <img src="assets/img/owner.png" alt="Md Shahe Imran Imon — Founder &amp; CEO of DesigXner" class="owner-img" style="max-width:340px;width:100%;border-radius:1.25rem;display:block;">
+          <!-- Floating card -->
+          <div style="position:absolute;bottom:-1.5rem;right:-1.5rem;background:var(--surface);border:1px solid var(--border-accent);border-radius:1rem;padding:1rem 1.25rem;backdrop-filter:blur(10px);">
+            <div style="font-size:1.5rem;font-weight:700;font-family:'Cormorant Garamond',serif;color:#fff;">5+</div>
+            <div style="font-size:.8125rem;color:var(--muted);">Years Experience</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="label reveal" style="margin-bottom:1.25rem;">Our Story</div>
+        <h2 class="section-title reveal d1" style="font-size:clamp(2.25rem,4vw,3.5rem);margin-bottom:1.25rem;">Meet the <em style="font-style:italic;">Founder</em></h2>
+        <p class="reveal d2" style="color:var(--text);font-size:1.125rem;font-weight:500;margin-bottom:1rem;">Md Shahe Imran Imon — Founder &amp; CEO</p>
+        <p class="reveal d2" style="color:var(--muted);font-size:1rem;line-height:1.8;margin-bottom:1.5rem;">DesigXner was born from a simple observation: small businesses were stuck between cheap DIY builders that looked generic and high-end agencies charging $50K+ that didn't understand their challenges.</p>
+        <p class="reveal d3" style="color:var(--muted);font-size:1rem;line-height:1.8;margin-bottom:2rem;">We saw the gap — businesses serious about growth, realistic about budgets, wanting custom design, real SEO, and genuine partnership. So we built DesigXner to fill it. Today, we've helped 200+ businesses across USA and Canada generate millions in attributed revenue.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem;" class="reveal d4">
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:.875rem;padding:1.25rem;text-align:center;">
+            <div class="stat-num" style="font-size:2.25rem;">200+</div>
+            <div style="font-size:.8125rem;color:var(--muted);margin-top:.25rem;">Clients Served</div>
+          </div>
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:.875rem;padding:1.25rem;text-align:center;">
+            <div class="stat-num" style="font-size:2.25rem;">$50M+</div>
+            <div style="font-size:.8125rem;color:var(--muted);margin-top:.25rem;">Revenue Generated</div>
+          </div>
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:.875rem;padding:1.25rem;text-align:center;">
+            <div class="stat-num" style="font-size:2.25rem;">150+</div>
+            <div style="font-size:.8125rem;color:var(--muted);margin-top:.25rem;">Sites Launched</div>
+          </div>
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:.875rem;padding:1.25rem;text-align:center;">
+            <div class="stat-num" style="font-size:2.25rem;">95%</div>
+            <div style="font-size:.8125rem;color:var(--muted);margin-top:.25rem;">Retention Rate</div>
+          </div>
+        </div>
+        <a href="#contact" class="btn btn-primary reveal d5" style="width:fit-content;">Work With Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+<style>@media(min-width:900px){#about-grid{grid-template-columns:1fr 1fr!important;}}</style>
+
+<!-- INDUSTRIES -->
+<section class="section">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:3rem;">
+      <div class="label reveal" style="margin-bottom:1rem;">Specializations</div>
+      <h2 class="section-title reveal d1" style="font-size:clamp(2.25rem,4vw,3.5rem);">Industries We Serve</h2>
+    </div>
+    <div class="reveal d2" style="display:flex;flex-wrap:wrap;gap:.875rem;justify-content:center;">
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:100px;padding:.75rem 1.5rem;font-size:.9375rem;font-weight:500;color:var(--muted);cursor:pointer;transition:all .2s;" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(79,110,255,.3)'" onmouseout="this.style.color='var(--muted)';this.style.borderColor='var(--border)'">eCommerce &amp; Retail</div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:100px;padding:.75rem 1.5rem;font-size:.9375rem;font-weight:500;color:var(--muted);cursor:pointer;transition:all .2s;" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(79,110,255,.3)'" onmouseout="this.style.color='var(--muted)';this.style.borderColor='var(--border)'">Professional Services</div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:100px;padding:.75rem 1.5rem;font-size:.9375rem;font-weight:500;color:var(--muted);cursor:pointer;transition:all .2s;" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(79,110,255,.3)'" onmouseout="this.style.color='var(--muted)';this.style.borderColor='var(--border)'">Technology &amp; SaaS</div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:100px;padding:.75rem 1.5rem;font-size:.9375rem;font-weight:500;color:var(--muted);cursor:pointer;transition:all .2s;" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(79,110,255,.3)'" onmouseout="this.style.color='var(--muted)';this.style.borderColor='var(--border)'">Health &amp; Wellness</div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:100px;padding:.75rem 1.5rem;font-size:.9375rem;font-weight:500;color:var(--muted);cursor:pointer;transition:all .2s;" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(79,110,255,.3)'" onmouseout="this.style.color='var(--muted)';this.style.borderColor='var(--border)'">Local Services</div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:100px;padding:.75rem 1.5rem;font-size:.9375rem;font-weight:500;color:var(--muted);cursor:pointer;transition:all .2s;" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(79,110,255,.3)'" onmouseout="this.style.color='var(--muted)';this.style.borderColor='var(--border)'">B2B Services</div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:100px;padding:.75rem 1.5rem;font-size:.9375rem;font-weight:500;color:var(--muted);cursor:pointer;transition:all .2s;" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(79,110,255,.3)'" onmouseout="this.style.color='var(--muted)';this.style.borderColor='var(--border)'">Law &amp; Accounting</div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:100px;padding:.75rem 1.5rem;font-size:.9375rem;font-weight:500;color:var(--muted);cursor:pointer;transition:all .2s;" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(79,110,255,.3)'" onmouseout="this.style.color='var(--muted)';this.style.borderColor='var(--border)'">Franchises</div>
+    </div>
+  </div>
+</section>
+
+<div class="gline"></div>
+
+<!-- FAQ -->
+<section class="section" style="background:var(--bg2);" id="faq">
+  <div class="container">
+    <div style="max-width:760px;margin:0 auto;">
+      <div style="text-align:center;margin-bottom:3.5rem;">
+        <div class="label reveal" style="margin-bottom:1rem;">Common Questions</div>
+        <h2 class="section-title reveal d1" style="font-size:clamp(2.25rem,4vw,3.5rem);">Frequently Asked</h2>
+      </div>
+      <div id="faq-list">
+        <div class="faq-item reveal">
+          <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+            How long does a website take to build?
+            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div class="faq-a">Most projects take 8–12 weeks from discovery to launch, depending on complexity and scope. Starter packages run 8–10 weeks; Growth packages 10–12 weeks; Enterprise 12+ weeks. We'll give you a specific timeline during your free consultation.</div>
+        </div>
+        <div class="faq-item reveal d1">
+          <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+            What if I already have a website?
+            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div class="faq-a">We'll conduct a free audit showing exactly what's working and what's costing you business. Many clients benefit enormously from a redesign. We can also work with your existing platform or migrate you to something more effective.</div>
+        </div>
+        <div class="faq-item reveal d2">
+          <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+            Do you include SEO with every website?
+            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div class="faq-a">Yes — SEO is built into every website we create, not tacked on. We also offer dedicated monthly SEO services starting at $1,500/month for ongoing organic growth, content strategy, and link building.</div>
+        </div>
+        <div class="faq-item reveal d3">
+          <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+            What about support after launch?
+            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div class="faq-a">All packages include post-launch support (30–60 days depending on package). After that, we offer ongoing maintenance plans from $500/month covering updates, security monitoring, performance optimization, and content changes.</div>
+        </div>
+        <div class="faq-item reveal d4">
+          <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+            How does payment work?
+            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div class="faq-a">Standard is a 50/50 split — 50% to kick off, 50% on launch. We also offer 3–6 month payment plans for qualifying clients. No surprises, no hidden fees — everything is outlined clearly in your proposal.</div>
+        </div>
+        <div class="faq-item reveal d5">
+          <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+            Do you work with businesses outside USA and Canada?
+            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div class="faq-a">Our primary focus is USA and Canada, but we do work with select international clients. We're a remote-first agency, so all meetings are via video conference — geography is rarely a barrier. Reach out and let's chat.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT / CTA -->
+<section class="section dot-grid bg-mesh" id="contact" style="position:relative;overflow:hidden;">
+  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(79,110,255,.12) 0%,transparent 70%);pointer-events:none;"></div>
+  <div class="container" style="position:relative;z-index:1;">
+    <div style="max-width:680px;margin:0 auto;text-align:center;">
+      <div class="badge reveal" style="margin-bottom:1.75rem;display:inline-flex;">
+        <svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="4"/></svg>
+        Free Consultation — No Commitment
+      </div>
+      <h2 class="display reveal d1" style="font-size:clamp(2.75rem,6vw,5.5rem);margin-bottom:1.25rem;">Ready to Transform<br><span class="text-gradient">Your Web Presence?</span></h2>
+      <p class="reveal d2" style="color:var(--muted);font-size:1.0625rem;line-height:1.75;margin-bottom:2.5rem;">Tell us about your project. We'll review your current website, share specific recommendations, and see if we're a good fit — completely free.</p>
+
+      <div class="reveal d3" style="background:var(--surface);border:1px solid var(--border);border-radius:1.5rem;padding:2.5rem;" id="contact-form">
+        <form onsubmit="handleSubmit(event)" novalidate>
+          <div style="display:grid;grid-template-columns:1fr;gap:1.25rem;margin-bottom:1.25rem;" id="form-grid">
+            <div>
+              <label for="fname" style="display:block;font-size:.875rem;font-weight:500;margin-bottom:.5rem;color:var(--muted);">Full Name *</label>
+              <input type="text" id="fname" name="name" required placeholder="John Smith"
+                style="width:100%;background:var(--bg2);border:1px solid var(--border);border-radius:.625rem;padding:.875rem 1rem;color:var(--text);font-family:'Outfit',sans-serif;font-size:.9375rem;outline:none;transition:border-color .2s;"
+                onfocus="this.style.borderColor='rgba(79,110,255,.4)'" onblur="this.style.borderColor='var(--border)'">
+            </div>
+            <div>
+              <label for="femail" style="display:block;font-size:.875rem;font-weight:500;margin-bottom:.5rem;color:var(--muted);">Work Email *</label>
+              <input type="email" id="femail" name="email" required placeholder="john@company.com"
+                style="width:100%;background:var(--bg2);border:1px solid var(--border);border-radius:.625rem;padding:.875rem 1rem;color:var(--text);font-family:'Outfit',sans-serif;font-size:.9375rem;outline:none;transition:border-color .2s;"
+                onfocus="this.style.borderColor='rgba(79,110,255,.4)'" onblur="this.style.borderColor='var(--border)'">
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr;gap:1.25rem;margin-bottom:1.25rem;" id="form-grid2">
+            <div>
+              <label for="fcompany" style="display:block;font-size:.875rem;font-weight:500;margin-bottom:.5rem;color:var(--muted);">Company Name</label>
+              <input type="text" id="fcompany" name="company" placeholder="Acme Inc."
+                style="width:100%;background:var(--bg2);border:1px solid var(--border);border-radius:.625rem;padding:.875rem 1rem;color:var(--text);font-family:'Outfit',sans-serif;font-size:.9375rem;outline:none;transition:border-color .2s;"
+                onfocus="this.style.borderColor='rgba(79,110,255,.4)'" onblur="this.style.borderColor='var(--border)'">
+            </div>
+            <div>
+              <label for="fbudget" style="display:block;font-size:.875rem;font-weight:500;margin-bottom:.5rem;color:var(--muted);">Budget Range</label>
+              <select id="fbudget" name="budget"
+                style="width:100%;background:var(--bg2);border:1px solid var(--border);border-radius:.625rem;padding:.875rem 1rem;color:var(--muted);font-family:'Outfit',sans-serif;font-size:.9375rem;outline:none;transition:border-color .2s;cursor:pointer;"
+                onfocus="this.style.borderColor='rgba(79,110,255,.4)'" onblur="this.style.borderColor='var(--border)'">
+                <option value="">Select budget range</option>
+                <option value="5k-10k">$5,000 – $10,000</option>
+                <option value="10k-25k">$10,000 – $25,000</option>
+                <option value="25k+">$25,000+</option>
+                <option value="seo">Monthly SEO Services</option>
+                <option value="audit">Free Audit Only</option>
+              </select>
+            </div>
+          </div>
+          <div style="margin-bottom:1.5rem;">
+            <label for="fmessage" style="display:block;font-size:.875rem;font-weight:500;margin-bottom:.5rem;color:var(--muted);">Tell us about your project</label>
+            <textarea id="fmessage" name="message" rows="4" placeholder="Describe your business, current website situation, and what you're hoping to achieve..."
+              style="width:100%;background:var(--bg2);border:1px solid var(--border);border-radius:.625rem;padding:.875rem 1rem;color:var(--text);font-family:'Outfit',sans-serif;font-size:.9375rem;outline:none;transition:border-color .2s;resize:vertical;"
+              onfocus="this.style.borderColor='rgba(79,110,255,.4)'" onblur="this.style.borderColor='var(--border)'"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;font-size:1rem;" id="submit-btn">
+            Schedule Free Consultation
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+          <div id="form-success" style="display:none;margin-top:1.25rem;background:rgba(79,110,255,.1);border:1px solid rgba(79,110,255,.25);border-radius:.75rem;padding:1rem 1.25rem;color:var(--text);font-size:.9375rem;text-align:center;">
+            ✓ Thank you! We'll be in touch within 1 business day to schedule your free consultation.
+          </div>
+        </form>
+        <p style="text-align:center;font-size:.8125rem;color:var(--subtle);margin-top:1.25rem;">No spam. No commitment. Just an honest conversation about your project.</p>
+      </div>
+
+      <!-- Alternative contact -->
+      <div class="reveal" style="display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:center;margin-top:2.5rem;">
+        <a href="mailto:mdshaheimranimon@gmail.com" style="display:flex;align-items:center;gap:.5rem;color:var(--muted);text-decoration:none;font-size:.9375rem;transition:color .2s;cursor:pointer;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--muted)'">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          mdshaheimranimon@gmail.com
+        </a>
+        <span style="color:var(--subtle);">·</span>
+        <span style="display:flex;align-items:center;gap:.5rem;color:var(--muted);font-size:.9375rem;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Response within 1 business day
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+<style>@media(min-width:640px){#form-grid{grid-template-columns:1fr 1fr!important;}#form-grid2{grid-template-columns:1fr 1fr!important;}}</style>
+
+<!-- FOOTER -->
+<footer style="background:var(--bg2);border-top:1px solid var(--border);padding:4rem 0 2rem;">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr;gap:3rem;margin-bottom:3rem;" id="footer-grid">
+      <div>
+        <a href="index.html" class="nav-logo" style="display:inline-block;margin-bottom:1rem;font-size:1.75rem;">Desig<span style="color:var(--accent);">X</span>ner</a>
+        <p style="color:var(--muted);font-size:.9375rem;line-height:1.7;max-width:300px;margin-bottom:1.5rem;">Web design and SEO agency for small and medium-sized businesses in USA &amp; Canada. Founded 2020.</p>
+        <div style="display:flex;gap:.875rem;">
+          <!-- LinkedIn -->
+          <a href="https://www.linkedin.com/in/md-shahe-imran-imon/" target="_blank" rel="noopener" aria-label="LinkedIn" style="width:38px;height:38px;background:var(--surface);border:1px solid var(--border);border-radius:.5rem;display:flex;align-items:center;justify-content:center;color:var(--muted);transition:all .2s;cursor:pointer;" onmouseover="this.style.borderColor='rgba(79,110,255,.3)';this.style.color='#fff'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <!-- Twitter/X -->
+          <a href="#" aria-label="Twitter/X" style="width:38px;height:38px;background:var(--surface);border:1px solid var(--border);border-radius:.5rem;display:flex;align-items:center;justify-content:center;color:var(--muted);transition:all .2s;cursor:pointer;" onmouseover="this.style.borderColor='rgba(79,110,255,.3)';this.style.color='#fff'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <!-- Instagram -->
+          <a href="#" aria-label="Instagram" style="width:38px;height:38px;background:var(--surface);border:1px solid var(--border);border-radius:.5rem;display:flex;align-items:center;justify-content:center;color:var(--muted);transition:all .2s;cursor:pointer;" onmouseover="this.style.borderColor='rgba(79,110,255,.3)';this.style.color='#fff'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <h4 style="font-weight:600;margin-bottom:1.25rem;font-size:.9375rem;">Services</h4>
+        <div style="display:flex;flex-direction:column;gap:.625rem;">
+          <a href="services/web-design.html" class="footer-link">Web Design</a>
+          <a href="services/web-design.html" class="footer-link">Web Development</a>
+          <a href="services/seo-services.html" class="footer-link">SEO Services</a>
+          <a href="services/web-design.html" class="footer-link">Brand Strategy</a>
+          <a href="pricing.html" class="footer-link">Maintenance Plans</a>
+        </div>
+      </div>
+      <div>
+        <h4 style="font-weight:600;margin-bottom:1.25rem;font-size:.9375rem;">Company</h4>
+        <div style="display:flex;flex-direction:column;gap:.625rem;">
+          <a href="about.html" class="footer-link">About Us</a>
+          <a href="about.html" class="footer-link">Our Process</a>
+          <a href="testimonials.html" class="footer-link">Case Studies</a>
+          <a href="pricing.html" class="footer-link">Pricing</a>
+          <a href="contact.html" class="footer-link">Contact</a>
+        </div>
+      </div>
+      <div>
+        <h4 style="font-weight:600;margin-bottom:1.25rem;font-size:.9375rem;">Contact</h4>
+        <div style="display:flex;flex-direction:column;gap:.75rem;">
+          <a href="mailto:mdshaheimranimon@gmail.com" class="footer-link" style="display:flex;align-items:center;gap:.5rem;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            mdshaheimranimon@gmail.com
+          </a>
+          <span style="color:var(--muted);font-size:.9375rem;display:flex;align-items:center;gap:.5rem;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            USA &amp; Canada (Remote-First)
+          </span>
+          <span style="color:var(--muted);font-size:.9375rem;display:flex;align-items:center;gap:.5rem;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Mon–Fri, 9am–5pm ET
+          </span>
+        </div>
+        <a href="#contact" class="btn btn-primary" style="margin-top:1.5rem;font-size:.875rem;padding:.75rem 1.5rem;">Free Consultation</a>
+      </div>
+    </div>
+    <div class="gline" style="margin-bottom:1.75rem;"></div>
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem;">
+      <p style="color:var(--subtle);font-size:.8125rem;">© 2026 DesigXner. All rights reserved. Founded by Md Shahe Imran Imon.</p>
+      <div style="display:flex;gap:1.5rem;flex-wrap:wrap;">
+        <a href="legal/privacy-policy.html" style="color:var(--subtle);font-size:.8125rem;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='var(--muted)'" onmouseout="this.style.color='var(--subtle)'">Privacy Policy</a>
+        <a href="legal/terms.html" style="color:var(--subtle);font-size:.8125rem;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='var(--muted)'" onmouseout="this.style.color='var(--subtle)'">Terms of Service</a>
+        <a href="legal/cookie-policy.html" style="color:var(--subtle);font-size:.8125rem;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='var(--muted)'" onmouseout="this.style.color='var(--subtle)'">Cookie Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<style>@media(min-width:640px){#footer-grid{grid-template-columns:1fr 1fr!important;}}
+@media(min-width:1024px){#footer-grid{grid-template-columns:2fr 1fr 1fr 1fr!important;}}</style>
+
+<script>
+// NAV SCROLL
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// MOBILE MENU
+function toggleMenu() {
+  const menu = document.getElementById('mobile-menu');
+  const btn = document.getElementById('ham-btn');
+  const isOpen = menu.classList.toggle('open');
+  btn.setAttribute('aria-expanded', isOpen);
+}
+function closeMenu() {
+  document.getElementById('mobile-menu').classList.remove('open');
+  document.getElementById('ham-btn').setAttribute('aria-expanded', 'false');
+}
+document.addEventListener('click', (e) => {
+  const nav = document.getElementById('navbar');
+  if (!nav.contains(e.target)) closeMenu();
+});
+
+// SMOOTH SCROLL NAV LINKS
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', (e) => {
+    const href = a.getAttribute('href');
+    if (href === '#') return;
+    const el = document.querySelector(href);
+    if (el) {
+      e.preventDefault();
+      const offset = 80;
+      const top = el.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+
+// REVEAL ON SCROLL
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// FAQ ACCORDION
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const answer = item.querySelector('.faq-a');
+  const isOpen = btn.classList.contains('active');
+
+  // Close all
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.classList.remove('active');
+    q.setAttribute('aria-expanded', 'false');
+    q.closest('.faq-item').querySelector('.faq-a').classList.remove('open');
+  });
+
+  // Open clicked if it was closed
+  if (!isOpen) {
+    btn.classList.add('active');
+    btn.setAttribute('aria-expanded', 'true');
+    answer.classList.add('open');
+  }
+}
+
+// FORM SUBMIT
+function handleSubmit(e) {
+  e.preventDefault();
+  const btn = document.getElementById('submit-btn');
+  const success = document.getElementById('form-success');
+  btn.disabled = true;
+  btn.style.opacity = '0.7';
+  btn.textContent = 'Sending...';
+  setTimeout(() => {
+    success.style.display = 'block';
+    btn.style.display = 'none';
+    e.target.reset();
+  }, 1200);
+}
+</script>
+<a href="https://wa.me/8801839422352?text=Hi%2C%20I%27m%20interested%20in%20your%20web%20design%20services" target="_blank" rel="noopener noreferrer" class="wa-float" aria-label="Chat on WhatsApp"><div class="wa-btn"><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><span class="wa-pulse"></span></div><div class="wa-tooltip">Chat on WhatsApp</div></a></body>
+</html>
