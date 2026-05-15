@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ï»¿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -91,7 +91,7 @@
       </div>
       <div style="display:flex;align-items:center;gap:.625rem;">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        <span style="color:var(--muted);font-size:.9375rem;">Mon–Fri, 9am–5pm ET</span>
+        <span style="color:var(--muted);font-size:.9375rem;">Mon&ndash;Fri, 9am&ndash;5pm ET</span>
       </div>
     </div>
   </div>
@@ -143,8 +143,8 @@
               <select id="budget" name="budget" style="width:100%;background:var(--surface);border:1px solid var(--border);border-radius:.625rem;padding:.875rem 1rem;color:var(--text);font-family:'Outfit',sans-serif;font-size:.9375rem;outline:none;transition:border-color .2s;cursor:pointer;" onfocus="this.style.borderColor='var(--border-accent)'" onblur="this.style.borderColor='var(--border)'">
                 <option value="" disabled selected>Select budget...</option>
                 <option>Under $5K</option>
-                <option>$5K–$15K</option>
-                <option>$15K–$50K</option>
+                <option>$5K~$15K</option>
+                <option>$15K~$50K</option>
                 <option>$50K+</option>
               </select>
             </div>
@@ -172,7 +172,7 @@
           </div>
           <div class="card" style="padding:1.75rem;">
             <div style="font-weight:600;margin-bottom:1rem;">Free 30-Min Consultation</div>
-            <p style="color:var(--muted);font-size:.9375rem;line-height:1.7;margin-bottom:1.25rem;">Discuss your goals, get expert advice, and see if we're a good fit — no commitment required.</p>
+            <p style="color:var(--muted);font-size:.9375rem;line-height:1.7;margin-bottom:1.25rem;">Discuss your goals, get expert advice, and see if we're a good fit &mdash; no commitment required.</p>
             <p style="color:var(--subtle);font-size:.8125rem;margin-bottom:.5rem;">Prepare for the call:</p>
             <ul style="color:var(--muted);font-size:.8125rem;display:flex;flex-direction:column;gap:.375rem;padding-left:1rem;">
               <li>Your current website URL</li>
@@ -194,7 +194,7 @@
               </a>
               <div style="display:flex;align-items:center;gap:.625rem;color:var(--muted);font-size:.9375rem;">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                Mon–Fri, 9am–5pm ET
+                Mon&ndash;Fri, 9am&ndash;5pm ET
               </div>
               <div style="display:flex;align-items:flex-start;gap:.625rem;color:var(--muted);font-size:.9375rem;">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" style="margin-top:.1rem;flex-shrink:0;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -219,7 +219,7 @@
     </div>
     <div class="gline" style="margin-bottom:1.75rem;"></div>
     <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem;">
-      <p style="color:var(--subtle);font-size:.8125rem;">© 2026 DesigXner. All rights reserved. Founded by Md Shahe Imran Imon.</p>
+      <p style="color:var(--subtle);font-size:.8125rem;">&copy; 2026 DesigXner. All rights reserved. Founded by Md Shahe Imran Imon.</p>
       <div style="display:flex;gap:1.5rem;"><a href="legal/privacy-policy.html" style="color:var(--subtle);font-size:.8125rem;text-decoration:none;" onmouseover="this.style.color='var(--muted)'" onmouseout="this.style.color='var(--subtle)'">Privacy Policy</a><a href="legal/terms.html" style="color:var(--subtle);font-size:.8125rem;text-decoration:none;" onmouseover="this.style.color='var(--muted)'" onmouseout="this.style.color='var(--subtle)'">Terms</a></div>
     </div>
   </div>
@@ -244,7 +244,7 @@ async function handleSubmit(e){
   const successEl=document.getElementById('form-success');
   const errorEl=document.getElementById('form-error');
   errorEl.style.display='none';
-  btn.disabled=true;btn.style.opacity='0.7';btn.textContent='Sending…';
+  btn.disabled=true;btn.style.opacity='0.7';btn.textContent='Sending&hellip;';
   const payload={
     name:document.getElementById('name').value.trim(),
     company:document.getElementById('company').value.trim()||null,
@@ -264,14 +264,14 @@ async function handleSubmit(e){
     btn.style.display='none';
     e.target.reset();
     const _waMsg=
-      '?? *New Lead — DesigXner!*\n\n'+
-      '?? *Name:* '+payload.name+'\n'+
-      '?? *Company:* '+(payload.company||'N/A')+'\n'+
-      '?? *Email:* '+payload.email+'\n'+
-      '?? *Phone:* '+(payload.phone||'N/A')+'\n'+
-      '?? *Project:* '+(payload.project_type||'N/A')+'\n'+
-      '?? *Budget:* '+(payload.budget||'N/A')+'\n'+
-      '?? *Message:* '+payload.message;
+      '*NEW LEAD - DesigXner*\n\n'+
+      '*Name:* '+payload.name+'\n'+
+      '*Company:* '+(payload.company||'N/A')+'\n'+
+      '*Email:* '+payload.email+'\n'+
+      '*Phone:* '+(payload.phone||'N/A')+'\n'+
+      '*Project:* '+(payload.project_type||'N/A')+'\n'+
+      '*Budget:* '+(payload.budget||'N/A')+'\n'+
+      '*Message:* '+payload.message;
     fetch('https://api.green-api.com/waInstance7107620699/sendMessage/f18bc7da307544d28ba9266b2ae94eeacedafda7b17f4a0db0',{
       method:'POST',
       headers:{'Content-Type':'application/json'},
