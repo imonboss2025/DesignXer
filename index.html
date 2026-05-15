@@ -269,6 +269,15 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
 [data-theme="light"] .ann-txt{background:linear-gradient(90deg,var(--muted) 0%,var(--muted) 38%,var(--text) 50%,var(--muted) 62%,var(--muted) 100%);background-size:320% 100%;background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
 @media(max-width:768px){.ann-txt{font-size:.73rem;}.ann-set{gap:.625rem;padding:0 1.5rem;}.ann-cta{display:none;}}
 @media(prefers-reduced-motion:reduce){.ann-track{animation:none;}.ann-txt{animation:none;background:none;-webkit-text-fill-color:var(--muted);}}
+/* === WHATSAPP FLOAT BUTTON === */
+.wa-float{position:fixed;bottom:1.75rem;right:1.75rem;z-index:9998;display:flex;align-items:center;gap:.75rem;text-decoration:none;cursor:pointer;flex-direction:row-reverse;}
+.wa-btn{position:relative;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;box-shadow:0 4px 24px rgba(37,211,102,.45);animation:wa-bounce 2.4s ease-in-out infinite;transition:transform .2s,box-shadow .2s;flex-shrink:0;}
+.wa-float:hover .wa-btn{animation:none;transform:scale(1.1);box-shadow:0 6px 32px rgba(37,211,102,.65);}
+.wa-pulse{position:absolute;inset:-4px;border-radius:50%;background:rgba(37,211,102,.35);animation:wa-pulse 2s ease-out infinite;}
+.wa-tooltip{background:rgba(5,5,15,.92);backdrop-filter:blur(10px);color:var(--text);font-size:.8125rem;font-weight:500;padding:.5rem .875rem;border-radius:.5rem;border:1px solid rgba(255,255,255,.08);white-space:nowrap;opacity:0;transform:translateX(8px);transition:opacity .25s,transform .25s;pointer-events:none;}
+.wa-float:hover .wa-tooltip{opacity:1;transform:translateX(0);}
+@keyframes wa-bounce{0%,100%{transform:translateY(0);}45%{transform:translateY(-8px);}65%{transform:translateY(-4px);}}
+@keyframes wa-pulse{0%{transform:scale(1);opacity:.8;}100%{transform:scale(1.85);opacity:0;}}
 </style>
 <script type="application/ld+json">
 {
