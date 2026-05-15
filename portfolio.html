@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script>(function(){var t=localStorage.getItem('dx-theme')||'dark';document.documentElement.setAttribute('data-theme',t);}());</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio | DesigXner — Web Design Case Studies & Client Work</title>
+<meta name="description" content="Explore DesigXner's portfolio of web design projects. From local service businesses to SaaS platforms — we build websites that drive real results.">
+<link rel="canonical" href="https://designxner.com/portfolio">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{fontFamily:{heading:['"Cormorant Garamond"','serif'],sans:['Outfit','sans-serif']}}}}</script>
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+/* ── Portfolio-specific styles ── */
+.pf-grid{display:grid;grid-template-columns:1fr;gap:2rem;}
+@media(min-width:640px){.pf-grid{grid-template-columns:repeat(2,1fr);}}
+@media(min-width:1024px){.pf-grid{grid-template-columns:repeat(3,1fr);}}
+
+.pf-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:1rem;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  transition:transform .3s cubic-bezier(.25,.46,.45,.94),box-shadow .3s ease,border-color .3s ease;
+  cursor:pointer;
+  position:relative;
+}
+.pf-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 24px 60px rgba(0,0,0,.35);
+  border-color:rgba(79,110,255,.35);
+}
+.pf-card.featured{
+  border-color:rgba(200,150,62,.35);
+}
+.pf-card.featured:hover{
+  border-color:rgba(200,150,62,.7);
+  box-shadow:0 24px 60px rgba(200,150,62,.15);
+}
+
+.pf-thumb{
+  position:relative;
+  overflow:hidden;
+  height:220px;
+  background:var(--bg);
+}
+.pf-thumb img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  transition:transform .6s cubic-bezier(.25,.46,.45,.94);
+}
+.pf-card:hover .pf-thumb img{transform:scale(1.07);}
+
+.pf-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 30%,rgba(5,5,15,.82) 100%);
+  opacity:0;
+  transition:opacity .35s ease;
+  display:flex;align-items:flex-end;justify-content:center;
+  padding-bottom:1.25rem;
+}
+.pf-card:hover .pf-overlay{opacity:1;}
+.pf-overlay-btn{
+  background:var(--accent);color:#fff;
+  font-size:.8125rem;font-weight:600;letter-spacing:.04em;
+  padding:.5rem 1.25rem;border-radius:6px;
+  text-decoration:none;
+  transition:background .2s ease;
+  pointer-events:auto;
+}
+.pf-overlay-btn:hover{background:#3a57d4;}
+
+.featured-badge{
+  position:absolute;top:.875rem;left:.875rem;
+  background:linear-gradient(135deg,#C8963E,#f0b554);
+  color:#05050F;
+  font-size:.6875rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  padding:.3rem .75rem;border-radius:4px;
+  z-index:2;
+}
+.nda-badge{
+  position:absolute;top:.875rem;left:.875rem;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.15);
+  color:var(--muted);
+  font-size:.6875rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  padding:.3rem .75rem;border-radius:4px;
+  z-index:2;
+  backdrop-filter:blur(6px);
+}
+
+.pf-body{padding:1.5rem 1.75rem 1.75rem;flex:1;display:flex;flex-direction:column;}
+.pf-category{
+  font-size:.75rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:.625rem;
+  display:flex;align-items:center;gap:.4rem;
+}
+.pf-category.gold{color:#C8963E;}
+.pf-category-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0;}
+.pf-title{font-weight:700;font-size:1.125rem;margin-bottom:.5rem;line-height:1.35;color:var(--text);}
+.pf-desc{color:var(--muted);font-size:.9rem;line-height:1.65;flex:1;margin-bottom:1.25rem;}
+.pf-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.25rem;}
+.pf-tag{
+  font-size:.7rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;
+  background:rgba(79,110,255,.1);color:rgba(79,110,255,.9);
+  border:1px solid rgba(79,110,255,.2);
+  padding:.25rem .625rem;border-radius:4px;
+}
+.pf-tag.gold{background:rgba(200,150,62,.1);color:rgba(200,150,62,.9);border-color:rgba(200,150,62,.25);}
+.pf-footer{display:flex;align-items:center;justify-content:space-between;gap:.75rem;}
+.pf-location{color:var(--subtle);font-size:.8125rem;display:flex;align-items:center;gap:.35rem;}
+.pf-link{
+  font-size:.8125rem;font-weight:600;color:var(--accent);
+  text-decoration:none;display:flex;align-items:center;gap:.35rem;
+  transition:gap .2s ease,color .2s ease;
+}
+.pf-link:hover{gap:.55rem;color:#7a93ff;}
+.pf-link.gold{color:#C8963E;}
+.pf-link.gold:hover{color:#f0b554;}
+
+/* Filter pills */
+.pf-filters{display:flex;gap:.625rem;flex-wrap:wrap;justify-content:center;margin-bottom:3.5rem;}
+.pf-pill{
+  font-size:.8125rem;font-weight:600;letter-spacing:.04em;
+  padding:.5rem 1.25rem;border-radius:2rem;
+  border:1px solid var(--border);
+  background:transparent;color:var(--muted);
+  cursor:pointer;transition:all .2s ease;
+}
+.pf-pill:hover,.pf-pill.active{
+  background:var(--accent);color:#fff;border-color:var(--accent);
+}
+.pf-pill.active{box-shadow:0 0 20px rgba(79,110,255,.25);}
+
+/* Stats row */
+.pf-stats{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:1rem;padding:2rem 1.5rem;
+  margin-bottom:5rem;
+}
+@media(min-width:640px){.pf-stats{grid-template-columns:repeat(4,1fr);}}
+.pf-stat-num{font-size:2rem;font-weight:800;font-family:'Cormorant Garamond',serif;color:var(--text);line-height:1;}
+.pf-stat-lbl{color:var(--muted);font-size:.8125rem;margin-top:.35rem;}
+
+/* Process strip */
+.proc-strip{
+  display:grid;grid-template-columns:1fr;gap:1.5rem;
+}
+@media(min-width:768px){.proc-strip{grid-template-columns:repeat(3,1fr);}}
+.proc-card{
+  background:var(--surface);border:1px solid var(--border);border-radius:.875rem;
+  padding:1.75rem;text-align:center;position:relative;
+  transition:border-color .25s ease,transform .25s ease;
+}
+.proc-card:hover{border-color:rgba(79,110,255,.35);transform:translateY(-4px);}
+.proc-num{
+  width:3rem;height:3rem;border-radius:50%;
+  background:linear-gradient(135deg,rgba(79,110,255,.15),rgba(79,110,255,.05));
+  border:1px solid rgba(79,110,255,.25);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.125rem;font-weight:800;color:var(--accent);
+  margin:0 auto 1rem;
+}
+
+/* Light-mode overrides */
+[data-theme="light"] .pf-card{background:#fff;box-shadow:0 2px 12px rgba(0,0,0,.06);}
+[data-theme="light"] .pf-card:hover{box-shadow:0 20px 50px rgba(79,110,255,.12);}
+[data-theme="light"] .pf-stats{background:#fff;box-shadow:0 2px 12px rgba(0,0,0,.06);}
+[data-theme="light"] .proc-card{background:#fff;box-shadow:0 2px 12px rgba(0,0,0,.06);}
+[data-theme="light"] .pf-tag{background:rgba(79,110,255,.08);}
+[data-theme="light"] .pf-tag.gold{background:rgba(200,150,62,.08);}
+</style>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT BAR -->
+<div id="ann-bar" role="marquee" aria-label="Site announcement">
+  <div class="ann-inner">
+    <div class="ann-track">
+      <div class="ann-set">
+        <span class="ann-txt">Get your website done within 24 hours</span>
+        <span class="ann-dot" aria-hidden="true">&#10022;</span>
+        <span class="ann-txt">No Upfront Required</span>
+        <span class="ann-dot" aria-hidden="true">&#10022;</span>
+        <span class="ann-txt">Contact us for the deal today</span>
+        <span class="ann-dot" aria-hidden="true">&#10022;</span>
+        <a href="#" class="ann-cta">Get the Deal</a>
+        <span class="ann-dot" aria-hidden="true">&#10022;</span>
+      </div>
+      <div class="ann-set" aria-hidden="true">
+        <span class="ann-txt">Get your website done within 24 hours</span>
+        <span class="ann-dot">&#10022;</span>
+        <span class="ann-txt">No Upfront Required</span>
+        <span class="ann-dot">&#10022;</span>
+        <span class="ann-txt">Contact us for the deal today</span>
+        <span class="ann-dot">&#10022;</span>
+        <a href="#" class="ann-cta" tabindex="-1">Get the Deal</a>
+        <span class="ann-dot">&#10022;</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<nav id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Desig<span>X</span>ner</a>
+    <div class="nav-links">
+      <a href="services/web-design.html">Web Design</a>
+      <a href="services/seo-services.html">SEO</a>
+      <a href="portfolio.html" class="active">Portfolio</a>
+      <a href="blog/index.html">Blog</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="nav-cta">Free Audit</a>
+    </div>
+    <button class="theme-tog" id="theme-tog" aria-label="Toggle light/dark mode" title="Toggle theme">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    </button>
+    <button class="hamburger" id="ham-btn" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div id="mobile-menu">
+    <a href="services/web-design.html" onclick="closeMenu()">Web Design</a>
+    <a href="services/seo-services.html" onclick="closeMenu()">SEO</a>
+    <a href="portfolio.html" onclick="closeMenu()">Portfolio</a>
+    <a href="blog/index.html" onclick="closeMenu()">Blog</a>
+    <a href="pricing.html" onclick="closeMenu()">Pricing</a>
+    <a href="about.html" onclick="closeMenu()">About</a>
+    <a href="contact.html" class="nav-cta" onclick="closeMenu()">Free Audit</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section style="padding:10rem 0 5rem;background:var(--bg);position:relative;overflow:hidden;" class="bg-mesh dot-grid">
+  <div class="container" style="position:relative;z-index:1;">
+    <div style="max-width:760px;">
+      <div class="badge reveal" style="margin-bottom:1.5rem;">Our Work</div>
+      <h1 class="display reveal d1" style="font-size:clamp(3rem,7vw,5.5rem);margin-bottom:1.5rem;">Real Projects. <span class="text-gradient">Real Results.</span></h1>
+      <p class="reveal d2" style="font-size:1.1875rem;color:var(--muted);max-width:580px;line-height:1.75;margin-bottom:2.5rem;">Every website we build is engineered to convert. Explore our work across industries — from local service businesses to e-commerce brands and SaaS platforms.</p>
+      <div class="reveal d3" style="display:flex;gap:1rem;flex-wrap:wrap;">
+        <a href="contact.html" class="btn btn-primary">Start Your Project</a>
+        <a href="pricing.html" class="btn btn-ghost">View Pricing</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<section style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:3rem 0;">
+  <div class="container">
+    <div class="pf-stats reveal">
+      <div style="text-align:center;">
+        <div class="pf-stat-num">200<span style="color:var(--accent);">+</span></div>
+        <div class="pf-stat-lbl">Projects Delivered</div>
+      </div>
+      <div style="text-align:center;">
+        <div class="pf-stat-num">97<span style="color:var(--accent);">%</span></div>
+        <div class="pf-stat-lbl">Client Satisfaction</div>
+      </div>
+      <div style="text-align:center;">
+        <div class="pf-stat-num">24<span style="color:var(--accent);">hr</span></div>
+        <div class="pf-stat-lbl">Avg. Turnaround</div>
+      </div>
+      <div style="text-align:center;">
+        <div class="pf-stat-num">$50<span style="color:var(--accent);">M+</span></div>
+        <div class="pf-stat-lbl">Client Revenue Generated</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO GRID -->
+<section class="section">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:3rem;" class="reveal">
+      <div class="label" style="margin-bottom:.75rem;">Case Studies</div>
+      <h2 class="section-title" style="font-size:clamp(2rem,4vw,3rem);margin-bottom:1rem;">Featured Work</h2>
+      <p style="color:var(--muted);max-width:520px;margin:0 auto;line-height:1.75;font-size:1rem;">A selection of websites we've designed, developed, and launched for ambitious businesses.</p>
+    </div>
+
+    <!-- FILTER PILLS -->
+    <div class="pf-filters reveal d1" id="pf-filters">
+      <button class="pf-pill active" data-filter="all">All Projects</button>
+      <button class="pf-pill" data-filter="local">Local Service</button>
+      <button class="pf-pill" data-filter="ecommerce">E-Commerce</button>
+      <button class="pf-pill" data-filter="saas">SaaS &amp; Tech</button>
+      <button class="pf-pill" data-filter="hospitality">Hospitality</button>
+    </div>
+
+    <!-- GRID -->
+    <div class="pf-grid" id="pf-grid">
+
+      <!-- 1. COX PLUMBING — Real Project, Featured -->
+      <div class="pf-card featured reveal" data-cat="local">
+        <div class="pf-thumb">
+          <span class="featured-badge">Live Project</span>
+          <img
+            src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80&fit=crop&crop=center&auto=format"
+            alt="Cox Plumbing Co. Inc. — Emergency Plumbing Website"
+            loading="lazy">
+          <div class="pf-overlay">
+            <a href="https://github.com/imonboss2025/coxplumbing" target="_blank" rel="noopener noreferrer" class="pf-overlay-btn" onclick="event.stopPropagation()">View on GitHub</a>
+          </div>
+        </div>
+        <div class="pf-body">
+          <div class="pf-category gold">
+            <span class="pf-category-dot"></span>Local Service
+          </div>
+          <div class="pf-title">Cox Plumbing Co. Inc.</div>
+          <div class="pf-desc">24/7 emergency plumbing website for a trusted Waukesha, WI contractor. Features animated hero, live counters, service cards, Google Maps integration, and an emergency CTA bar.</div>
+          <div class="pf-tags">
+            <span class="pf-tag gold">Web Design</span>
+            <span class="pf-tag gold">Branding</span>
+            <span class="pf-tag gold">Animations</span>
+            <span class="pf-tag gold">Mobile-First</span>
+          </div>
+          <div class="pf-footer">
+            <span class="pf-location">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Waukesha, WI
+            </span>
+            <a href="https://github.com/imonboss2025/coxplumbing" target="_blank" rel="noopener noreferrer" class="pf-link gold">
+              GitHub
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. BELLA VISTA RESTAURANT -->
+      <div class="pf-card reveal d1" data-cat="hospitality">
+        <div class="pf-thumb">
+          <span class="nda-badge">Under NDA</span>
+          <img
+            src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=80&fit=crop&crop=center&auto=format"
+            alt="Bella Vista Restaurant — Fine Dining Website"
+            loading="lazy">
+          <div class="pf-overlay">
+            <span class="pf-overlay-btn" style="background:rgba(255,255,255,.15);backdrop-filter:blur(8px);cursor:default;">Under NDA</span>
+          </div>
+        </div>
+        <div class="pf-body">
+          <div class="pf-category">
+            <span class="pf-category-dot"></span>Hospitality
+          </div>
+          <div class="pf-title">Bella Vista Restaurant</div>
+          <div class="pf-desc">Upscale fine-dining website with online reservation system, menu showcasing, and OpenTable integration. 40% increase in direct bookings within 90 days of launch.</div>
+          <div class="pf-tags">
+            <span class="pf-tag">Web Design</span>
+            <span class="pf-tag">Reservations</span>
+            <span class="pf-tag">SEO</span>
+          </div>
+          <div class="pf-footer">
+            <span class="pf-location">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Chicago, IL
+            </span>
+            <span class="pf-link" style="color:var(--muted);cursor:default;pointer-events:none;">Confidential</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. PRESTIGE REALTY GROUP -->
+      <div class="pf-card reveal d2" data-cat="local">
+        <div class="pf-thumb">
+          <span class="nda-badge">Under NDA</span>
+          <img
+            src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=900&q=80&fit=crop&crop=center&auto=format"
+            alt="Prestige Realty Group — Real Estate Website"
+            loading="lazy">
+          <div class="pf-overlay">
+            <span class="pf-overlay-btn" style="background:rgba(255,255,255,.15);backdrop-filter:blur(8px);cursor:default;">Under NDA</span>
+          </div>
+        </div>
+        <div class="pf-body">
+          <div class="pf-category">
+            <span class="pf-category-dot"></span>Real Estate
+          </div>
+          <div class="pf-title">Prestige Realty Group</div>
+          <div class="pf-desc">Lead-generation powerhouse for a Dallas real estate firm. IDX integration, property search, agent profiles, and CRM connection. Ranked #1 locally within 6 months.</div>
+          <div class="pf-tags">
+            <span class="pf-tag">Web Design</span>
+            <span class="pf-tag">Lead Gen</span>
+            <span class="pf-tag">Local SEO</span>
+          </div>
+          <div class="pf-footer">
+            <span class="pf-location">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Dallas, TX
+            </span>
+            <span class="pf-link" style="color:var(--muted);cursor:default;pointer-events:none;">Confidential</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. STYLEHAUS BOUTIQUE -->
+      <div class="pf-card reveal" data-cat="ecommerce">
+        <div class="pf-thumb">
+          <span class="nda-badge">Under NDA</span>
+          <img
+            src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=900&q=80&fit=crop&crop=center&auto=format"
+            alt="StyleHaus Boutique — Fashion E-Commerce"
+            loading="lazy">
+          <div class="pf-overlay">
+            <span class="pf-overlay-btn" style="background:rgba(255,255,255,.15);backdrop-filter:blur(8px);cursor:default;">Under NDA</span>
+          </div>
+        </div>
+        <div class="pf-body">
+          <div class="pf-category">
+            <span class="pf-category-dot"></span>E-Commerce
+          </div>
+          <div class="pf-title">StyleHaus Boutique</div>
+          <div class="pf-desc">Shopify-powered fashion boutique with custom theme, lookbook pages, size guide, and express checkout. 3.2× ROAS within the first campaign month after launch.</div>
+          <div class="pf-tags">
+            <span class="pf-tag">E-Commerce</span>
+            <span class="pf-tag">Shopify</span>
+            <span class="pf-tag">Conversion CRO</span>
+          </div>
+          <div class="pf-footer">
+            <span class="pf-location">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              New York, NY
+            </span>
+            <span class="pf-link" style="color:var(--muted);cursor:default;pointer-events:none;">Confidential</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. MEDICARE CLINICS -->
+      <div class="pf-card reveal d1" data-cat="local">
+        <div class="pf-thumb">
+          <span class="nda-badge">Under NDA</span>
+          <img
+            src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=900&q=80&fit=crop&crop=center&auto=format"
+            alt="MediCare Clinics — Healthcare Website"
+            loading="lazy">
+          <div class="pf-overlay">
+            <span class="pf-overlay-btn" style="background:rgba(255,255,255,.15);backdrop-filter:blur(8px);cursor:default;">Under NDA</span>
+          </div>
+        </div>
+        <div class="pf-body">
+          <div class="pf-category">
+            <span class="pf-category-dot"></span>Healthcare
+          </div>
+          <div class="pf-title">MediCare Clinics</div>
+          <div class="pf-desc">HIPAA-conscious website for a multi-location urgent care chain. Online appointment booking, insurance verification widget, and doctor profile pages. 200+ monthly bookings via web.</div>
+          <div class="pf-tags">
+            <span class="pf-tag">Web Design</span>
+            <span class="pf-tag">Booking System</span>
+            <span class="pf-tag">Healthcare</span>
+          </div>
+          <div class="pf-footer">
+            <span class="pf-location">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Miami, FL
+            </span>
+            <span class="pf-link" style="color:var(--muted);cursor:default;pointer-events:none;">Confidential</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. CLOUDSTACK SAAS -->
+      <div class="pf-card reveal d2" data-cat="saas">
+        <div class="pf-thumb">
+          <span class="nda-badge">Under NDA</span>
+          <img
+            src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=80&fit=crop&crop=center&auto=format"
+            alt="CloudStack SaaS — Software Landing Page"
+            loading="lazy">
+          <div class="pf-overlay">
+            <span class="pf-overlay-btn" style="background:rgba(255,255,255,.15);backdrop-filter:blur(8px);cursor:default;">Under NDA</span>
+          </div>
+        </div>
+        <div class="pf-body">
+          <div class="pf-category">
+            <span class="pf-category-dot"></span>SaaS &amp; Tech
+          </div>
+          <div class="pf-title">CloudStack Platform</div>
+          <div class="pf-desc">High-converting SaaS landing page with interactive product demo section, pricing table, comparison matrix, and Stripe checkout. Achieved 18% trial sign-up rate.</div>
+          <div class="pf-tags">
+            <span class="pf-tag">SaaS</span>
+            <span class="pf-tag">Landing Page</span>
+            <span class="pf-tag">Conversion</span>
+          </div>
+          <div class="pf-footer">
+            <span class="pf-location">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              San Francisco, CA
+            </span>
+            <span class="pf-link" style="color:var(--muted);cursor:default;pointer-events:none;">Confidential</span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /pf-grid -->
+
+    <!-- CTA below grid -->
+    <div style="text-align:center;margin-top:4rem;" class="reveal">
+      <p style="color:var(--muted);margin-bottom:1.5rem;font-size:1rem;">Want to see your business here?</p>
+      <a href="contact.html" class="btn btn-primary" style="font-size:1rem;padding:1rem 2.25rem;">Start Your Project Today</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROCESS SECTION -->
+<section style="background:var(--surface);border-top:1px solid var(--border);padding:6rem 0;">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:3.5rem;" class="reveal">
+      <div class="label" style="margin-bottom:.75rem;">How We Work</div>
+      <h2 class="section-title" style="font-size:clamp(2rem,4vw,3rem);">From Brief to <span class="text-gradient">Launch</span></h2>
+    </div>
+    <div class="proc-strip">
+      <div class="proc-card reveal">
+        <div class="proc-num">1</div>
+        <h3 style="font-weight:700;font-size:1.0625rem;margin-bottom:.625rem;">Discovery Call</h3>
+        <p style="color:var(--muted);font-size:.9rem;line-height:1.65;">We start with a free 30-minute consultation to understand your goals, target audience, and what success looks like for your business.</p>
+      </div>
+      <div class="proc-card reveal d1">
+        <div class="proc-num">2</div>
+        <h3 style="font-weight:700;font-size:1.0625rem;margin-bottom:.625rem;">Design &amp; Build</h3>
+        <p style="color:var(--muted);font-size:.9rem;line-height:1.65;">Our team designs and develops your site — usually within 24–72 hours. You get live preview links and unlimited revisions until you love it.</p>
+      </div>
+      <div class="proc-card reveal d2">
+        <div class="proc-num">3</div>
+        <h3 style="font-weight:700;font-size:1.0625rem;margin-bottom:.625rem;">Launch &amp; Grow</h3>
+        <p style="color:var(--muted);font-size:.9rem;line-height:1.65;">We handle deployment, SEO setup, and Google Analytics. Then we track results with you — your growth is our ongoing mission.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS STRIP -->
+<section class="section">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:3rem;" class="reveal">
+      <div class="label" style="margin-bottom:.75rem;">Client Testimonials</div>
+      <h2 class="section-title" style="font-size:clamp(2rem,4vw,3rem);">Clients Love the Results</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr;gap:1.5rem;" id="tgrid">
+      <div class="tcard reveal">
+        <p style="color:var(--text);line-height:1.75;padding-top:2rem;margin-bottom:1.5rem;">"DesigXner built our new plumbing website from scratch in under 48 hours. The animations, the design, the emergency CTA — every detail was perfect. We started getting calls the same week."</p>
+        <div><div style="font-weight:600;font-size:.9375rem;">Brad Cox</div><div style="color:var(--muted);font-size:.8125rem;">Owner, Cox Plumbing Co. Inc. — Waukesha, WI</div></div>
+      </div>
+      <div class="tcard reveal d1">
+        <p style="color:var(--text);line-height:1.75;padding-top:2rem;margin-bottom:1.5rem;">"Our boutique's revenue is up 220% since the new Shopify site launched. The conversion rate is insane — DesigXner clearly knows e-commerce. Worth every penny."</p>
+        <div><div style="font-weight:600;font-size:.9375rem;">Maya Rodriguez</div><div style="color:var(--muted);font-size:.8125rem;">Founder, StyleHaus Boutique — New York, NY</div></div>
+      </div>
+      <div class="tcard reveal d2">
+        <p style="color:var(--text);line-height:1.75;padding-top:2rem;margin-bottom:1.5rem;">"Best investment we made for our clinics. The appointment booking system alone paid for itself in the first month. The team is fast, professional, and genuinely cares about outcomes."</p>
+        <div><div style="font-weight:600;font-size:.9375rem;">Dr. James Harlow</div><div style="color:var(--muted);font-size:.8125rem;">Director, MediCare Clinics — Miami, FL</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+<style>@media(min-width:900px){#tgrid{grid-template-columns:repeat(3,1fr)!important;}}</style>
+
+<!-- CTA SECTION -->
+<section style="background:linear-gradient(145deg,rgba(79,110,255,.12),rgba(200,150,62,.06));border-top:1px solid var(--border);padding:6rem 0;text-align:center;">
+  <div class="container">
+    <div class="reveal" style="max-width:640px;margin:0 auto;">
+      <div class="label" style="margin-bottom:1rem;">Ready to Join Our Portfolio?</div>
+      <h2 class="section-title" style="font-size:clamp(2rem,4vw,3rem);margin-bottom:1.25rem;">Let's Build Your <span class="text-gradient">Success Story</span></h2>
+      <p style="color:var(--muted);margin-bottom:2rem;font-size:1.0625rem;line-height:1.75;">Your business deserves a website that works as hard as you do. Free consultation, no pressure, results guaranteed.</p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+        <a href="contact.html" class="btn btn-primary">Get Free Consultation</a>
+        <a href="pricing.html" class="btn btn-ghost">View Pricing</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer style="background:var(--bg2);border-top:1px solid var(--border);padding:5rem 0 2.5rem;">
+  <div class="container">
+    <div id="footer-grid" style="display:grid;grid-template-columns:1fr;gap:3rem;margin-bottom:3rem;">
+      <div>
+        <a href="index.html" class="nav-logo" style="display:inline-block;margin-bottom:1rem;">Desig<span style="color:var(--accent);">X</span>ner</a>
+        <p style="color:var(--muted);font-size:.9375rem;line-height:1.7;max-width:320px;margin-bottom:1.5rem;">Premium web design &amp; SEO for ambitious businesses. We build websites that make money.</p>
+      </div>
+      <div>
+        <h4 style="font-weight:600;margin-bottom:1.25rem;font-size:.9375rem;">Services</h4>
+        <div style="display:flex;flex-direction:column;gap:.625rem;">
+          <a href="services/web-design.html" class="footer-link">Web Design</a>
+          <a href="services/seo-services.html" class="footer-link">SEO Services</a>
+          <a href="industries/ecommerce.html" class="footer-link">eCommerce</a>
+          <a href="industries/saas.html" class="footer-link">SaaS Design</a>
+        </div>
+      </div>
+      <div>
+        <h4 style="font-weight:600;margin-bottom:1.25rem;font-size:.9375rem;">Company</h4>
+        <div style="display:flex;flex-direction:column;gap:.625rem;">
+          <a href="about.html" class="footer-link">About Us</a>
+          <a href="portfolio.html" class="footer-link">Portfolio</a>
+          <a href="testimonials.html" class="footer-link">Results</a>
+          <a href="pricing.html" class="footer-link">Pricing</a>
+          <a href="blog/index.html" class="footer-link">Blog</a>
+          <a href="faq.html" class="footer-link">FAQ</a>
+        </div>
+      </div>
+      <div>
+        <h4 style="font-weight:600;margin-bottom:1.25rem;font-size:.9375rem;">Contact</h4>
+        <div style="display:flex;flex-direction:column;gap:.75rem;">
+          <a href="mailto:mdshaheimranimon@gmail.com" class="footer-link">mdshaheimranimon@gmail.com</a>
+          <span style="color:var(--muted);font-size:.9375rem;">USA &amp; Canada (Remote-First)</span>
+          <span style="color:var(--muted);font-size:.9375rem;">Mon&ndash;Fri, 9am&ndash;5pm ET</span>
+        </div>
+        <a href="contact.html" class="btn btn-primary" style="margin-top:1.5rem;font-size:.875rem;padding:.75rem 1.5rem;">Free Consultation</a>
+      </div>
+    </div>
+    <div class="gline" style="margin-bottom:1.75rem;"></div>
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem;">
+      <p style="color:var(--subtle);font-size:.8125rem;">&copy; 2026 DesigXner. All rights reserved. Founded by Md Shahe Imran Imon.</p>
+      <div style="display:flex;gap:1.5rem;flex-wrap:wrap;">
+        <a href="legal/privacy-policy.html" style="color:var(--subtle);font-size:.8125rem;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='var(--muted)'" onmouseout="this.style.color='var(--subtle)'">Privacy Policy</a>
+        <a href="legal/terms.html" style="color:var(--subtle);font-size:.8125rem;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='var(--muted)'" onmouseout="this.style.color='var(--subtle)'">Terms of Service</a>
+        <a href="legal/cookie-policy.html" style="color:var(--subtle);font-size:.8125rem;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='var(--muted)'" onmouseout="this.style.color='var(--subtle)'">Cookie Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<style>@media(min-width:640px){#footer-grid{grid-template-columns:1fr 1fr!important;}}@media(min-width:1024px){#footer-grid{grid-template-columns:2fr 1fr 1fr 1fr!important;}}</style>
+
+<script>
+/* Navigation */
+const navbar=document.getElementById('navbar');
+window.addEventListener('scroll',()=>{navbar.classList.toggle('scrolled',window.scrollY>60);});
+function toggleMenu(){const m=document.getElementById('mobile-menu');const b=document.getElementById('ham-btn');const o=m.classList.toggle('open');b.setAttribute('aria-expanded',o);}
+function closeMenu(){document.getElementById('mobile-menu').classList.remove('open');document.getElementById('ham-btn').setAttribute('aria-expanded','false');}
+document.addEventListener('click',(e)=>{const n=document.getElementById('navbar');if(!n.contains(e.target))closeMenu();});
+
+/* Scroll reveal */
+const ro=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target);}});},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+
+/* Portfolio filter */
+(function(){
+  var pills = document.querySelectorAll('.pf-pill');
+  var cards = document.querySelectorAll('#pf-grid .pf-card');
+  pills.forEach(function(pill){
+    pill.addEventListener('click', function(){
+      pills.forEach(function(p){p.classList.remove('active');});
+      pill.classList.add('active');
+      var filter = pill.getAttribute('data-filter');
+      cards.forEach(function(card){
+        if(filter === 'all' || card.getAttribute('data-cat') === filter){
+          card.style.display = '';
+          card.style.animation = 'none';
+          card.getBoundingClientRect();
+          card.style.animation = 'fadeUp .4s ease forwards';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+}());
+
+/* Card hover glow for featured */
+document.querySelectorAll('.pf-card').forEach(function(card){
+  card.addEventListener('mouseenter', function(){
+    card.style.willChange = 'transform, box-shadow';
+  });
+  card.addEventListener('mouseleave', function(){
+    card.style.willChange = '';
+  });
+});
+</script>
+<style>
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+/* Active nav link */
+.nav-links a.active{color:var(--accent);}
+[data-theme="light"] .nav-links a.active{color:var(--accent);}
+</style>
+
+<a href="https://wa.me/8801805529442?text=Hi%2C%20I%27m%20interested%20in%20your%20web%20design%20services" target="_blank" rel="noopener noreferrer" class="wa-float" aria-label="Chat on WhatsApp"><div class="wa-btn"><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><span class="wa-pulse"></span></div><div class="wa-tooltip">Chat on WhatsApp</div></a><div id="theme-curtain" aria-hidden="true"></div>
+<script src="assets/js/theme.js"></script>
+</body>
+</html>
