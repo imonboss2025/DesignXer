@@ -1,4 +1,4 @@
-ï»¿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -103,18 +103,18 @@
   <div class="container" style="position:relative;z-index:1;max-width:800px;">
     <div style="display:flex;gap:.75rem;flex-wrap:wrap;margin-bottom:1.5rem;align-items:center;" class="reveal">
       <a href="index.html" style="color:var(--muted);font-size:.8125rem;text-decoration:none;">Blog</a>
-      <span style="color:var(--subtle);">â€º</span>
+      <span style="color:var(--subtle);">›</span>
       <span style="background:rgba(200,150,62,.1);color:var(--gold);font-size:.75rem;font-weight:600;padding:.25rem .625rem;border-radius:2rem;border:1px solid rgba(200,150,62,.25);">Performance</span>
     </div>
-    <h1 class="display reveal d1" style="font-size:clamp(2.25rem,5vw,3.75rem);margin-bottom:1.25rem;line-height:1.1;">How to Improve Website Speed for SEO â€” <span class="text-gradient">Practical Guide</span></h1>
+    <h1 class="display reveal d1" style="font-size:clamp(2.25rem,5vw,3.75rem);margin-bottom:1.25rem;line-height:1.1;">How to Improve Website Speed for SEO — <span class="text-gradient">Practical Guide</span></h1>
     <div class="reveal d2" style="display:flex;gap:1.5rem;align-items:center;flex-wrap:wrap;margin-bottom:2rem;">
       <span style="color:var(--muted);font-size:.875rem;">By Md Shahe Imran Imon</span>
-      <span style="color:var(--subtle);">Â·</span>
+      <span style="color:var(--subtle);">·</span>
       <span style="color:var(--subtle);font-size:.875rem;">April 1, 2026</span>
-      <span style="color:var(--subtle);">Â·</span>
+      <span style="color:var(--subtle);">·</span>
       <span style="color:var(--subtle);font-size:.875rem;">7 min read</span>
     </div>
-    <p class="reveal d3" style="font-size:1.125rem;color:var(--muted);line-height:1.85;border-left:3px solid var(--accent);padding-left:1.375rem;">Website speed is simultaneously a ranking signal, a conversion lever, and a user experience differentiator. This guide gives you a prioritized, actionable framework to improve your Core Web Vitals â€” starting with the changes that deliver the biggest impact fastest.</p>
+    <p class="reveal d3" style="font-size:1.125rem;color:var(--muted);line-height:1.85;border-left:3px solid var(--accent);padding-left:1.375rem;">Website speed is simultaneously a ranking signal, a conversion lever, and a user experience differentiator. This guide gives you a prioritized, actionable framework to improve your Core Web Vitals — starting with the changes that deliver the biggest impact fastest.</p>
   </div>
 </section>
 
@@ -123,7 +123,7 @@
 
     <figure class="article-img reveal">
       <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=900&q=80&auto=format&fit=crop" alt="Developer working at laptop with performance metrics on screen" loading="eager">
-      <figcaption>Performance optimization is a continuous process â€” measure, improve, monitor, repeat.</figcaption>
+      <figcaption>Performance optimization is a continuous process — measure, improve, monitor, repeat.</figcaption>
     </figure>
 
     <div class="article-body">
@@ -136,7 +136,7 @@
       </div>
 
       <h2>Understanding Core Web Vitals First</h2>
-      <p>Before making any changes, you need to understand what you're measuring. Google's Core Web Vitals are the three metrics that most directly correlate with user experience quality â€” and they're all direct ranking signals.</p>
+      <p>Before making any changes, you need to understand what you're measuring. Google's Core Web Vitals are the three metrics that most directly correlate with user experience quality — and they're all direct ranking signals.</p>
 
       <div class="metric-row">
         <div class="metric-item"><div class="metric-name">LCP</div><div style="font-size:.8125rem;color:var(--muted);margin:.25rem 0;">Largest Contentful Paint</div><div class="metric-good">Good: &lt; 2.5s</div><div class="metric-bad">Poor: &gt; 4s</div></div>
@@ -144,54 +144,54 @@
         <div class="metric-item"><div class="metric-name">INP</div><div style="font-size:.8125rem;color:var(--muted);margin:.25rem 0;">Interaction to Next Paint</div><div class="metric-good">Good: &lt; 200ms</div><div class="metric-bad">Poor: &gt; 500ms</div></div>
       </div>
 
-      <p>Use Google PageSpeed Insights to get both lab data (controlled conditions) and field data (real user experiences from Chrome UX Report). Field data represents what your actual visitors experience, accounting for their devices and connections â€” always prioritize this over lab scores. Chrome DevTools' Performance tab and WebPageTest.org provide deeper diagnostic detail when you need to understand the root cause of a specific issue.</p>
+      <p>Use Google PageSpeed Insights to get both lab data (controlled conditions) and field data (real user experiences from Chrome UX Report). Field data represents what your actual visitors experience, accounting for their devices and connections — always prioritize this over lab scores. Chrome DevTools' Performance tab and WebPageTest.org provide deeper diagnostic detail when you need to understand the root cause of a specific issue.</p>
 
-      <h2>Step 1 â€” Optimize Images (Biggest Impact, First Priority)</h2>
-      <p>Images are typically the heaviest assets on any page, and the #1 source of LCP delays. A systematic image optimization process often delivers 30â€“60% reductions in page weight with minimal effort. Start here before everything else.</p>
-      <p><strong>Format conversion:</strong> Serve images in WebP format â€” it delivers 25â€“35% smaller file sizes than JPEG at equivalent quality. For the highest savings, AVIF format provides another 20% reduction over WebP, though browser support is still maturing (95%+ as of 2026). Generate multiple format versions and use the HTML <code>&lt;picture&gt;</code> element with <code>srcset</code> to let browsers select the best-supported format automatically.</p>
-      <p><strong>Responsive sizing:</strong> A desktop hero image sized at 1920Ã—1080px served to a 375px mobile screen is delivering 5Ã— more pixels than needed. Use <code>srcset</code> to provide appropriately sized variants for different viewport widths. A 375px-wide mobile screen only needs a ~750px image (2Ã— for retina). Serving the full desktop image to mobile users wastes bandwidth and slows LCP significantly.</p>
-      <p><strong>Lazy loading:</strong> Implement the native <code>loading="lazy"</code> attribute on all below-the-fold images. Critically, add <code>loading="eager"</code> and <code>fetchpriority="high"</code> to your LCP candidate â€” the largest image or text block above the fold. This signals to the browser to prioritize loading it above everything else. Simultaneously, set explicit <code>width</code> and <code>height</code> attributes on all images to prevent layout shift (CLS) as images load.</p>
+      <h2>Step 1 — Optimize Images (Biggest Impact, First Priority)</h2>
+      <p>Images are typically the heaviest assets on any page, and the #1 source of LCP delays. A systematic image optimization process often delivers 30–60% reductions in page weight with minimal effort. Start here before everything else.</p>
+      <p><strong>Format conversion:</strong> Serve images in WebP format — it delivers 25–35% smaller file sizes than JPEG at equivalent quality. For the highest savings, AVIF format provides another 20% reduction over WebP, though browser support is still maturing (95%+ as of 2026). Generate multiple format versions and use the HTML <code>&lt;picture&gt;</code> element with <code>srcset</code> to let browsers select the best-supported format automatically.</p>
+      <p><strong>Responsive sizing:</strong> A desktop hero image sized at 1920×1080px served to a 375px mobile screen is delivering 5× more pixels than needed. Use <code>srcset</code> to provide appropriately sized variants for different viewport widths. A 375px-wide mobile screen only needs a ~750px image (2× for retina). Serving the full desktop image to mobile users wastes bandwidth and slows LCP significantly.</p>
+      <p><strong>Lazy loading:</strong> Implement the native <code>loading="lazy"</code> attribute on all below-the-fold images. Critically, add <code>loading="eager"</code> and <code>fetchpriority="high"</code> to your LCP candidate — the largest image or text block above the fold. This signals to the browser to prioritize loading it above everything else. Simultaneously, set explicit <code>width</code> and <code>height</code> attributes on all images to prevent layout shift (CLS) as images load.</p>
 
-      <h2>Step 2 â€” Eliminate Render-Blocking Resources</h2>
-      <p>Every render-blocking resource â€” a CSS file, a synchronous JavaScript file, or a web font â€” delays the time before the browser can display any content. Chrome DevTools' Performance tab shows render-blocking resources in the "Opportunities" section. These are the resources your browser must download and process before it can paint the first pixel.</p>
-      <p><strong>JavaScript:</strong> Add <code>defer</code> attribute to all non-critical <code>&lt;script&gt;</code> tags. This tells the browser to download the script in parallel with HTML parsing, but execute it only after parsing is complete â€” eliminating the block. Use <code>async</code> for scripts that are truly independent (like analytics pixels). Move all <code>&lt;script&gt;</code> tags to the bottom of <code>&lt;body&gt;</code> as a fallback for scripts that can't take <code>defer</code>.</p>
+      <h2>Step 2 — Eliminate Render-Blocking Resources</h2>
+      <p>Every render-blocking resource — a CSS file, a synchronous JavaScript file, or a web font — delays the time before the browser can display any content. Chrome DevTools' Performance tab shows render-blocking resources in the "Opportunities" section. These are the resources your browser must download and process before it can paint the first pixel.</p>
+      <p><strong>JavaScript:</strong> Add <code>defer</code> attribute to all non-critical <code>&lt;script&gt;</code> tags. This tells the browser to download the script in parallel with HTML parsing, but execute it only after parsing is complete — eliminating the block. Use <code>async</code> for scripts that are truly independent (like analytics pixels). Move all <code>&lt;script&gt;</code> tags to the bottom of <code>&lt;body&gt;</code> as a fallback for scripts that can't take <code>defer</code>.</p>
       <p><strong>CSS:</strong> Extract the critical CSS needed to render above-the-fold content and inline it directly in <code>&lt;head&gt;</code>. Load the full stylesheet non-blocking using the <code>media="print" onload="this.media='all'"</code> technique or <code>rel="preload"</code> with <code>as="style"</code>. Tools like the Critical npm package can automate critical CSS extraction for most sites.</p>
 
       <figure class="article-img">
         <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=900&q=80&auto=format&fit=crop" alt="Performance metrics dashboard showing web vitals scores improving over time" loading="lazy">
-        <figcaption>Tracking Core Web Vitals over time reveals the impact of each optimization â€” and catches performance regressions before users do.</figcaption>
+        <figcaption>Tracking Core Web Vitals over time reveals the impact of each optimization — and catches performance regressions before users do.</figcaption>
       </figure>
 
-      <h2>Step 3 â€” Reduce JavaScript Bundle Weight</h2>
-      <p>JavaScript is the heaviest performance tax in modern web development. The browser must download it, parse it, compile it, and execute it before the page becomes interactive. A 400KB JavaScript bundle takes significantly longer to process on a mid-range Android phone than on a developer's MacBook â€” and 60% of your users are probably on a device in that category.</p>
-      <p>Audit your JavaScript with Chrome's Coverage tab (DevTools â†’ Coverage) to identify unused code. For most WordPress sites, 40â€“60% of loaded JavaScript is from plugins that load globally but are only used on specific pages. Move plugin scripts to conditional loading â€” only load a plugin's assets on pages that actually use it.</p>
+      <h2>Step 3 — Reduce JavaScript Bundle Weight</h2>
+      <p>JavaScript is the heaviest performance tax in modern web development. The browser must download it, parse it, compile it, and execute it before the page becomes interactive. A 400KB JavaScript bundle takes significantly longer to process on a mid-range Android phone than on a developer's MacBook — and 60% of your users are probably on a device in that category.</p>
+      <p>Audit your JavaScript with Chrome's Coverage tab (DevTools ? Coverage) to identify unused code. For most WordPress sites, 40–60% of loaded JavaScript is from plugins that load globally but are only used on specific pages. Move plugin scripts to conditional loading — only load a plugin's assets on pages that actually use it.</p>
       <p>Third-party scripts (live chat, social share buttons, ad pixels, analytics) are particularly high-impact on performance. Use the Network tab in DevTools to measure each script's size and execution time. For scripts that aren't critical to the initial page experience, load them with a delay: <code>setTimeout(() =&gt; loadScript('chat.js'), 3000)</code> gives the page time to become fully interactive before adding the chat widget overhead.</p>
 
-      <h2>Step 4 â€” Implement Caching & a CDN</h2>
-      <p>Caching stores a copy of your page's resources so repeat visitors don't need to re-download unchanged assets. For static assets (images, CSS, JavaScript, fonts), set long <code>Cache-Control</code> max-age values â€” ideally one year for assets with hash-based filenames that change when content changes. This means a returning visitor loads your site almost instantly since their browser already has all the assets.</p>
-      <p>A Content Delivery Network (CDN) serves your assets from a server geographically close to each visitor, dramatically reducing latency. A visitor in Tokyo downloading assets from a server in New York experiences 150â€“200ms of additional latency â€” entirely eliminated by a CDN node in Singapore. Cloudflare's free tier provides a global CDN with basic WAF and DDoS protection that's worth implementing for any business website.</p>
+      <h2>Step 4 — Implement Caching & a CDN</h2>
+      <p>Caching stores a copy of your page's resources so repeat visitors don't need to re-download unchanged assets. For static assets (images, CSS, JavaScript, fonts), set long <code>Cache-Control</code> max-age values — ideally one year for assets with hash-based filenames that change when content changes. This means a returning visitor loads your site almost instantly since their browser already has all the assets.</p>
+      <p>A Content Delivery Network (CDN) serves your assets from a server geographically close to each visitor, dramatically reducing latency. A visitor in Tokyo downloading assets from a server in New York experiences 150–200ms of additional latency — entirely eliminated by a CDN node in Singapore. Cloudflare's free tier provides a global CDN with basic WAF and DDoS protection that's worth implementing for any business website.</p>
       <p>For WordPress sites, caching plugins like WP Rocket, LiteSpeed Cache (free), or W3 Total Cache implement browser caching, server-side page caching, database query caching, and static asset minification in a single configuration layer. For most SMB WordPress sites, a properly configured caching plugin delivers the single largest performance improvement available short of a server upgrade.</p>
 
-      <h2>Step 5 â€” Optimize Server Response Time (TTFB)</h2>
-      <p>Time to First Byte (TTFB) measures how long before the browser receives the first byte of HTML from your server. Google recommends TTFB under 200ms for a good experience. If your TTFB is over 600ms, no amount of front-end optimization will compensate â€” the server is the bottleneck.</p>
+      <h2>Step 5 — Optimize Server Response Time (TTFB)</h2>
+      <p>Time to First Byte (TTFB) measures how long before the browser receives the first byte of HTML from your server. Google recommends TTFB under 200ms for a good experience. If your TTFB is over 600ms, no amount of front-end optimization will compensate — the server is the bottleneck.</p>
       <p>Common TTFB culprits: shared hosting with resource contention (your site sharing a server with hundreds of others), unoptimized database queries, excessive PHP execution time, missing object caching, and no full-page caching for server-rendered content. Upgrading from cheap shared hosting to managed cloud hosting (Kinsta, WP Engine, Cloudways) is often the highest-leverage single investment for slow WordPress sites.</p>
       <p>Enable HTTP/2 or HTTP/3 on your server to allow multiple requests to be served over a single connection (multiplexing), eliminating the connection overhead of HTTP/1.1. Most modern hosting providers enable this by default, but it's worth verifying in Chrome DevTools' Network tab (look for "h2" or "h3" in the Protocol column).</p>
 
-      <h2>Step 6 â€” Optimize Web Font Loading</h2>
+      <h2>Step 6 — Optimize Web Font Loading</h2>
       <p>Custom web fonts are a common source of render-blocking delays and layout shifts. The browser must download the font before it can render text styled with it, causing a Flash of Invisible Text (FOIT) or Flash of Unstyled Text (FOUT) that contributes to CLS scores and visible quality degradation.</p>
-      <p>Use <code>font-display: swap</code> in your <code>@font-face</code> declarations to show fallback system fonts immediately while custom fonts load in the background. Add <code>&lt;link rel="preload"&gt;</code> hints for the fonts used in your LCP element â€” this instructs the browser to fetch them at the highest priority. Subset your fonts to include only the character sets you actually use (Latin subset eliminates 90% of character data for English-language sites).</p>
+      <p>Use <code>font-display: swap</code> in your <code>@font-face</code> declarations to show fallback system fonts immediately while custom fonts load in the background. Add <code>&lt;link rel="preload"&gt;</code> hints for the fonts used in your LCP element — this instructs the browser to fetch them at the highest priority. Subset your fonts to include only the character sets you actually use (Latin subset eliminates 90% of character data for English-language sites).</p>
 
-      <h2>Step 7 â€” Monitor Continuously, Don't Optimize Once</h2>
+      <h2>Step 7 — Monitor Continuously, Don't Optimize Once</h2>
       <p>Performance is not a one-time fix. New images, plugins, third-party scripts, and code changes can degrade your scores between quarterly reviews. Set up continuous monitoring to catch regressions automatically rather than discovering them from user complaints or ranking drops.</p>
       <p>Google Search Console's Core Web Vitals report shows aggregated field data for your real users, segmented by URL group. This is the authoritative measure of how actual visitors experience your site. Set up email alerts for any URL group that drops below "Good" thresholds. SpeedCurve and Calibre provide more granular synthetic monitoring with historical trending if you need more detailed visibility.</p>
 
       <div class="key-box reveal">
         <h4>Priority Action Plan: Ordered by Impact/Effort Ratio</h4>
         <ol>
-          <li><strong>Install a caching plugin</strong> (WordPress: WP Rocket or LiteSpeed Cache) â€” immediate impact, 30-minute setup</li>
-          <li><strong>Convert images to WebP</strong> and add explicit width/height attributes â€” fixes LCP and CLS simultaneously</li>
+          <li><strong>Install a caching plugin</strong> (WordPress: WP Rocket or LiteSpeed Cache) — immediate impact, 30-minute setup</li>
+          <li><strong>Convert images to WebP</strong> and add explicit width/height attributes — fixes LCP and CLS simultaneously</li>
           <li><strong>Add <code>loading="lazy"</code></strong> to all below-the-fold images, <code>fetchpriority="high"</code> to LCP image</li>
-          <li><strong>Audit third-party scripts</strong> â€” remove unused ones, delay non-critical ones by 3s</li>
+          <li><strong>Audit third-party scripts</strong> — remove unused ones, delay non-critical ones by 3s</li>
           <li><strong>Add <code>defer</code></strong> attribute to non-critical JavaScript</li>
           <li><strong>Enable a CDN</strong> (Cloudflare free tier is a 5-minute setup)</li>
           <li><strong>Add <code>font-display: swap</code></strong> to all <code>@font-face</code> declarations</li>
@@ -203,16 +203,16 @@
 
     <div class="card reveal" style="margin-top:3rem;padding:2.25rem 2.5rem;background:rgba(200,150,62,.08);border-color:rgba(200,150,62,.25);">
       <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.75rem;color:var(--text);margin-bottom:.75rem;">Want a Free Performance Audit?</h3>
-      <p style="color:var(--muted);font-size:.9375rem;line-height:1.7;margin-bottom:1.5rem;">Request a free speed audit and we'll deliver a prioritized fix list with estimated impact on your Core Web Vitals scores â€” specific to your site, not a generic report.</p>
+      <p style="color:var(--muted);font-size:.9375rem;line-height:1.7;margin-bottom:1.5rem;">Request a free speed audit and we'll deliver a prioritized fix list with estimated impact on your Core Web Vitals scores — specific to your site, not a generic report.</p>
       <a href="../contact.html" class="btn btn-primary">Request a Free Speed Audit</a>
     </div>
 
     <div style="margin-top:4rem;" class="reveal">
       <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--text);margin-bottom:1.5rem;">Related Articles</h3>
       <div style="display:flex;flex-direction:column;gap:1rem;">
-        <a href="10-essential-elements.html" style="text-decoration:none;"><div class="card" style="padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;cursor:pointer;"><span style="background:var(--accent-subtle);color:var(--accent);font-size:.75rem;font-weight:600;padding:.2rem .5rem;border-radius:2rem;flex-shrink:0;white-space:nowrap;">Design</span><span style="color:var(--text);font-size:.9375rem;">10 Essential Elements of High-Converting Websites â†’</span></div></a>
-        <a href="website-security.html" style="text-decoration:none;"><div class="card" style="padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;cursor:pointer;"><span style="background:rgba(200,150,62,.1);color:var(--gold);font-size:.75rem;font-weight:600;padding:.2rem .5rem;border-radius:2rem;flex-shrink:0;white-space:nowrap;">Security</span><span style="color:var(--text);font-size:.9375rem;">Website Security Best Practices for SMBs â†’</span></div></a>
-        <a href="wordpress-vs-custom.html" style="text-decoration:none;"><div class="card" style="padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;cursor:pointer;"><span style="background:var(--accent-subtle);color:var(--accent);font-size:.75rem;font-weight:600;padding:.2rem .5rem;border-radius:2rem;flex-shrink:0;white-space:nowrap;">Dev</span><span style="color:var(--text);font-size:.9375rem;">WordPress vs Custom Development: Which Is Right for You? â†’</span></div></a>
+        <a href="10-essential-elements.html" style="text-decoration:none;"><div class="card" style="padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;cursor:pointer;"><span style="background:var(--accent-subtle);color:var(--accent);font-size:.75rem;font-weight:600;padding:.2rem .5rem;border-radius:2rem;flex-shrink:0;white-space:nowrap;">Design</span><span style="color:var(--text);font-size:.9375rem;">10 Essential Elements of High-Converting Websites ?</span></div></a>
+        <a href="website-security.html" style="text-decoration:none;"><div class="card" style="padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;cursor:pointer;"><span style="background:rgba(200,150,62,.1);color:var(--gold);font-size:.75rem;font-weight:600;padding:.2rem .5rem;border-radius:2rem;flex-shrink:0;white-space:nowrap;">Security</span><span style="color:var(--text);font-size:.9375rem;">Website Security Best Practices for SMBs ?</span></div></a>
+        <a href="wordpress-vs-custom.html" style="text-decoration:none;"><div class="card" style="padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;cursor:pointer;"><span style="background:var(--accent-subtle);color:var(--accent);font-size:.75rem;font-weight:600;padding:.2rem .5rem;border-radius:2rem;flex-shrink:0;white-space:nowrap;">Dev</span><span style="color:var(--text);font-size:.9375rem;">WordPress vs Custom Development: Which Is Right for You? ?</span></div></a>
       </div>
     </div>
   </div>
@@ -226,7 +226,7 @@
       <div><p style="color:var(--text);font-weight:600;font-size:.875rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:1rem;">More Articles</p><div style="display:flex;flex-direction:column;gap:.625rem;"><a href="10-essential-elements.html" class="footer-link">10 Essential Elements</a><a href="local-seo-guide.html" class="footer-link">Local SEO Guide</a><a href="wordpress-vs-custom.html" class="footer-link">WordPress vs Custom</a><a href="index.html" class="footer-link">All Articles</a></div></div>
       <div><p style="color:var(--text);font-weight:600;font-size:.875rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:1rem;">Company</p><div style="display:flex;flex-direction:column;gap:.625rem;"><a href="../about.html" class="footer-link">About</a><a href="index.html" class="footer-link">Blog</a><a href="../contact.html" class="footer-link">Contact</a></div></div>
     </div>
-    <div style="border-top:1px solid var(--border);padding-top:1.75rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;"><p style="color:var(--subtle);font-size:.875rem;margin:0;">Â© 2026 DesigXner. All rights reserved.</p><div style="display:flex;gap:1.5rem;"><a href="../legal/privacy-policy.html" class="footer-link" style="font-size:.8125rem;">Privacy</a><a href="../legal/terms.html" class="footer-link" style="font-size:.8125rem;">Terms</a><a href="../legal/cookie-policy.html" class="footer-link" style="font-size:.8125rem;">Cookies</a></div></div>
+    <div style="border-top:1px solid var(--border);padding-top:1.75rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;"><p style="color:var(--subtle);font-size:.875rem;margin:0;">© 2026 DesigXner. All rights reserved.</p><div style="display:flex;gap:1.5rem;"><a href="../legal/privacy-policy.html" class="footer-link" style="font-size:.8125rem;">Privacy</a><a href="../legal/terms.html" class="footer-link" style="font-size:.8125rem;">Terms</a><a href="../legal/cookie-policy.html" class="footer-link" style="font-size:.8125rem;">Cookies</a></div></div>
   </div>
 </footer>
 <script>
@@ -238,7 +238,7 @@ document.addEventListener('click',(e)=>{const n=document.getElementById('navbar'
 const ro=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target);}});},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
 </script>
-<a href="https://wa.me/8801839422352?text=Hi%2C%20I%27m%20interested%20in%20your%20web%20design%20services" target="_blank" rel="noopener noreferrer" class="wa-float" aria-label="Chat on WhatsApp"><div class="wa-btn"><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><span class="wa-pulse"></span></div><div class="wa-tooltip">Chat on WhatsApp</div></a>
+<a href="https://wa.me/8801805529442?text=Hi%2C%20I%27m%20interested%20in%20your%20web%20design%20services" target="_blank" rel="noopener noreferrer" class="wa-float" aria-label="Chat on WhatsApp"><div class="wa-btn"><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><span class="wa-pulse"></span></div><div class="wa-tooltip">Chat on WhatsApp</div></a>
 <div id="theme-curtain" aria-hidden="true"></div>
 <script src="../assets/js/theme.js"></script>
 </body>
