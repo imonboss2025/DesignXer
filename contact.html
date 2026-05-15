@@ -263,6 +263,20 @@ async function handleSubmit(e){
     successEl.style.display='block';
     btn.style.display='none';
     e.target.reset();
+    const _waMsg=
+      '🔔 *New Lead — DesigXner!*\n\n'+
+      '👤 *Name:* '+payload.name+'\n'+
+      '🏢 *Company:* '+(payload.company||'N/A')+'\n'+
+      '📧 *Email:* '+payload.email+'\n'+
+      '📱 *Phone:* '+(payload.phone||'N/A')+'\n'+
+      '🎯 *Project:* '+(payload.project_type||'N/A')+'\n'+
+      '💰 *Budget:* '+(payload.budget||'N/A')+'\n'+
+      '💬 *Message:* '+payload.message;
+    fetch('https://api.green-api.com/waInstance7107620699/sendMessage/f18bc7da307544d28ba9266b2ae94eeacedafda7b17f4a0db0',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({chatId:'8801839422352@c.us',message:_waMsg})
+    }).catch(function(){});
   }
 }
 </script>
