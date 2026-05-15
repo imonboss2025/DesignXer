@@ -19,15 +19,6 @@
     if (el.getAttribute('href') === '#') el.href = prefix + 'contact.html';
   });
 
-  /* Announcement bar dismiss */
-  var annClose = document.getElementById('ann-close');
-  if (annClose) {
-    annClose.addEventListener('click', function () {
-      html.classList.add('ann-off');
-      sessionStorage.setItem('ann-off', '1');
-    });
-  }
-
   /* Theme toggle */
   function setIcon() {
     if (!btn) return;

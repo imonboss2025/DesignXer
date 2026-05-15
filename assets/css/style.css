@@ -276,14 +276,10 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:4rem 0 2
 .ann-dot{color:var(--accent);font-size:.55rem;opacity:.65;flex-shrink:0;}
 .ann-cta{font-family:'Outfit',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);text-decoration:none;border:1px solid var(--border-accent);border-radius:100px;padding:.2rem .75rem;white-space:nowrap;flex-shrink:0;transition:background .2s,color .2s;margin-left:.25rem;}
 .ann-cta:hover{background:var(--accent);color:#fff !important;}
-.ann-close{width:28px;height:28px;border:none;background:transparent;color:var(--muted);cursor:pointer;display:flex;align-items:center;justify-content:center;margin-right:.5rem;border-radius:4px;flex-shrink:0;transition:color .2s,background .2s;}
-.ann-close:hover{color:var(--text);background:var(--accent-subtle);}
 @keyframes ann-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @keyframes ann-shine{0%,100%{background-position:160% 0}50%{background-position:-60% 0}}
 /* Layout: navbar drops below ann-bar */
 #navbar{top:calc(36px + .875rem) !important;}
-html.ann-off #ann-bar{display:none;}
-html.ann-off #navbar{top:.875rem !important;}
 @media(max-width:768px){.ann-txt{font-size:.73rem;}.ann-set{gap:.625rem;padding:0 1.5rem;}.ann-cta{display:none;}}
 
 /* === THEME CURTAIN ========================================================= */
