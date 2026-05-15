@@ -2,6 +2,7 @@
 <html lang="en" class="scroll-smooth">
 <head>
 <meta charset="UTF-8">
+<script>(function(){var t=localStorage.getItem('dx-theme')||'dark';document.documentElement.setAttribute('data-theme',t);if(t==='light')document.documentElement.classList.add('dx-light');}());</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DesigXner — Web Design Agency for Small Business | USA &amp; Canada</title>
 <meta name="description" content="Professional web design and SEO for small businesses in USA &amp; Canada. Custom designs that convert visitors into customers. 200+ clients served. Free website audit.">
@@ -13,6 +14,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
 <script>
 tailwind.config = {
   theme: {
@@ -166,6 +168,112 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
   .section{padding:5rem 0;}
   .stat-num{font-size:2.5rem;}
 }
+
+/* GRAVITY PILLS */
+.g-pill{position:absolute;display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;font-family:'Outfit',sans-serif;font-weight:700;font-size:.8125rem;letter-spacing:.1em;text-transform:uppercase;padding:.5625rem 1.375rem;border-radius:100px;user-select:none;pointer-events:none;opacity:0;transition:opacity .5s ease;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);will-change:transform;}
+.g-pill.gp-vis{opacity:1;}
+#gravity-wrap{position:relative;overflow:hidden;border-radius:1.25rem;background:var(--surface);border:1px solid var(--border);}
+#gravity-container{position:relative;height:460px;overflow:hidden;}
+#gravity-container canvas{position:absolute!important;top:0!important;left:0!important;opacity:0;z-index:1;}
+#hero-inner{display:grid;grid-template-columns:1fr;gap:3rem;align-items:center;}
+@media(min-width:1024px){#hero-inner{grid-template-columns:1fr 1fr;gap:4rem;}}
+@media(max-width:1023px){#gravity-wrap{display:none!important;}}
+
+/* ── BRAND PARTICLE HERO ─────────────────────────────────────────── */
+@property --bp{syntax:'<percentage>';inherits:false;initial-value:0%;}
+@keyframes bpulse{0%{--bp:0%}50%{--bp:300%}100%{--bp:300%}}
+@keyframes bfadein{from{opacity:0;transform:translateX(-50%) translateY(-10px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+@keyframes bbeam1in{from{transform:rotate(20deg) scale(0);opacity:0}to{transform:rotate(20deg) scale(1);opacity:1}}
+@keyframes bbeam2in{from{transform:rotate(-20deg) scale(0);opacity:0}to{transform:rotate(-20deg) scale(1);opacity:1}}
+@keyframes bbeam3in{from{transform:rotate(0deg) scale(0);opacity:0}to{transform:rotate(0deg) scale(1);opacity:1}}
+@keyframes bwobble1{0%,100%{transform:rotate(20deg) scale(1);filter:blur(15px) opacity(.42)}20%{transform:rotate(19deg) scale(1.15);filter:blur(16px) opacity(.55)}40%{transform:rotate(22deg) scale(1.25);filter:blur(14px) opacity(.32)}60%{transform:rotate(18deg) scale(1.15);filter:blur(15px) opacity(.52)}80%{transform:rotate(21deg) scale(1.05);filter:blur(13px) opacity(.35)}}
+@keyframes bwobble2{0%,100%{transform:rotate(-20deg) scale(1);filter:blur(15px) opacity(.42)}20%{transform:rotate(-21deg) scale(1.15);filter:blur(16px) opacity(.55)}40%{transform:rotate(-18deg) scale(1.25);filter:blur(14px) opacity(.32)}60%{transform:rotate(-22deg) scale(1.15);filter:blur(15px) opacity(.52)}80%{transform:rotate(-19deg) scale(1.05);filter:blur(13px) opacity(.35)}}
+@keyframes bwobble3{0%,100%{transform:rotate(0deg) scale(1);filter:blur(15px) opacity(.42)}20%{transform:rotate(-1deg) scale(1.15);filter:blur(16px) opacity(.55)}40%{transform:rotate(2deg) scale(1.25);filter:blur(14px) opacity(.32)}60%{transform:rotate(-2deg) scale(1.15);filter:blur(15px) opacity(.52)}80%{transform:rotate(1deg) scale(1.05);filter:blur(13px) opacity(.35)}}
+@keyframes baccentin{from{opacity:0;transform:scaleX(0)}to{opacity:1;transform:scaleX(1)}}
+
+#brand-hero{position:relative;text-align:center;padding:1.5rem 1.5rem 1.125rem;overflow:visible;z-index:2;border-bottom:1px solid var(--border);--brand-colors:linear-gradient(150deg,#d0e4ff 0%,#8BA4FF 50%,#C8963E 100%);}
+.brand-text-wrap{position:relative;display:flex;align-items:center;justify-content:center;height:clamp(2.75rem,6vw,5.75rem);}
+.brand-text-main,.brand-text-ghost{position:absolute;left:50%;white-space:nowrap;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:700;font-size:clamp(2rem,5.25vw,5.25rem);letter-spacing:-.025em;line-height:1;user-select:none;pointer-events:none;}
+.brand-text-main{transform:translateX(-50%) translateY(-10px);background:radial-gradient(2.5em 2.5em at 50% 50%,transparent calc(var(--bp,0%) - 2.5em),#fff calc(var(--bp,0%) - 1.1em),#fff calc(var(--bp,0%) - .3em),transparent var(--bp,0%)),var(--brand-colors);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;opacity:0;animation:bfadein 1.4s ease-out .5s forwards,bpulse 10s linear 1.2s infinite;}
+.brand-text-ghost{transform:translateX(-50%);background:radial-gradient(2.5em 2.5em at 50% 50%,transparent calc(var(--bp,0%) - 2.5em),#fff calc(var(--bp,0%) - 1.1em),#fff calc(var(--bp,0%) - .3em),transparent var(--bp,0%)),var(--brand-colors);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:blur(18px) opacity(.35);animation:bpulse 10s linear 1.2s infinite;}
+.brand-color-btn{display:block;width:22px;height:22px;border-radius:50%;background:#04040e;border:none;cursor:pointer;margin:0 auto .75rem;position:relative;z-index:3;box-shadow:0 0 0 1.5px rgba(79,110,255,.3),0 0 9px 3px rgba(79,110,255,.45),0 0 20px 7px rgba(79,110,255,.14);transition:box-shadow .4s ease,transform .2s ease;}
+.brand-color-btn:hover{transform:scale(1.15);}
+.brand-color-btn:focus-visible{outline:2px solid rgba(79,110,255,.7);outline-offset:3px;}
+.brand-beams{pointer-events:none;position:absolute;inset:0;overflow:hidden;z-index:0;}
+.brand-beam{position:absolute;left:0;right:0;top:0;margin:0 auto;width:min(480px,100%);height:max(600px,140%);border-radius:0 0 50% 50%;background-image:conic-gradient(from 0deg at 50% -5%,transparent 45%,rgba(124,145,182,.22) 49%,rgba(124,145,182,.34) 50%,rgba(124,145,182,.22) 51%,transparent 55%);transform-origin:50% 0;opacity:0;}
+.brand-beam:nth-child(1){animation:bbeam1in 2s ease-out .5s both,bwobble1 17s ease-in-out 2.5s infinite;}
+.brand-beam:nth-child(2){animation:bbeam2in 2s ease-out .75s both,bwobble2 14s ease-in-out 2.75s infinite;}
+.brand-beam:nth-child(3){animation:bbeam3in 2s ease-out .6s both,bwobble3 21s ease-in-out 2.6s infinite reverse;}
+.brand-acc{position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(186,215,247,.14),transparent);opacity:0;transform:scaleX(0);animation:baccentin 1.5s ease-out forwards;}
+.brand-acc:nth-child(1){top:20%;animation-delay:2.3s;}
+.brand-acc:nth-child(2){top:80%;animation-delay:2.6s;}
+#hero-particles{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;}
+@media(max-width:767px){.brand-beam{width:min(300px,95%);}#brand-hero{padding:1.25rem 0 .75rem;}}
+@media(prefers-reduced-motion:reduce){.brand-beam,.brand-text-ghost{display:none!important;}#hero-particles{display:none!important;}.brand-text-main{animation:bfadein .1s ease-out .1s forwards!important;}}
+
+/* ── LIGHT THEME ──────────────────────────────────────────────────── */
+[data-theme="light"]{
+  --bg:#F5F7FF;--bg2:#ECEFFE;--surface:#FFFFFF;--surface2:#EEF0FF;
+  --accent:#4F6EFF;--accent-glow:rgba(79,110,255,.1);--accent-subtle:rgba(79,110,255,.08);
+  --gold:#B07C2A;--gold-subtle:rgba(176,124,42,.08);
+  --text:#0D1229;--muted:#5A6490;--subtle:#C0C8E0;
+  --border:rgba(0,0,0,.07);--border-accent:rgba(79,110,255,.2);
+}
+[data-theme="light"] html,[data-theme="light"] body{background:var(--bg);color:var(--text);}
+[data-theme="light"] body::after{opacity:.01;}
+[data-theme="light"] #navbar{background:rgba(245,247,255,.82);border-color:rgba(0,0,0,.07);}
+[data-theme="light"] #navbar.scrolled{background:rgba(245,247,255,.97);box-shadow:0 8px 40px rgba(0,0,0,.12);}
+[data-theme="light"] .nav-logo{color:var(--text);}
+[data-theme="light"] .nav-links a{color:var(--muted);}
+[data-theme="light"] .nav-links a:hover{color:var(--text);}
+[data-theme="light"] #mobile-menu{background:rgba(245,247,255,.98);border-color:rgba(0,0,0,.07);}
+[data-theme="light"] #mobile-menu a{color:var(--muted);border-color:var(--border);}
+[data-theme="light"] .btn-ghost{border-color:rgba(0,0,0,.15);color:var(--text);}
+[data-theme="light"] .btn-ghost:hover{border-color:rgba(79,110,255,.35);background:var(--accent-subtle);}
+[data-theme="light"] .stat-num{background:linear-gradient(135deg,#0D1229,#4F6EFF);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+[data-theme="light"] .text-gradient{background:linear-gradient(135deg,#0D1229 0%,#4F6EFF 55%,#B07C2A 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+[data-theme="light"] .dot-grid::before{background-image:radial-gradient(circle,rgba(79,110,255,.07) 1px,transparent 1px);}
+[data-theme="light"] .bg-mesh{background-image:radial-gradient(ellipse at 12% 18%,rgba(79,110,255,.09) 0%,transparent 55%),radial-gradient(ellipse at 88% 82%,rgba(176,124,42,.06) 0%,transparent 50%);}
+[data-theme="light"] #brand-hero{--brand-colors:linear-gradient(150deg,#3A5CE8 0%,#4F6EFF 50%,#B07C2A 100%);}
+[data-theme="light"] .g-pill{backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);}
+[data-theme="light"] .price-featured{background:linear-gradient(145deg,rgba(79,110,255,.09) 0%,rgba(79,110,255,.02) 100%);}
+[data-theme="light"] .section-title,[data-theme="light"] .display{color:var(--text);}
+[data-theme="light"] .gline{background:linear-gradient(90deg,transparent,rgba(79,110,255,.15),transparent);}
+
+/* ── CURTAIN ──────────────────────────────────────────────────────── */
+#theme-curtain{position:fixed;inset:0;transform-origin:top;transform:scaleY(0);z-index:99990;pointer-events:none;will-change:transform;}
+#theme-curtain.tc-anim{transition:transform 560ms cubic-bezier(.76,0,.24,1);}
+
+/* ── THEME TOGGLE BUTTON ──────────────────────────────────────────── */
+.theme-tog{width:34px;height:34px;border-radius:50%;border:1px solid var(--border);background:var(--surface);color:var(--muted);cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:color .2s,background .2s,border-color .2s,transform .15s,box-shadow .2s;}
+.theme-tog:hover{color:var(--text);background:var(--surface2);transform:scale(1.1);box-shadow:0 0 0 3px var(--accent-subtle);}
+.theme-tog:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+@media(max-width:768px){.theme-tog{width:30px;height:30px;}}
+
+/* ── ANNOUNCEMENT BAR ─────────────────────────────────────────────── */
+#ann-bar{position:fixed;top:0;left:0;right:0;height:36px;z-index:10001;display:flex;align-items:center;background:linear-gradient(90deg,var(--bg) 0%,rgba(79,110,255,.06) 50%,var(--bg) 100%);border-bottom:1px solid var(--border-accent);overflow:hidden;}
+.ann-inner{flex:1;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 6%,#000 94%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0%,#000 6%,#000 94%,transparent 100%);}
+.ann-track{display:inline-flex;white-space:nowrap;animation:ann-scroll 30s linear infinite;}
+.ann-set{display:inline-flex;align-items:center;gap:.875rem;padding:0 2.5rem;}
+.ann-txt{font-family:'Outfit',sans-serif;font-size:.8rem;font-weight:500;letter-spacing:.045em;white-space:nowrap;background:linear-gradient(90deg,var(--muted) 0%,var(--muted) 38%,rgba(255,255,255,.92) 50%,var(--muted) 62%,var(--muted) 100%);background-size:320% 100%;background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:ann-shine 5s ease-in-out infinite;}
+.ann-dot{color:var(--accent);font-size:.55rem;opacity:.65;flex-shrink:0;}
+.ann-cta{font-family:'Outfit',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);text-decoration:none;border:1px solid var(--border-accent);border-radius:100px;padding:.2rem .75rem;white-space:nowrap;flex-shrink:0;transition:background .2s,color .2s;margin-left:.25rem;}
+.ann-cta:hover{background:var(--accent);color:#fff;}
+.ann-close{width:28px;height:28px;border:none;background:transparent;color:var(--muted);cursor:pointer;display:flex;align-items:center;justify-content:center;margin-right:.5rem;border-radius:4px;flex-shrink:0;transition:color .2s,background .2s;}
+.ann-close:hover{color:var(--text);background:var(--accent-subtle);}
+@keyframes ann-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes ann-shine{0%,100%{background-position:160% 0}50%{background-position:-60% 0}}
+/* Layout shifts to make room for the bar */
+#navbar{top:calc(36px + .875rem)!important;}
+#home{padding-top:calc(36px + 8rem)!important;}
+html.ann-off #ann-bar{display:none;}
+html.ann-off #navbar{top:.875rem!important;}
+html.ann-off #home{padding-top:8rem!important;}
+/* Light theme overrides */
+[data-theme="light"] #ann-bar{background:linear-gradient(90deg,var(--bg) 0%,rgba(79,110,255,.05) 50%,var(--bg) 100%);}
+[data-theme="light"] .ann-txt{background:linear-gradient(90deg,var(--muted) 0%,var(--muted) 38%,var(--text) 50%,var(--muted) 62%,var(--muted) 100%);background-size:320% 100%;background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+@media(max-width:768px){.ann-txt{font-size:.73rem;}.ann-set{gap:.625rem;padding:0 1.5rem;}.ann-cta{display:none;}}
+@media(prefers-reduced-motion:reduce){.ann-track{animation:none;}.ann-txt{animation:none;background:none;-webkit-text-fill-color:var(--muted);}}
 </style>
 <script type="application/ld+json">
 {
@@ -186,6 +294,39 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
 </head>
 <body>
 
+<!-- ANNOUNCEMENT BAR -->
+<div id="ann-bar" role="marquee" aria-label="Site announcement">
+  <div class="ann-inner">
+    <div class="ann-track">
+      <!-- Set 1 -->
+      <div class="ann-set">
+        <span class="ann-txt">Get your website done within 24 hours</span>
+        <span class="ann-dot" aria-hidden="true">✦</span>
+        <span class="ann-txt">No Upfront Required</span>
+        <span class="ann-dot" aria-hidden="true">✦</span>
+        <span class="ann-txt">Contact us for the deal today</span>
+        <span class="ann-dot" aria-hidden="true">✦</span>
+        <a href="contact.html" class="ann-cta">Get the Deal</a>
+        <span class="ann-dot" aria-hidden="true">✦</span>
+      </div>
+      <!-- Set 2 — exact duplicate for seamless loop -->
+      <div class="ann-set" aria-hidden="true">
+        <span class="ann-txt">Get your website done within 24 hours</span>
+        <span class="ann-dot">✦</span>
+        <span class="ann-txt">No Upfront Required</span>
+        <span class="ann-dot">✦</span>
+        <span class="ann-txt">Contact us for the deal today</span>
+        <span class="ann-dot">✦</span>
+        <a href="contact.html" class="ann-cta" tabindex="-1">Get the Deal</a>
+        <span class="ann-dot">✦</span>
+      </div>
+    </div>
+  </div>
+  <button class="ann-close" id="ann-close" aria-label="Dismiss announcement">
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+</div>
+
 <!-- NAVIGATION -->
 <nav id="navbar" role="navigation" aria-label="Main navigation">
   <div class="nav-inner">
@@ -198,6 +339,9 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
       <a href="about.html">About</a>
     </div>
     <a href="contact.html" class="nav-cta">Free Audit</a>
+    <button class="theme-tog" id="theme-tog" aria-label="Toggle light/dark mode" title="Toggle theme">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    </button>
     <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle menu" aria-expanded="false" id="ham-btn">
       <span></span><span></span><span></span>
     </button>
@@ -218,52 +362,84 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
   <div style="position:absolute;top:15%;left:5%;width:500px;height:500px;background:radial-gradient(circle,rgba(79,110,255,.14) 0%,transparent 70%);pointer-events:none;"></div>
   <div style="position:absolute;bottom:10%;right:5%;width:380px;height:380px;background:radial-gradient(circle,rgba(200,150,62,.08) 0%,transparent 70%);pointer-events:none;"></div>
 
+  <canvas id="hero-particles" aria-hidden="true"></canvas>
+
   <div class="container" style="position:relative;z-index:1;width:100%;">
-    <div style="max-width:950px;">
-      <div class="badge reveal" style="margin-bottom:2rem;">
-        <svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="4"/></svg>
-        Web Design Agency · USA &amp; Canada
-      </div>
+    <div id="hero-inner">
 
-      <h1 class="display reveal d1" style="font-size:clamp(3.5rem,8vw,7.5rem);color:var(--text);margin-bottom:1.75rem;">
-        We Build<br>
-        <span class="text-gradient">Websites That</span><br>
-        Make Money.
-      </h1>
-
-      <p class="reveal d2" style="font-size:1.1875rem;color:var(--muted);max-width:580px;margin-bottom:2.5rem;line-height:1.7;">
-        Stop competing with template sites. Get a custom-designed, conversion-optimized website that turns visitors into paying customers — starting with a free audit.
-      </p>
-
-      <div class="reveal d3" style="display:flex;flex-wrap:wrap;gap:1rem;align-items:center;margin-bottom:3.5rem;">
-        <a href="#contact" class="btn btn-primary">
-          Get Your Free Audit
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-        <a href="#results" class="btn btn-ghost">See Client Results</a>
-      </div>
-
-      <!-- Mini trust bar -->
-      <div class="reveal d4" style="display:flex;flex-wrap:wrap;gap:2rem;align-items:center;">
-        <div style="display:flex;align-items:center;gap:.5rem;">
-          <div style="display:flex;">
-            <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#4F6EFF,#7B9FFF);border:2px solid var(--bg);display:flex;align-items:center;justify-content:center;font-size:.625rem;font-weight:700;color:#fff;font-family:'Cormorant Garamond',serif;margin-left:-6px;">S</div>
-            <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#C8963E,#E5B869);border:2px solid var(--bg);display:flex;align-items:center;justify-content:center;font-size:.625rem;font-weight:700;color:#fff;font-family:'Cormorant Garamond',serif;margin-left:-6px;">M</div>
-            <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#4F6EFF,#C8963E);border:2px solid var(--bg);display:flex;align-items:center;justify-content:center;font-size:.625rem;font-weight:700;color:#fff;font-family:'Cormorant Garamond',serif;margin-left:-6px;">L</div>
-          </div>
-          <span style="font-size:.875rem;color:var(--muted);">200+ clients trust us</span>
+      <!-- LEFT: copy -->
+      <div>
+        <div class="badge reveal" style="margin-bottom:2rem;">
+          <svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="4"/></svg>
+          Web Design Agency · USA &amp; Canada
         </div>
-        <div style="display:flex;align-items:center;gap:.375rem;">
-          <div style="display:flex;gap:2px;">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="#C8963E"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="#C8963E"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="#C8963E"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="#C8963E"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="#C8963E"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+
+        <h1 class="display reveal d1" style="font-size:clamp(3rem,6vw,6.5rem);color:var(--text);margin-bottom:1.75rem;">
+          We Build<br>
+          <span class="text-gradient">Websites That</span><br>
+          Make Money.
+        </h1>
+
+        <p class="reveal d2" style="font-size:1.1875rem;color:var(--muted);max-width:520px;margin-bottom:2.5rem;line-height:1.7;">
+          Stop competing with template sites. Get a custom-designed, conversion-optimized website that turns visitors into paying customers — starting with a free audit.
+        </p>
+
+        <div class="reveal d3" style="display:flex;flex-wrap:wrap;gap:1rem;align-items:center;margin-bottom:3.5rem;">
+          <a href="#contact" class="btn btn-primary">
+            Get Your Free Audit
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#results" class="btn btn-ghost">See Client Results</a>
+        </div>
+
+        <!-- Mini trust bar -->
+        <div class="reveal d4" style="display:flex;flex-wrap:wrap;gap:2rem;align-items:center;">
+          <div style="display:flex;align-items:center;gap:.5rem;">
+            <div style="display:flex;">
+              <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#4F6EFF,#7B9FFF);border:2px solid var(--bg);display:flex;align-items:center;justify-content:center;font-size:.625rem;font-weight:700;color:#fff;font-family:'Cormorant Garamond',serif;margin-left:-6px;">S</div>
+              <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#C8963E,#E5B869);border:2px solid var(--bg);display:flex;align-items:center;justify-content:center;font-size:.625rem;font-weight:700;color:#fff;font-family:'Cormorant Garamond',serif;margin-left:-6px;">M</div>
+              <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#4F6EFF,#C8963E);border:2px solid var(--bg);display:flex;align-items:center;justify-content:center;font-size:.625rem;font-weight:700;color:#fff;font-family:'Cormorant Garamond',serif;margin-left:-6px;">L</div>
+            </div>
+            <span style="font-size:.875rem;color:var(--muted);">200+ clients trust us</span>
           </div>
-          <span style="font-size:.875rem;color:var(--muted);">4.9/5 on Google &amp; Clutch</span>
+          <div style="display:flex;align-items:center;gap:.375rem;">
+            <div style="display:flex;gap:2px;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#C8963E"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#C8963E"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#C8963E"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#C8963E"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#C8963E"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <span style="font-size:.875rem;color:var(--muted);">4.9/5 on Google &amp; Clutch</span>
+          </div>
         </div>
       </div>
+
+      <!-- RIGHT: brand name + physics words -->
+      <div id="gravity-wrap">
+        <div class="brand-beams" aria-hidden="true">
+          <div class="brand-beam"></div>
+          <div class="brand-beam"></div>
+          <div class="brand-beam"></div>
+        </div>
+        <div id="brand-hero">
+          <button class="brand-color-btn" id="brand-color-btn" aria-label="Cycle brand color theme" title="Change color theme"></button>
+          <div class="brand-text-wrap">
+            <h2 class="brand-text-main">DesigXner</h2>
+            <h2 class="brand-text-ghost" aria-hidden="true">DesigXner</h2>
+          </div>
+        </div>
+        <div id="gravity-container">
+          <div class="g-pill" style="background:rgba(79,110,255,.14);border:1px solid rgba(79,110,255,.4);color:#8BA4FF;">SEO</div>
+          <div class="g-pill" style="background:rgba(200,150,62,.12);border:1px solid rgba(200,150,62,.35);color:#C8963E;">WEBSITE DESIGN</div>
+          <div class="g-pill" style="background:rgba(79,110,255,.14);border:1px solid rgba(79,110,255,.4);color:#8BA4FF;">DIGITAL MARKETING</div>
+          <div class="g-pill" style="background:rgba(200,150,62,.12);border:1px solid rgba(200,150,62,.35);color:#C8963E;">SEM</div>
+          <div class="g-pill" style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:#7B84B0;">GOOGLE ADS</div>
+          <div class="g-pill" style="background:rgba(79,110,255,.14);border:1px solid rgba(79,110,255,.4);color:#8BA4FF;">FACEBOOK ADS</div>
+          <div class="g-pill" style="background:rgba(200,150,62,.12);border:1px solid rgba(200,150,62,.35);color:#C8963E;">WEBSITE DEVELOPMENT</div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1031,6 +1207,307 @@ function handleSubmit(e) {
     e.target.reset();
   }, 1200);
 }
+</script>
+<script>
+(function () {
+  function initGravity() {
+    if (typeof Matter === 'undefined') return;
+    var container = document.getElementById('gravity-container');
+    if (!container) return;
+    if (window.innerWidth < 1024) return;
+
+    var W = container.offsetWidth;
+    var H = container.offsetHeight;
+    if (W === 0 || H === 0) return;
+
+    var Engine = Matter.Engine, Render = Matter.Render, Runner = Matter.Runner,
+        Bodies = Matter.Bodies, World = Matter.World,
+        Mouse = Matter.Mouse, MouseConstraint = Matter.MouseConstraint,
+        Events = Matter.Events;
+
+    var engine = Engine.create();
+    engine.gravity.y = 1;
+
+    /* invisible canvas — handles mouse pick-up but stays transparent */
+    var render = Render.create({
+      element: container,
+      engine: engine,
+      options: {
+        width: W, height: H,
+        wireframes: false,
+        background: 'transparent'
+      }
+    });
+    var cvs = render.canvas;
+    cvs.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;z-index:1;pointer-events:all;';
+
+    Runner.run(Runner.create(), engine);
+    Render.run(render);
+
+    /* walls: floor + left + right */
+    var wo = { isStatic: true, friction: 1, render: { visible: false } };
+    World.add(engine.world, [
+      Bodies.rectangle(W / 2, H + 10, W * 2, 20, wo),
+      Bodies.rectangle(-10,  H / 2, 20, H * 2, wo),
+      Bodies.rectangle(W + 10, H / 2, 20, H * 2, wo)
+    ]);
+
+    /* mouse constraint for grabbing pills */
+    var mouse = Mouse.create(cvs);
+    var mc = MouseConstraint.create(engine, {
+      mouse: mouse,
+      constraint: { stiffness: 0.2, render: { visible: false } }
+    });
+    World.add(engine.world, mc);
+    render.mouse = mouse;
+
+    /* cursor feedback */
+    Events.on(mc, 'startdrag', function () { container.style.cursor = 'grabbing'; });
+    Events.on(mc, 'enddrag',   function () { container.style.cursor = 'grab'; });
+    container.style.cursor = 'grab';
+
+    /* create one physics body per pill */
+    var pills = container.querySelectorAll('.g-pill');
+    var bodies = [];
+
+    pills.forEach(function (pill, i) {
+      pill.classList.add('gp-vis');           /* fade in */
+      var pw = pill.offsetWidth;
+      var ph = pill.offsetHeight;
+      var margin = pw / 2 + 8;
+      var x = margin + Math.random() * (W - margin * 2);
+      var y = -(ph + 20 + i * 70);            /* stagger above container */
+      var angle = (Math.random() - 0.5) * 0.5;
+
+      var body = Bodies.rectangle(x, y, pw, ph, {
+        restitution: 0.38,
+        friction: 0.18,
+        frictionAir: 0.022,
+        density: 0.002,
+        angle: angle,
+        chamfer: { radius: ph / 2 },
+        render: { fillStyle: 'transparent', strokeStyle: 'transparent', lineWidth: 0 }
+      });
+      World.add(engine.world, body);
+      bodies.push({ el: pill, body: body });
+    });
+
+    /* RAF loop — sync DOM elements to physics positions */
+    function sync() {
+      bodies.forEach(function (item) {
+        var x   = item.body.position.x;
+        var y   = item.body.position.y;
+        var rot = item.body.angle * (180 / Math.PI);
+        item.el.style.transform =
+          'translate(' + (x - item.el.offsetWidth  / 2) + 'px, ' +
+                         (y - item.el.offsetHeight / 2) + 'px) ' +
+          'rotate(' + rot + 'deg)';
+      });
+      requestAnimationFrame(sync);
+    }
+    sync();
+
+    /* prevent page scroll interfering with mouse wheel inside container */
+    cvs.addEventListener('wheel', function (e) { e.preventDefault(); }, { passive: false });
+  }
+
+  /* run after layout is fully painted */
+  if (document.readyState === 'complete') {
+    setTimeout(initGravity, 120);
+  } else {
+    window.addEventListener('load', function () { setTimeout(initGravity, 120); });
+  }
+})();
+</script>
+<script>
+(function () {
+  function initParticles() {
+    var canvas = document.getElementById('hero-particles');
+    if (!canvas) return;
+    var section = canvas.closest('section') || canvas.parentElement;
+    var ctx = canvas.getContext('2d');
+    var particles = [];
+    var raf;
+    var W, H;
+
+    function resize() {
+      W = section.offsetWidth;
+      H = section.offsetHeight;
+      canvas.width = W;
+      canvas.height = H;
+    }
+
+    function mkParticle() {
+      return {
+        x: Math.random() * W,
+        y: H + Math.random() * H * 0.1,
+        r: 0.5 + Math.random() * 1.5,
+        speed: 0.25 + Math.random() * 0.7,
+        opacity: 0.1 + Math.random() * 0.45,
+        drift: (Math.random() - 0.5) * 0.22
+      };
+    }
+
+    function init() {
+      resize();
+      var count = Math.round((W * H) / 9000);
+      count = Math.max(count, 20);
+      particles = [];
+      for (var i = 0; i < count; i++) {
+        var p = mkParticle();
+        p.y = Math.random() * H;
+        particles.push(p);
+      }
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, W, H);
+      for (var i = 0; i < particles.length; i++) {
+        var p = particles[i];
+        p.y -= p.speed;
+        p.x += p.drift;
+        var alpha = p.opacity * Math.min(1, p.y / (H * 0.18));
+        if (alpha < 0) alpha = 0;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(139,164,255,' + alpha.toFixed(3) + ')';
+        ctx.fill();
+        if (p.y < -p.r * 2) {
+          particles[i] = mkParticle();
+        }
+      }
+      raf = requestAnimationFrame(draw);
+    }
+
+    init();
+    draw();
+
+    var resizeTimer;
+    window.addEventListener('resize', function () {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function () {
+        cancelAnimationFrame(raf);
+        init();
+        draw();
+      }, 150);
+    });
+  }
+
+  if (document.readyState === 'complete') {
+    initParticles();
+  } else {
+    window.addEventListener('load', initParticles);
+  }
+})();
+</script>
+<script>
+(function () {
+  var palettes = [
+    { grad: 'linear-gradient(150deg,#d0e4ff 0%,#8BA4FF 50%,#C8963E 100%)', r: '79', g: '110', b: '255' },
+    { grad: 'linear-gradient(150deg,#FFD6A0 0%,#E5B869 45%,#C8963E 100%)',  r: '200', g: '150', b: '62'  },
+    { grad: 'linear-gradient(150deg,#A0FFD6 0%,#00D4AA 45%,#4F6EFF 100%)',  r: '0',   g: '212', b: '180' },
+    { grad: 'linear-gradient(150deg,#FFB3E6 0%,#BD93F9 45%,#8BA4FF 100%)',  r: '189', g: '147', b: '249' }
+  ];
+  var idx = 0;
+  function ready(fn) {
+    if (document.readyState !== 'loading') { fn(); } else { document.addEventListener('DOMContentLoaded', fn); }
+  }
+  ready(function () {
+    var btn = document.getElementById('brand-color-btn');
+    var hero = document.getElementById('brand-hero');
+    if (!btn || !hero) return;
+    btn.addEventListener('click', function () {
+      idx = (idx + 1) % palettes.length;
+      var p = palettes[idx];
+      hero.style.setProperty('--brand-colors', p.grad);
+      btn.style.boxShadow =
+        '0 0 0 1.5px rgba(' + p.r + ',' + p.g + ',' + p.b + ',.35),' +
+        '0 0 10px 3px rgba(' + p.r + ',' + p.g + ',' + p.b + ',.5),' +
+        '0 0 22px 8px rgba(' + p.r + ',' + p.g + ',' + p.b + ',.16)';
+    });
+  });
+})();
+</script>
+<div id="theme-curtain" aria-hidden="true"></div>
+<script>
+(function () {
+  var DURATION = 560;
+  var MOON = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+  var SUN  = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>';
+  var BG = { dark: '#05050F', light: '#F5F7FF' };
+
+  var html    = document.documentElement;
+  var curtain = document.getElementById('theme-curtain');
+  var btn     = document.getElementById('theme-tog');
+  var busy    = false;
+  var theme   = html.getAttribute('data-theme') || 'dark';
+
+  function setIcon() {
+    if (!btn) return;
+    /* dark mode → show sun (click to go light); light mode → show moon */
+    btn.innerHTML = theme === 'dark' ? SUN : MOON;
+    btn.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+  }
+
+  function applyTheme(t) {
+    html.setAttribute('data-theme', t);
+    theme = t;
+    setIcon();
+    localStorage.setItem('dx-theme', t);
+  }
+
+  function toggle() {
+    if (busy) return;
+    busy = true;
+    var next = theme === 'dark' ? 'light' : 'dark';
+
+    /* 1. point curtain at the incoming page colour, ensure no transition, reset */
+    curtain.classList.remove('tc-anim');
+    curtain.style.transform  = 'scaleY(0)';
+    curtain.style.background = BG[next];
+
+    /* force reflow so the browser registers the reset before we animate */
+    curtain.getBoundingClientRect();
+
+    /* 2. animate curtain down */
+    curtain.classList.add('tc-anim');
+    curtain.style.transform = 'scaleY(1)';
+
+    /* 3. halfway through: flip theme (hidden behind curtain) */
+    setTimeout(function () {
+      applyTheme(next);
+
+      /* 4. animate curtain back up */
+      curtain.style.transform = 'scaleY(0)';
+
+      setTimeout(function () {
+        curtain.classList.remove('tc-anim');
+        busy = false;
+      }, DURATION + 60);
+    }, DURATION);
+  }
+
+  /* sync icon on load */
+  setIcon();
+
+  if (btn) btn.addEventListener('click', toggle);
+}());
+</script>
+<script>
+(function () {
+  var html = document.documentElement;
+  /* Restore dismissed state before first paint */
+  if (sessionStorage.getItem('ann-off')) html.classList.add('ann-off');
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var closeBtn = document.getElementById('ann-close');
+    if (!closeBtn) return;
+    closeBtn.addEventListener('click', function () {
+      html.classList.add('ann-off');
+      sessionStorage.setItem('ann-off', '1');
+    });
+  });
+}());
 </script>
 <a href="https://wa.me/8801839422352?text=Hi%2C%20I%27m%20interested%20in%20your%20web%20design%20services" target="_blank" rel="noopener noreferrer" class="wa-float" aria-label="Chat on WhatsApp"><div class="wa-btn"><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><span class="wa-pulse"></span></div><div class="wa-tooltip">Chat on WhatsApp</div></a></body>
 </html>
