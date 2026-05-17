@@ -55,6 +55,8 @@ The question "how much does a small business website cost?" has a thousand answe
 
 Here's the short version: a professionally built small business website costs **$4,000–$15,000 in 2026**, with ongoing costs of $1,200–$4,000 per year. Everything below that range is DIY. Everything above it is custom. The rest of this guide explains exactly what you get at each level — and why the cheapest option almost always costs more in the end.
 
+<div id="the-short-answer"></div>
+
 ## The short answer: small business website cost at a glance
 
 | Tier | Who it's for | Upfront cost | Annual ongoing | 3-year TCO |
@@ -70,6 +72,8 @@ Here's the short version: a professionally built small business website costs **
 The gap between upfront cost and TCO is where most small businesses get surprised. A $2,000 freelance site with a $150/month maintenance plan costs you $7,400 over three years. That's a different conversation than "$2,000."
 
 ---
+
+<div id="tier-1-diy"></div>
 
 ## Tier 1: DIY website builders — $0–$500 upfront, $240–$600/year
 
@@ -96,6 +100,8 @@ The moment your website is doing real business work — booking calls, generatin
 For a deeper comparison of platforms, see our guide to the [best website platform for small businesses](/insights/platforms/best-website-platform-small-business/).
 
 ---
+
+<div id="tier-2-freelance"></div>
 
 ## Tier 2: Freelance web designer — $1,500–$8,000
 
@@ -131,6 +137,8 @@ For a full breakdown of how freelancers price their work, see our guide to [web 
 
 ---
 
+<div id="tier-3-boutique-agency"></div>
+
 ## Tier 3: Boutique agency — $6,000–$20,000
 
 A boutique agency is a studio of two to ten people. You get a team — usually a strategist, designer, and developer — without the overhead of a large agency. This is the tier where the strategy layer starts to appear.
@@ -155,6 +163,8 @@ For guidance on choosing between an agency, freelancer, and DIY, see our compari
 
 ---
 
+<div id="tier-4-custom"></div>
+
 ## Tier 4: Full-service agencies and custom builds — $20,000–$100,000+
 
 Most small businesses that end up spending $30,000+ on a website didn't need to. They got sold something bigger than their actual requirements, usually because they didn't know what questions to ask.
@@ -166,6 +176,8 @@ Custom build means custom CMS architecture, API integrations with back-office sy
 **The tell:** a good agency at this tier will push back if your requirements don't justify the price. If they're happy to take $40,000 for a five-page service site, keep shopping.
 
 ---
+
+<div id="cost-of-cheap"></div>
 
 ## The real cost of a cheap website
 
@@ -184,6 +196,8 @@ A second, subtler cost: credibility. Buyers research before they contact anyone.
 The rule: if your website is the primary thing a prospect sees before they decide whether to contact you, it should represent the same level of professionalism as your best work.
 
 ---
+
+<div id="hidden-costs"></div>
 
 ## Hidden costs every small business misses
 
@@ -209,6 +223,8 @@ For a full breakdown, see our article on the [hidden costs of a small business w
 
 ---
 
+<div id="cost-by-industry"></div>
+
 ## Small business website cost by industry
 
 Your industry doesn't just affect design preferences — it affects what the site needs to do, which drives the cost. Higher trust signal requirements, more complex booking systems, compliance considerations, and photo density all push prices up.
@@ -231,6 +247,8 @@ For country-specific pricing, we've covered [small business website costs in the
 
 ---
 
+<div id="roi-math"></div>
+
 ## Is a website worth it? The ROI math
 
 Stop thinking about your website as an expense. Think about it as a cost-per-lead machine.
@@ -250,6 +268,8 @@ Those numbers won't apply to every business. But the framework holds: **the metr
 For a detailed look at how to calculate and track this, see our guide on [website redesign ROI](/insights/cost/website-redesign-roi/).
 
 ---
+
+<div id="how-to-get-a-fair-quote"></div>
 
 ## How to get a fair quote — and not overpay
 
@@ -285,10 +305,6 @@ If you've already received a quote and need to know whether it's reasonable, the
 
 ---
 
-## Frequently asked questions
-
----
-
 ## What to do next
 
 If you're early in the process, start with budget and intent: decide what tier makes sense for your business stage, then use the industry pricing table to sanity-check any quotes you receive.
@@ -296,6 +312,8 @@ If you're early in the process, start with budget and intent: decide what tier m
 If you've already received a quote, the [hidden costs breakdown](/insights/cost/hidden-costs-small-business-website/) will tell you what to look for in the items that aren't listed. And if you're weighing a rebuild against keeping your current site, the [website redesign cost guide](/insights/cost/website-redesign-cost-small-business/) covers that decision in detail.
 
 ---
+
+<div id="frequently-asked-questions"></div>
 
 ## Frequently asked questions
 
