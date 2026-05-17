@@ -1,0 +1,6 @@
+{
+  "buildCommand": "cd content-engine && npm install && npx @11ty/eleventy && mkdir -p ../insights && cp -r _site/insights/. ../insights/",
+  "outputDirectory": ".",
+  "framework": null,
+  "cleanUrls": true
+}

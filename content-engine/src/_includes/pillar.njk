@@ -1,0 +1,107 @@
+---
+layout: base.njk
+permalink: "/insights/{{ cluster }}/{{ page.fileSlug }}/"
+---
+
+<article class="pillar">
+
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <ol>
+      <li><a href="/">Home</a></li>
+      <li><a href="/insights/">Insights</a></li>
+      <li aria-current="page">{{ title }}</li>
+    </ol>
+  </nav>
+
+  <header class="pillar-header">
+    <p class="eyebrow">Pillar guide · {{ cluster | replace("-", " ") | title }}</p>
+    <h1>{{ title }}</h1>
+    {% if subtitle %}<p class="subtitle">{{ subtitle }}</p>{% endif %}
+    <p class="meta">
+      Updated <time datetime="{{ (updated or date) | isoDate }}">{{ (updated or date) | readableDate }}</time>
+      · {{ content | readingTime }} min read
+    </p>
+  </header>
+
+  {# === Table of contents (auto-built from H2s via anchor links) === #}
+  {% if toc %}
+    <nav class="toc" aria-label="Table of contents">
+      <h2>What's in this guide</h2>
+      <ol>
+        {% for item in toc %}
+          <li><a href="#{{ item.id }}">{{ item.label }}</a></li>
+        {% endfor %}
+      </ol>
+    </nav>
+  {% endif %}
+
+  <div class="pillar-body">
+    {{ content | safe }}
+  </div>
+
+  {# === All cluster siblings linked down (the cluster part of pillar+cluster) === #}
+  <section class="cluster-children">
+    <h2>Explore {{ cluster | replace("-", " ") }} in depth</h2>
+    <ul>
+      {% set siblings = collections[cluster] | default([]) %}
+      {% for item in siblings %}
+        {% if not item.data.pillar %}
+          <li>
+            <a href="{{ item.url }}">{{ item.data.title }}</a>
+            {% if item.data.angle %}<p class="snippet">{{ item.data.angle | truncate(140) }}</p>{% endif %}
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </section>
+
+  {# === FAQ === #}
+  {% if faqs %}
+    <section class="faqs">
+      <h2>Frequently asked questions</h2>
+      {% for faq in faqs %}
+        <details>
+          <summary>{{ faq.q }}</summary>
+          <div>{{ faq.a | safe }}</div>
+        </details>
+      {% endfor %}
+    </section>
+  {% endif %}
+
+</article>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "{{ title | escape }}",
+  "description": "{{ (description or angle) | escape }}",
+  "datePublished": "{{ date | isoDate }}",
+  "dateModified": "{{ (updated or date) | isoDate }}",
+  "author": { "@type": "Organization", "name": "DesigXner" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "DesigXner",
+    "logo": { "@type": "ImageObject", "url": "https://designxner.com/images/logo.png" }
+  },
+  "mainEntityOfPage": "https://designxner.com{{ page.url }}"
+}
+</script>
+
+{% if faqs %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {% for faq in faqs %}
+      {
+        "@type": "Question",
+        "name": "{{ faq.q | escape }}",
+        "acceptedAnswer": { "@type": "Answer", "text": "{{ faq.a | striptags | escape }}" }
+      }{% if not loop.last %},{% endif %}
+    {% endfor %}
+  ]
+}
+</script>
+{% endif %}

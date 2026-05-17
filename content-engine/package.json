@@ -1,0 +1,17 @@
+{
+  "name": "desigxner-content-engine",
+  "version": "1.0.0",
+  "description": "Content production system for DesigXner.com — 118 articles across 11 topical clusters.",
+  "scripts": {
+    "dev": "npx @11ty/eleventy --serve",
+    "build": "npx @11ty/eleventy",
+    "audit": "node scripts/audit.js"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "@11ty/eleventy-plugin-rss": "^2.0.2",
+    "js-yaml": "^4.1.0",
+    "markdown-it-anchor": "^9.2.0"
+  },
+  "type": "module"
+}

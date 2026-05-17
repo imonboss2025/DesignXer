@@ -1,0 +1,45 @@
+---
+layout: base.njk
+title: "Insights — Web Design for Small Businesses"
+description: "Practical web design, conversion, SEO, and platform guidance for small businesses in the US, UK, Canada, Australia, and beyond."
+permalink: /insights/
+---
+
+<section class="hero">
+  <h1>Insights for small business websites that actually work</h1>
+  <p class="lede">
+    No fluff. Honest advice on what works, what costs what, and what to
+    fix — written specifically for small businesses in the US, UK, Canada,
+    Australia, and beyond.
+  </p>
+</section>
+
+<section class="pillar-grid">
+  <h2>Browse by topic</h2>
+  <div class="grid">
+    {% for pillar in collections.pillars %}
+      <a class="pillar-card" href="{{ pillar.url }}">
+        <p class="cluster-name">{{ pillar.data.cluster | replace("-", " ") | title }}</p>
+        <h3>{{ pillar.data.title }}</h3>
+        {% if pillar.data.angle %}
+          <p class="snippet">{{ pillar.data.angle | truncate(140) }}</p>
+        {% endif %}
+      </a>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="latest">
+  <h2>Latest insights</h2>
+  <ul>
+    {% set latest = collections.articles | reverse %}
+    {% for item in latest %}
+      {% if loop.index <= 10 %}
+        <li>
+          <a href="{{ item.url }}">{{ item.data.title }}</a>
+          <span class="meta">{{ item.data.cluster | replace("-", " ") | title }} · {{ item.date | readableDate }}</span>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</section>

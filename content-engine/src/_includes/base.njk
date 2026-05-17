@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  {# === Core SEO === #}
+  <title>{{ title }} | DesigXner</title>
+  <meta name="description" content="{{ description or angle }}">
+  <link rel="canonical" href="https://designxner.com{{ page.url }}">
+
+  {# === Open Graph === #}
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="{{ title }}">
+  <meta property="og:description" content="{{ description or angle }}">
+  <meta property="og:url" content="https://designxner.com{{ page.url }}">
+  <meta property="og:site_name" content="DesigXner">
+  {% if og_image %}<meta property="og:image" content="https://designxner.com{{ og_image }}">{% endif %}
+
+  {# === Twitter === #}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ title }}">
+  <meta name="twitter:description" content="{{ description or angle }}">
+
+  {# === hreflang stubs (uncomment when DE/FR launch) === #}
+  {# <link rel="alternate" hreflang="en" href="https://designxner.com{{ page.url }}"> #}
+  {# <link rel="alternate" hreflang="de" href="https://designxner.com/de{{ page.url }}"> #}
+  {# <link rel="alternate" hreflang="fr" href="https://designxner.com/fr{{ page.url }}"> #}
+
+  {# === RSS === #}
+  <link rel="alternate" type="application/atom+xml" title="DesigXner" href="/feed.xml">
+
+  {# === Stylesheet === #}
+  <link rel="stylesheet" href="/css/site.css">
+
+  {# === Site-wide Organization schema (helps entity SEO) === #}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "DesigXner",
+    "url": "https://designxner.com",
+    "logo": "https://designxner.com/images/logo.png",
+    "description": "Web design and development agency for small businesses in Tier-1 countries.",
+    "sameAs": []
+  }
+  </script>
+
+  {% block extraHead %}{% endblock %}
+</head>
+<body>
+  <header class="site-header">
+    <a href="/" class="logo">DesigXner</a>
+    <nav>
+      <a href="/insights/">Insights</a>
+      <a href="https://designxner.com/services">Services</a>
+      <a href="https://designxner.com/contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    {{ content | safe }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-cta">
+      <h2>Need a website that actually works?</h2>
+      <p>We build sites for small businesses that book calls, not just sit there.</p>
+      <a href="https://designxner.com/contact" class="btn">Start a project</a>
+    </div>
+    <p>© <span id="year"></span> DesigXner. All rights reserved.</p>
+    <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+  </footer>
+</body>
+</html>

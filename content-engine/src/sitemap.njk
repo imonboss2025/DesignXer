@@ -1,0 +1,20 @@
+---
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://designxner.com/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  {% for item in collections.articles %}
+  <url>
+    <loc>https://designxner.com{{ item.url }}</loc>
+    <lastmod>{{ (item.data.updated or item.date) | isoDate }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>{% if item.data.pillar %}0.9{% else %}0.7{% endif %}</priority>
+  </url>
+  {% endfor %}
+</urlset>

@@ -8,3 +8,8 @@ Thumbs.db
 
 # Claude internal
 .claude/
+
+# Content engine build artifacts
+content-engine/node_modules/
+content-engine/_site/
+insights/

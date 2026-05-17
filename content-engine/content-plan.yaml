@@ -1,0 +1,679 @@
+# =============================================================================
+# DesigXner.com — Content Strategy Plan
+# =============================================================================
+# 118 articles across 11 topical clusters.
+# Audience: Small-to-medium businesses in Tier-1 countries
+#           (US, Canada, UK, Australia, NZ, Germany, France)
+# Strategy: Topical authority via pillar+cluster model, with manufactured
+#           authority via teardowns, frameworks, surveys, tools, and reports.
+# Cadence: 1-2 pillars/week first 3 weeks, then 3-4 cluster pieces/week.
+# =============================================================================
+
+meta:
+  site: DesigXner.com
+  audience: "SMBs in Tier-1 countries"
+  total_articles: 118
+  cadence_target_per_week: 4
+  authority_plays:
+    - teardowns                  # audit + publish findings on N public SMB sites
+    - named_frameworks           # own terms like "7-Second Trust Test"
+    - free_tools                 # calculators, audit widgets, brief generators
+    - mini_surveys               # 20-30 respondent polls baked into stats
+    - annual_state_of_report     # flagship: "State of SMB Web Design 2026"
+    - public_datasets            # release teardown data as downloadable CSV
+    - original_glossary          # define terms with your interpretation
+    - downloadable_templates     # RFPs, briefs, launch checklists
+    - comparison_matrices        # cited verbatim by AI engines
+    - open_source_tools          # small GitHub utilities linking back
+
+# -----------------------------------------------------------------------------
+# Cluster definitions
+# -----------------------------------------------------------------------------
+clusters:
+  cost:
+    name: "Cost & Pricing"
+    pillar_slug: small-business-website-cost-2026
+    article_count: 10
+  industries:
+    name: "Industry-Specific Web Design"
+    pillar_slug: best-website-design-by-industry
+    article_count: 18
+  platforms:
+    name: "Platform Decisions"
+    pillar_slug: best-website-platform-small-business
+    article_count: 10
+  redesign:
+    name: "Redesign Decisions"
+    pillar_slug: signs-website-needs-redesign
+    article_count: 8
+  conversion:
+    name: "Conversion & UX"
+    pillar_slug: small-business-conversion-guide
+    article_count: 12
+  performance:
+    name: "Speed & Performance"
+    pillar_slug: website-speed-guide-small-business
+    article_count: 10
+  seo:
+    name: "SEO Foundations"
+    pillar_slug: seo-for-small-business-2026
+    article_count: 12
+  brand:
+    name: "Brand & Visual Systems"
+    pillar_slug: visual-brand-foundations-small-business
+    article_count: 10
+  operations:
+    name: "Post-Launch Operations"
+    pillar_slug: running-small-business-website-post-launch
+    article_count: 10
+  ai_search:
+    name: "AI Search & LLM Visibility"
+    pillar_slug: get-cited-by-chatgpt-perplexity-ai-search
+    article_count: 8
+  process:
+    name: "Process, Frameworks & Flagship Pieces"
+    pillar_slug: state-of-smb-web-design-2026
+    article_count: 10
+
+# =============================================================================
+# ARTICLES — Full briefs for first 30 (priority P0/P1), abbreviated for rest
+# =============================================================================
+
+articles:
+
+  # ===========================================================================
+  # P0 — PILLAR PAGES (Write these first, weeks 1-3)
+  # ===========================================================================
+
+  - slug: small-business-website-cost-2026
+    title: "Small Business Website Cost in 2026: The Complete Pricing Guide"
+    cluster: cost
+    pillar: true
+    write_order: 1
+    priority: P0
+    target_keyword: "small business website cost"
+    secondary_keywords:
+      - how much does a small business website cost
+      - small business website pricing
+      - website cost for small business 2026
+      - small business web design pricing
+    intent: informational+commercial
+    word_count: 3800
+    angle: >
+      Real pricing data by tier (DIY $0-500, freelance $1.5k-8k, agency $8k-40k,
+      custom $40k+). Show cost-of-cheap analysis with concrete examples.
+      ROI math. Hidden costs section. Pricing by industry mini-table.
+    authority_play: original_survey_of_30_smbs_what_they_paid
+    internal_links_out:
+      - small-business-website-cost-usa
+      - small-business-website-cost-uk-canada-australia
+      - website-redesign-cost-small-business
+      - custom-website-vs-template-cost
+      - hidden-costs-small-business-website
+      - web-design-pricing-models
+      - website-cost-by-industry
+    schema: [Article, FAQPage, BreadcrumbList]
+
+  - slug: best-website-design-by-industry
+    title: "Best Website Design for Small Businesses, by Industry (2026)"
+    cluster: industries
+    pillar: true
+    write_order: 2
+    priority: P0
+    target_keyword: "best website design for small business"
+    secondary_keywords:
+      - website design by industry
+      - small business website examples
+      - industry website design
+    intent: informational+commercial
+    word_count: 3500
+    angle: >
+      One mega-pillar that links out to every industry page. Per-industry
+      mini-summaries (4-5 sentences) showing what works/fails for each vertical
+      with one example site link, then "read the full teardown" link to cluster.
+    authority_play: teardown_summary_aggregating_all_industry_audits
+    schema: [Article, BreadcrumbList]
+
+  - slug: best-website-platform-small-business
+    title: "The Best Website Platform for Small Businesses in 2026"
+    cluster: platforms
+    pillar: true
+    write_order: 3
+    priority: P0
+    target_keyword: "best website platform for small business"
+    secondary_keywords:
+      - small business website builder
+      - best website builder for small business
+      - small business CMS
+    intent: informational+commercial
+    word_count: 3200
+    angle: >
+      Decision framework based on business type, not feature comparison.
+      "If you sell services X, if you sell products Y." Include comparison
+      matrix downloadable as PDF/CSV.
+    authority_play: comparison_matrix_csv_downloadable
+    schema: [Article, FAQPage, BreadcrumbList]
+
+  - slug: signs-website-needs-redesign
+    title: "14 Signs Your Small Business Website Needs a Redesign"
+    cluster: redesign
+    pillar: true
+    write_order: 4
+    priority: P0
+    target_keyword: "signs you need a website redesign"
+    secondary_keywords:
+      - does my website need redesign
+      - when to redesign website
+      - website redesign indicators
+    intent: informational
+    word_count: 2800
+    angle: >
+      14 specific, testable signs (not vague feelings). Each with a
+      "self-check in 60 seconds" mini-tool: paste your URL, get a yes/no.
+      The list itself is the framework.
+    authority_play: free_tool_self_check_widget
+    schema: [Article, FAQPage, BreadcrumbList]
+
+  - slug: small-business-conversion-guide
+    title: "The Small Business Website Conversion Guide (2026)"
+    cluster: conversion
+    pillar: true
+    write_order: 5
+    priority: P0
+    target_keyword: "small business website conversion"
+    secondary_keywords:
+      - increase website conversions small business
+      - small business CRO
+      - website conversion rate small business
+    intent: informational
+    word_count: 3400
+    angle: >
+      Industry-realistic conversion benchmarks (most CRO content is enterprise-
+      flavored). Introduce "The 7-Second Trust Test" framework here.
+      Section per page type: home, service, about, contact.
+    authority_play: named_framework_7_second_trust_test
+    schema: [Article, FAQPage, BreadcrumbList]
+
+  - slug: seo-for-small-business-2026
+    title: "SEO for Small Business Websites: 2026 Playbook"
+    cluster: seo
+    pillar: true
+    write_order: 6
+    priority: P0
+    target_keyword: "SEO for small business"
+    secondary_keywords:
+      - small business SEO 2026
+      - SEO checklist small business
+      - small business SEO guide
+    intent: informational
+    word_count: 3600
+    angle: >
+      Post-AI-search era: split between traditional Google SEO and GEO.
+      What still matters, what's dead, what's new. Realistic for SMBs
+      without an in-house SEO team.
+    authority_play: downloadable_seo_checklist_pdf
+    schema: [Article, FAQPage, BreadcrumbList]
+
+  - slug: website-speed-guide-small-business
+    title: "The Small Business Website Speed Guide"
+    cluster: performance
+    pillar: true
+    write_order: 7
+    priority: P0
+    target_keyword: "website speed for small business"
+    secondary_keywords:
+      - small business website performance
+      - website speed optimization
+      - fast small business website
+    intent: informational
+    word_count: 2800
+    angle: >
+      Cite real data: "Each 100ms costs you X% conversions." Show actual
+      Core Web Vitals scores from teardown sample. Practical fixes ordered
+      by impact-to-effort ratio.
+    authority_play: public_dataset_of_audited_smb_speeds
+    schema: [Article, FAQPage, BreadcrumbList]
+
+  - slug: get-cited-by-chatgpt-perplexity-ai-search
+    title: "How to Get Your Business Cited by ChatGPT, Perplexity & AI Search"
+    cluster: ai_search
+    pillar: true
+    write_order: 8
+    priority: P0
+    target_keyword: "how to rank in ChatGPT"
+    secondary_keywords:
+      - GEO generative engine optimization
+      - AI search SEO
+      - LLM SEO
+      - get cited by ChatGPT
+      - Perplexity SEO
+    intent: informational
+    word_count: 3200
+    angle: >
+      Underserved keyword right now. Show actual citations DesigXner gets
+      (eat your own dog food). Step-by-step what to change on a site to
+      become citation-worthy. Schema, entity, content-structure focus.
+    authority_play: live_citation_tracker_widget
+    schema: [Article, FAQPage, BreadcrumbList]
+
+  - slug: visual-brand-foundations-small-business
+    title: "Visual Brand Foundations for Small Businesses"
+    cluster: brand
+    pillar: true
+    write_order: 9
+    priority: P0
+    target_keyword: "small business branding"
+    secondary_keywords:
+      - small business visual identity
+      - branding for small business
+      - small business brand guide
+    intent: informational
+    word_count: 2800
+    angle: >
+      What an SMB actually needs (not what a Fortune 500 needs). The
+      "minimum viable brand system" framework: 1 logo mark, 2 fonts,
+      4 colors, 3 photo styles.
+    authority_play: named_framework_minimum_viable_brand_system
+    schema: [Article, FAQPage, BreadcrumbList]
+
+  - slug: running-small-business-website-post-launch
+    title: "Running Your Small Business Website After Launch"
+    cluster: operations
+    pillar: true
+    write_order: 10
+    priority: P0
+    target_keyword: "small business website maintenance"
+    secondary_keywords:
+      - website maintenance small business
+      - maintaining a small business website
+      - small business website ongoing costs
+    intent: informational
+    word_count: 2600
+    angle: >
+      The "boring stuff that breaks businesses": hosting, backups, security,
+      updates, analytics. Monthly/quarterly/annual cadence framework.
+    authority_play: downloadable_quarterly_maintenance_checklist
+    schema: [Article, FAQPage, BreadcrumbList]
+
+  # ===========================================================================
+  # P1 — HIGH-INTENT INDUSTRY PAGES (Write next, weeks 4-6)
+  # These convert best because they're bottom-of-funnel.
+  # ===========================================================================
+
+  - slug: web-design-for-dentists
+    title: "Web Design for Dentists: What Actually Works in 2026"
+    cluster: industries
+    pillar: false
+    parent_pillar: best-website-design-by-industry
+    write_order: 11
+    priority: P1
+    target_keyword: "web design for dentists"
+    secondary_keywords:
+      - dental website design
+      - dentist website examples
+      - best dental websites
+    intent: commercial
+    word_count: 2200
+    angle: >
+      Teardown of 25 dental practice sites. What 80% get wrong: hero
+      patient-stock-photos, weak booking flows, missing trust elements.
+      Show 5 good examples with annotations.
+    authority_play: teardown_25_dental_sites
+    internal_links_out:
+      - best-website-design-by-industry
+      - small-business-website-cost-2026
+      - small-business-conversion-guide
+      - local-seo-for-small-business
+    schema: [Article, FAQPage, BreadcrumbList]
+
+  - slug: web-design-for-law-firms
+    title: "Web Design for Law Firms (Solo & Small Practice Guide)"
+    cluster: industries
+    pillar: false
+    parent_pillar: best-website-design-by-industry
+    write_order: 12
+    priority: P1
+    target_keyword: "web design for law firms"
+    secondary_keywords:
+      - law firm website design
+      - lawyer website examples
+      - attorney website design
+    intent: commercial
+    word_count: 2200
+    angle: >
+      Teardown of 25 small firm sites. Trust-signal density analysis.
+      Practice-area page architecture. What ABA compliance demands.
+    authority_play: teardown_25_law_firm_sites
+    schema: [Article, FAQPage, BreadcrumbList]
+
+  - slug: web-design-for-medical-clinics
+    title: "Web Design for Medical Clinics & Healthcare Practices"
+    cluster: industries
+    pillar: false
+    parent_pillar: best-website-design-by-industry
+    write_order: 13
+    priority: P1
+    target_keyword: "medical website design"
+    intent: commercial
+    word_count: 2200
+    angle: "Teardown of 25 clinic sites. HIPAA-aware structure, booking UX."
+    authority_play: teardown_25_clinic_sites
+    schema: [Article, FAQPage, BreadcrumbList]
+
+  - slug: web-design-for-accountants
+    title: "Web Design for Accountants and CPAs"
+    cluster: industries
+    parent_pillar: best-website-design-by-industry
+    write_order: 14
+    priority: P1
+    target_keyword: "accountant website design"
+    intent: commercial
+    word_count: 2000
+    angle: "Trust + clarity. Service ladder display. Tax-season-readiness audit."
+    authority_play: teardown_20_cpa_sites
+
+  - slug: web-design-for-plumbers-electricians
+    title: "Web Design for Plumbers, Electricians & Home Services"
+    cluster: industries
+    parent_pillar: best-website-design-by-industry
+    write_order: 15
+    priority: P1
+    target_keyword: "web design for plumbers"
+    secondary_keywords: [home services website design, contractor website]
+    intent: commercial
+    word_count: 2200
+    angle: "Click-to-call dominance. Service-area SEO. Emergency-flow design."
+    authority_play: teardown_25_home_service_sites
+
+  - slug: web-design-for-restaurants
+    title: "Web Design for Restaurants and Cafes"
+    cluster: industries
+    parent_pillar: best-website-design-by-industry
+    write_order: 16
+    priority: P1
+    target_keyword: "restaurant website design"
+    intent: commercial
+    word_count: 2200
+    angle: "Menu UX, reservation integration, mobile-first reality."
+    authority_play: teardown_30_restaurant_sites
+
+  - slug: web-design-for-real-estate-agents
+    title: "Web Design for Real Estate Agents (Solo & Small Teams)"
+    cluster: industries
+    parent_pillar: best-website-design-by-industry
+    write_order: 17
+    priority: P1
+    target_keyword: "real estate agent website design"
+    intent: commercial
+    word_count: 2000
+    angle: "Listings + lead capture balance. IDX vs custom."
+    authority_play: teardown_25_realtor_sites
+
+  - slug: web-design-for-fitness-studios
+    title: "Web Design for Fitness Studios, Gyms & Personal Trainers"
+    cluster: industries
+    parent_pillar: best-website-design-by-industry
+    write_order: 18
+    priority: P1
+    target_keyword: "fitness website design"
+    intent: commercial
+    word_count: 2000
+    angle: "Class booking flows. Trainer bios that convert. Social-proof saturation."
+
+  - slug: web-design-for-small-ecommerce
+    title: "Web Design for Small Ecommerce Brands"
+    cluster: industries
+    parent_pillar: best-website-design-by-industry
+    write_order: 19
+    priority: P1
+    target_keyword: "small ecommerce website design"
+    intent: commercial
+    word_count: 2400
+
+  - slug: web-design-for-b2b-saas
+    title: "Web Design for B2B SaaS Startups"
+    cluster: industries
+    parent_pillar: best-website-design-by-industry
+    write_order: 20
+    priority: P1
+    target_keyword: "B2B SaaS website design"
+    intent: commercial
+    word_count: 2400
+    angle: "Pricing page, demo flow, integration page architecture."
+
+  - slug: web-design-for-consultants-coaches
+    title: "Web Design for Consultants and Coaches"
+    cluster: industries
+    parent_pillar: best-website-design-by-industry
+    write_order: 21
+    priority: P1
+    target_keyword: "consultant website design"
+    intent: commercial
+    word_count: 2000
+
+  # ===========================================================================
+  # P1 — COMMERCIAL-INTENT COST PAGES (weeks 5-6)
+  # ===========================================================================
+
+  - slug: small-business-website-cost-usa
+    title: "How Much Does a Small Business Website Cost in the US? (2026)"
+    cluster: cost
+    parent_pillar: small-business-website-cost-2026
+    write_order: 22
+    priority: P1
+    target_keyword: "small business website cost USA"
+    intent: commercial
+    word_count: 2400
+    angle: "Real US 2026 numbers, regional variation (CA/NY vs MW), tax implications."
+    authority_play: pricing_survey_data
+
+  - slug: small-business-website-cost-uk-canada-australia
+    title: "Small Business Website Pricing: UK, Canada & Australia Compared"
+    cluster: cost
+    parent_pillar: small-business-website-cost-2026
+    write_order: 23
+    priority: P1
+    target_keyword: "small business website cost UK"
+    secondary_keywords: [website cost Canada, website cost Australia]
+    intent: commercial
+    word_count: 2200
+
+  - slug: website-redesign-cost-small-business
+    title: "Website Redesign Cost for Small Businesses: 2026 Numbers"
+    cluster: cost
+    parent_pillar: small-business-website-cost-2026
+    write_order: 24
+    priority: P1
+    target_keyword: "website redesign cost"
+    intent: commercial
+    word_count: 2200
+
+  # ===========================================================================
+  # P1 — KEY FRAMEWORKS & FLAGSHIP (weeks 6-8)
+  # ===========================================================================
+
+  - slug: state-of-smb-web-design-2026
+    title: "The State of SMB Web Design 2026: Annual Report"
+    cluster: process
+    pillar: true
+    write_order: 25
+    priority: P1
+    target_keyword: "state of small business websites 2026"
+    intent: informational
+    word_count: 5000
+    angle: >
+      Flagship annual report. Aggregate ALL teardown data, survey data,
+      and benchmarks. Sections: spend, platforms, performance, conversion,
+      AI visibility. Designed as press-release-able and infinitely citable.
+    authority_play: annual_state_of_report_FLAGSHIP
+    schema: [Report, Article, BreadcrumbList]
+
+  - slug: seven-second-trust-test
+    title: "The 7-Second Trust Test: A Framework for SMB Homepage Audits"
+    cluster: conversion
+    parent_pillar: small-business-conversion-guide
+    write_order: 26
+    priority: P1
+    target_keyword: "website trust test"
+    intent: informational
+    word_count: 1800
+    angle: "Own the framework. 7 yes/no questions. Free widget that runs the test."
+    authority_play: named_framework_PLUS_free_tool
+
+  - slug: smb-homepage-hierarchy
+    title: "The SMB Homepage Hierarchy: 7 Sections in Order"
+    cluster: process
+    write_order: 27
+    priority: P1
+    target_keyword: "small business homepage structure"
+    intent: informational
+    word_count: 2000
+    angle: "Your second proprietary framework. Annotated example of each section."
+    authority_play: named_framework_homepage_hierarchy
+
+  - slug: thirty-smb-sites-that-work
+    title: "30 SMB Websites That Actually Work (and Why)"
+    cluster: process
+    write_order: 28
+    priority: P1
+    target_keyword: "best small business websites 2026"
+    intent: informational
+    word_count: 3500
+    angle: "Curated showcase with annotations. Massive social/backlink bait."
+    authority_play: teardown_showcase
+
+  - slug: anatomy-of-converting-smb-homepage
+    title: "Anatomy of a High-Converting SMB Homepage (25-Site Teardown)"
+    cluster: conversion
+    parent_pillar: small-business-conversion-guide
+    write_order: 29
+    priority: P1
+    target_keyword: "small business homepage examples"
+    intent: informational
+    word_count: 3000
+    authority_play: teardown_25_sites
+
+  - slug: how-to-write-website-brief
+    title: "How to Write a Website Brief That Gets You the Site You Wanted"
+    cluster: process
+    write_order: 30
+    priority: P1
+    target_keyword: "how to write a website brief"
+    intent: informational
+    word_count: 2400
+    angle: "Downloadable brief template. The 12 questions every brief needs."
+    authority_play: downloadable_brief_template
+
+  # ===========================================================================
+  # P2 — REMAINING ARTICLES (abbreviated — full briefs generated via /brief)
+  # ===========================================================================
+
+  # --- Cost cluster (remaining) ---
+  - { slug: custom-website-vs-template-cost, title: "Custom Website vs Template: True 5-Year Cost Comparison", cluster: cost, parent_pillar: small-business-website-cost-2026, write_order: 31, priority: P2, target_keyword: "custom website vs template cost", word_count: 2000 }
+  - { slug: hidden-costs-small-business-website, title: "The Hidden Costs of a Small Business Website", cluster: cost, parent_pillar: small-business-website-cost-2026, write_order: 32, priority: P2, target_keyword: "hidden website costs", word_count: 1800 }
+  - { slug: web-design-pricing-models, title: "Web Design Pricing Models Explained: Fixed, Hourly, Value-Based", cluster: cost, parent_pillar: small-business-website-cost-2026, write_order: 33, priority: P2, target_keyword: "web design pricing models", word_count: 1800 }
+  - { slug: cheap-website-pitfalls, title: "Why Cheap Websites End Up Costing More", cluster: cost, parent_pillar: small-business-website-cost-2026, write_order: 34, priority: P2, target_keyword: "cheap website risks", word_count: 1800 }
+  - { slug: website-cost-by-industry, title: "Website Cost by Industry: What Your Competitors Are Spending", cluster: cost, parent_pillar: small-business-website-cost-2026, write_order: 35, priority: P2, target_keyword: "website cost by industry", word_count: 2200, authority_play: pricing_survey_by_industry }
+  - { slug: website-redesign-roi, title: "Website Redesign ROI: How to Calculate the Return", cluster: cost, parent_pillar: small-business-website-cost-2026, write_order: 36, priority: P2, target_keyword: "website redesign ROI", word_count: 2000, authority_play: free_roi_calculator }
+
+  # --- Industries (remaining) ---
+  - { slug: web-design-for-chiropractors, title: "Web Design for Chiropractors", cluster: industries, parent_pillar: best-website-design-by-industry, write_order: 37, priority: P2, target_keyword: "chiropractor website design", word_count: 2000, authority_play: teardown_20_sites }
+  - { slug: web-design-for-hvac-companies, title: "Web Design for HVAC Companies", cluster: industries, parent_pillar: best-website-design-by-industry, write_order: 38, priority: P2, target_keyword: "HVAC website design", word_count: 2000, authority_play: teardown_20_sites }
+  - { slug: web-design-for-landscapers, title: "Web Design for Landscapers & Lawn Care", cluster: industries, parent_pillar: best-website-design-by-industry, write_order: 39, priority: P2, target_keyword: "landscaper website design", word_count: 1800 }
+  - { slug: web-design-for-daycare, title: "Web Design for Daycare & Childcare Centers", cluster: industries, parent_pillar: best-website-design-by-industry, write_order: 40, priority: P2, target_keyword: "daycare website design", word_count: 1800 }
+  - { slug: web-design-for-nonprofits, title: "Web Design for Small Nonprofits", cluster: industries, parent_pillar: best-website-design-by-industry, write_order: 41, priority: P2, target_keyword: "nonprofit website design", word_count: 2000 }
+  - { slug: web-design-for-veterinarians, title: "Web Design for Veterinarians", cluster: industries, parent_pillar: best-website-design-by-industry, write_order: 42, priority: P2, target_keyword: "veterinary website design", word_count: 1800 }
+
+  # --- Platforms ---
+  - { slug: webflow-vs-wordpress-small-business, title: "Webflow vs WordPress for Small Business: Honest Comparison", cluster: platforms, parent_pillar: best-website-platform-small-business, write_order: 43, priority: P1, target_keyword: "Webflow vs WordPress", word_count: 2400, authority_play: comparison_matrix }
+  - { slug: squarespace-vs-wix-vs-shopify-smb, title: "Squarespace vs Wix vs Shopify for SMBs", cluster: platforms, parent_pillar: best-website-platform-small-business, write_order: 44, priority: P2, target_keyword: "Squarespace vs Wix vs Shopify", word_count: 2400 }
+  - { slug: framer-vs-webflow-small-business, title: "Framer vs Webflow for Small Business Sites", cluster: platforms, parent_pillar: best-website-platform-small-business, write_order: 45, priority: P2, target_keyword: "Framer vs Webflow", word_count: 2000 }
+  - { slug: agency-vs-freelancer-vs-diy, title: "Should You Hire an Agency, Freelancer, or DIY?", cluster: platforms, parent_pillar: best-website-platform-small-business, write_order: 46, priority: P1, target_keyword: "web design agency vs freelancer", word_count: 2200 }
+  - { slug: webflow-for-small-business-guide, title: "Webflow for Small Business: The Complete Guide", cluster: platforms, parent_pillar: best-website-platform-small-business, write_order: 47, priority: P2, target_keyword: "Webflow for small business", word_count: 2600 }
+  - { slug: wordpress-for-small-business-2026, title: "WordPress for Small Business in 2026: Still Worth It?", cluster: platforms, parent_pillar: best-website-platform-small-business, write_order: 48, priority: P2, target_keyword: "WordPress for small business", word_count: 2200 }
+  - { slug: headless-cms-for-smbs, title: "Headless CMS for SMBs: Worth It or Overkill?", cluster: platforms, parent_pillar: best-website-platform-small-business, write_order: 49, priority: P3, target_keyword: "headless CMS small business", word_count: 1800 }
+  - { slug: shopify-vs-woocommerce-small-ecommerce, title: "Shopify vs WooCommerce for Small Ecommerce", cluster: platforms, parent_pillar: best-website-platform-small-business, write_order: 50, priority: P2, target_keyword: "Shopify vs WooCommerce", word_count: 2200 }
+  - { slug: migrating-from-wix-squarespace, title: "Migrating From Wix or Squarespace: A Complete Guide", cluster: platforms, parent_pillar: best-website-platform-small-business, write_order: 51, priority: P2, target_keyword: "migrate from Wix to WordPress", word_count: 2400 }
+
+  # --- Redesign ---
+  - { slug: redesign-without-losing-seo, title: "How to Redesign Your Website Without Losing Google Rankings", cluster: redesign, parent_pillar: signs-website-needs-redesign, write_order: 52, priority: P1, target_keyword: "website redesign without losing SEO", word_count: 2600 }
+  - { slug: refresh-vs-full-redesign, title: "Website Refresh vs Full Redesign: A Decision Framework", cluster: redesign, parent_pillar: signs-website-needs-redesign, write_order: 53, priority: P2, target_keyword: "website refresh vs redesign", word_count: 2000 }
+  - { slug: website-redesign-checklist, title: "The Complete Website Redesign Checklist (Downloadable)", cluster: redesign, parent_pillar: signs-website-needs-redesign, write_order: 54, priority: P1, target_keyword: "website redesign checklist", word_count: 2400, authority_play: downloadable_checklist }
+  - { slug: how-long-does-redesign-take, title: "How Long Does a Website Redesign Actually Take?", cluster: redesign, parent_pillar: signs-website-needs-redesign, write_order: 55, priority: P2, target_keyword: "how long does website redesign take", word_count: 1800 }
+  - { slug: redesign-timeline-pitfalls, title: "Why Website Redesigns Run Late (and How to Avoid It)", cluster: redesign, parent_pillar: signs-website-needs-redesign, write_order: 56, priority: P3, target_keyword: "website redesign delays", word_count: 1800 }
+  - { slug: working-with-web-design-agency, title: "Working With a Web Design Agency: What to Expect", cluster: redesign, parent_pillar: signs-website-needs-redesign, write_order: 57, priority: P1, target_keyword: "working with web design agency", word_count: 2200 }
+  - { slug: redesign-seo-migration-guide, title: "The Technical SEO Migration Guide for Redesigns", cluster: redesign, parent_pillar: signs-website-needs-redesign, write_order: 58, priority: P2, target_keyword: "SEO migration redesign", word_count: 2600 }
+
+  # --- Conversion (remaining) ---
+  - { slug: converting-service-page-template, title: "The SMB Service Page Template That Books Calls", cluster: conversion, parent_pillar: small-business-conversion-guide, write_order: 59, priority: P1, target_keyword: "high converting service page", word_count: 2200, authority_play: downloadable_template }
+  - { slug: high-converting-hero-sections, title: "High-Converting Hero Sections: 20 Examples Analyzed", cluster: conversion, parent_pillar: small-business-conversion-guide, write_order: 60, priority: P1, target_keyword: "high converting hero section", word_count: 2400, authority_play: teardown_20_heroes }
+  - { slug: pricing-page-anatomy-smb, title: "Pricing Page Anatomy for Small Businesses", cluster: conversion, parent_pillar: small-business-conversion-guide, write_order: 61, priority: P1, target_keyword: "small business pricing page", word_count: 2200 }
+  - { slug: about-page-that-converts, title: "The About Page That Actually Converts", cluster: conversion, parent_pillar: small-business-conversion-guide, write_order: 62, priority: P2, target_keyword: "about page that converts", word_count: 1800 }
+  - { slug: contact-page-best-practices, title: "Contact Page Best Practices for Small Business", cluster: conversion, parent_pillar: small-business-conversion-guide, write_order: 63, priority: P2, target_keyword: "contact page best practices", word_count: 1600 }
+  - { slug: trust-signals-that-work, title: "Trust Signals That Actually Work (Data-Backed)", cluster: conversion, parent_pillar: small-business-conversion-guide, write_order: 64, priority: P2, target_keyword: "website trust signals", word_count: 2000, authority_play: mini_survey }
+  - { slug: ctas-that-get-clicks, title: "CTAs That Get Clicks: 50 Real Examples", cluster: conversion, parent_pillar: small-business-conversion-guide, write_order: 65, priority: P2, target_keyword: "CTA examples", word_count: 2200 }
+  - { slug: form-optimization-smb, title: "Form Optimization for Small Business Websites", cluster: conversion, parent_pillar: small-business-conversion-guide, write_order: 66, priority: P2, target_keyword: "website form optimization", word_count: 1800 }
+  - { slug: social-proof-placement-guide, title: "Social Proof Placement: Where Testimonials Actually Convert", cluster: conversion, parent_pillar: small-business-conversion-guide, write_order: 67, priority: P3, target_keyword: "social proof on website", word_count: 1800 }
+
+  # --- Performance ---
+  - { slug: core-web-vitals-non-developers, title: "Core Web Vitals Explained (For Non-Developers)", cluster: performance, parent_pillar: website-speed-guide-small-business, write_order: 68, priority: P1, target_keyword: "Core Web Vitals explained", word_count: 2000 }
+  - { slug: slow-websites-lose-customers-data, title: "Slow Websites Lose Customers: The Data You Need to See", cluster: performance, parent_pillar: website-speed-guide-small-business, write_order: 69, priority: P2, target_keyword: "slow website lose customers", word_count: 1800, authority_play: original_data_correlation }
+  - { slug: image-optimization-smb-sites, title: "Image Optimization for Small Business Sites", cluster: performance, parent_pillar: website-speed-guide-small-business, write_order: 70, priority: P2, target_keyword: "image optimization small business", word_count: 1800 }
+  - { slug: choosing-fast-hosting-small-business, title: "Choosing Fast Hosting for Your Small Business", cluster: performance, parent_pillar: website-speed-guide-small-business, write_order: 71, priority: P2, target_keyword: "fast hosting small business", word_count: 2000 }
+  - { slug: lazy-loading-explained, title: "Lazy Loading Explained for Non-Developers", cluster: performance, parent_pillar: website-speed-guide-small-business, write_order: 72, priority: P3, target_keyword: "lazy loading explained", word_count: 1400 }
+  - { slug: cdn-for-small-business, title: "Do You Need a CDN for Your Small Business Site?", cluster: performance, parent_pillar: website-speed-guide-small-business, write_order: 73, priority: P3, target_keyword: "CDN small business", word_count: 1600 }
+  - { slug: mobile-speed-small-business, title: "Mobile Speed for Small Business Websites", cluster: performance, parent_pillar: website-speed-guide-small-business, write_order: 74, priority: P2, target_keyword: "mobile website speed", word_count: 1800 }
+  - { slug: speed-audit-diy-guide, title: "How to DIY a Website Speed Audit (Step-by-Step)", cluster: performance, parent_pillar: website-speed-guide-small-business, write_order: 75, priority: P2, target_keyword: "website speed audit", word_count: 2200, authority_play: free_audit_tool }
+  - { slug: common-speed-killers-smb-sites, title: "The 10 Most Common Speed Killers on SMB Sites", cluster: performance, parent_pillar: website-speed-guide-small-business, write_order: 76, priority: P3, target_keyword: "website speed problems", word_count: 1800 }
+
+  # --- SEO ---
+  - { slug: local-seo-for-small-business, title: "Local SEO for Small Business: The 2026 Playbook", cluster: seo, parent_pillar: seo-for-small-business-2026, write_order: 77, priority: P1, target_keyword: "local SEO small business", word_count: 2800 }
+  - { slug: technical-seo-checklist-smb, title: "The Technical SEO Checklist for Small Businesses", cluster: seo, parent_pillar: seo-for-small-business-2026, write_order: 78, priority: P1, target_keyword: "technical SEO checklist", word_count: 2400, authority_play: downloadable_checklist }
+  - { slug: schema-markup-for-small-business, title: "Schema Markup for Small Business Websites (With Examples)", cluster: seo, parent_pillar: seo-for-small-business-2026, write_order: 79, priority: P2, target_keyword: "schema markup small business", word_count: 2200 }
+  - { slug: google-business-profile-guide, title: "The Complete Google Business Profile Guide for SMBs", cluster: seo, parent_pillar: seo-for-small-business-2026, write_order: 80, priority: P1, target_keyword: "Google Business Profile guide", word_count: 2600 }
+  - { slug: keyword-research-for-smbs-no-tools, title: "Keyword Research for SMBs (No Paid Tools Needed)", cluster: seo, parent_pillar: seo-for-small-business-2026, write_order: 81, priority: P2, target_keyword: "free keyword research", word_count: 2000 }
+  - { slug: on-page-seo-for-smbs, title: "On-Page SEO for Small Business Websites", cluster: seo, parent_pillar: seo-for-small-business-2026, write_order: 82, priority: P2, target_keyword: "on-page SEO small business", word_count: 2200 }
+  - { slug: link-building-for-small-business-ethical, title: "Ethical Link Building for Small Business", cluster: seo, parent_pillar: seo-for-small-business-2026, write_order: 83, priority: P2, target_keyword: "link building small business", word_count: 2200 }
+  - { slug: seo-for-service-area-businesses, title: "SEO for Service-Area Businesses", cluster: seo, parent_pillar: seo-for-small-business-2026, write_order: 84, priority: P2, target_keyword: "service area business SEO", word_count: 2000 }
+  - { slug: seo-migration-during-redesign, title: "SEO During a Website Redesign: Don't Lose Rankings", cluster: seo, parent_pillar: seo-for-small-business-2026, write_order: 85, priority: P2, target_keyword: "SEO during redesign", word_count: 2200 }
+  - { slug: ai-search-llm-optimization-smbs, title: "AI Search & LLM Optimization for Small Business", cluster: seo, parent_pillar: seo-for-small-business-2026, write_order: 86, priority: P1, target_keyword: "LLM SEO small business", word_count: 2400 }
+  - { slug: seo-mistakes-killing-smb-sites, title: "10 SEO Mistakes Killing Small Business Sites", cluster: seo, parent_pillar: seo-for-small-business-2026, write_order: 87, priority: P2, target_keyword: "SEO mistakes small business", word_count: 2000 }
+
+  # --- Brand ---
+  - { slug: choosing-colors-for-your-brand, title: "Choosing Colors for Your Small Business Brand", cluster: brand, parent_pillar: visual-brand-foundations-small-business, write_order: 88, priority: P2, target_keyword: "brand colors small business", word_count: 1800 }
+  - { slug: typography-for-small-business-websites, title: "Typography for Small Business Websites", cluster: brand, parent_pillar: visual-brand-foundations-small-business, write_order: 89, priority: P2, target_keyword: "website typography", word_count: 1800 }
+  - { slug: logo-design-vs-identity-system, title: "Logo Design vs Full Identity System: What You Need", cluster: brand, parent_pillar: visual-brand-foundations-small-business, write_order: 90, priority: P2, target_keyword: "logo vs identity system", word_count: 1800 }
+  - { slug: when-to-invest-in-rebrand, title: "When to Invest in a Rebrand (and When Not To)", cluster: brand, parent_pillar: visual-brand-foundations-small-business, write_order: 91, priority: P2, target_keyword: "when to rebrand", word_count: 1800 }
+  - { slug: photography-for-smb-websites, title: "Photography for Small Business Websites", cluster: brand, parent_pillar: visual-brand-foundations-small-business, write_order: 92, priority: P3, target_keyword: "small business photography", word_count: 1600 }
+  - { slug: stock-vs-custom-photography, title: "Stock Photos vs Custom Photography: When Each Wins", cluster: brand, parent_pillar: visual-brand-foundations-small-business, write_order: 93, priority: P3, target_keyword: "stock photos vs custom", word_count: 1600 }
+  - { slug: design-systems-for-small-businesses, title: "Design Systems for Small Businesses (Yes, You Need One)", cluster: brand, parent_pillar: visual-brand-foundations-small-business, write_order: 94, priority: P3, target_keyword: "design system small business", word_count: 1800 }
+  - { slug: iconography-illustration-choices, title: "Iconography and Illustration for SMB Websites", cluster: brand, parent_pillar: visual-brand-foundations-small-business, write_order: 95, priority: P3, target_keyword: "website icons illustrations", word_count: 1400 }
+  - { slug: voice-and-tone-small-business, title: "Voice and Tone for Small Business Websites", cluster: brand, parent_pillar: visual-brand-foundations-small-business, write_order: 96, priority: P3, target_keyword: "website voice and tone", word_count: 1600 }
+
+  # --- Operations ---
+  - { slug: hosting-choices-for-smbs, title: "Web Hosting Choices for Small Businesses (2026)", cluster: operations, parent_pillar: running-small-business-website-post-launch, write_order: 97, priority: P2, target_keyword: "web hosting small business", word_count: 2200 }
+  - { slug: website-security-basics-small-business, title: "Website Security Basics for Small Business", cluster: operations, parent_pillar: running-small-business-website-post-launch, write_order: 98, priority: P2, target_keyword: "small business website security", word_count: 2000 }
+  - { slug: backups-and-disaster-recovery, title: "Website Backups and Disaster Recovery for SMBs", cluster: operations, parent_pillar: running-small-business-website-post-launch, write_order: 99, priority: P3, target_keyword: "website backup small business", word_count: 1800 }
+  - { slug: analytics-setup-for-smbs, title: "Analytics Setup for Small Business Websites", cluster: operations, parent_pillar: running-small-business-website-post-launch, write_order: 100, priority: P2, target_keyword: "website analytics small business", word_count: 2000 }
+  - { slug: ga4-essentials-non-marketers, title: "GA4 Essentials for Non-Marketers", cluster: operations, parent_pillar: running-small-business-website-post-launch, write_order: 101, priority: P3, target_keyword: "GA4 for small business", word_count: 1800 }
+  - { slug: privacy-compliance-gdpr-ccpa-basics, title: "Privacy Compliance (GDPR & CCPA) for Small Business Sites", cluster: operations, parent_pillar: running-small-business-website-post-launch, write_order: 102, priority: P2, target_keyword: "GDPR small business website", word_count: 2200 }
+  - { slug: website-maintenance-plans-worth-it, title: "Are Website Maintenance Plans Worth It? Honest Answer", cluster: operations, parent_pillar: running-small-business-website-post-launch, write_order: 103, priority: P2, target_keyword: "website maintenance plan", word_count: 1800 }
+  - { slug: updating-content-cadence-process, title: "How Often Should You Update Your Website Content?", cluster: operations, parent_pillar: running-small-business-website-post-launch, write_order: 104, priority: P3, target_keyword: "update website content", word_count: 1600 }
+  - { slug: when-to-redesign-vs-maintain, title: "When to Redesign vs Just Maintain Your Site", cluster: operations, parent_pillar: running-small-business-website-post-launch, write_order: 105, priority: P3, target_keyword: "redesign or maintain website", word_count: 1600 }
+
+  # --- AI Search ---
+  - { slug: geo-generative-engine-optimization-smbs, title: "GEO (Generative Engine Optimization) for Small Business", cluster: ai_search, parent_pillar: get-cited-by-chatgpt-perplexity-ai-search, write_order: 106, priority: P1, target_keyword: "generative engine optimization", word_count: 2400 }
+  - { slug: schema-for-ai-search-visibility, title: "Schema Markup for AI Search Visibility", cluster: ai_search, parent_pillar: get-cited-by-chatgpt-perplexity-ai-search, write_order: 107, priority: P2, target_keyword: "schema markup AI search", word_count: 2000 }
+  - { slug: entity-seo-for-small-business, title: "Entity SEO for Small Business (Beyond Keywords)", cluster: ai_search, parent_pillar: get-cited-by-chatgpt-perplexity-ai-search, write_order: 108, priority: P2, target_keyword: "entity SEO small business", word_count: 2200 }
+  - { slug: content-structure-for-llm-citations, title: "Content Structure That Wins LLM Citations", cluster: ai_search, parent_pillar: get-cited-by-chatgpt-perplexity-ai-search, write_order: 109, priority: P1, target_keyword: "content for AI search", word_count: 2200 }
+  - { slug: why-website-not-in-chatgpt, title: "Why Your Website Doesn't Show Up in ChatGPT (And How to Fix It)", cluster: ai_search, parent_pillar: get-cited-by-chatgpt-perplexity-ai-search, write_order: 110, priority: P1, target_keyword: "website not in ChatGPT", word_count: 2000 }
+  - { slug: chatgpt-perplexity-google-customer-research, title: "ChatGPT vs Perplexity vs Google: Where Customers Actually Research", cluster: ai_search, parent_pillar: get-cited-by-chatgpt-perplexity-ai-search, write_order: 111, priority: P2, target_keyword: "ChatGPT vs Perplexity vs Google", word_count: 2200, authority_play: mini_survey }
+  - { slug: new-smb-visibility-checklist-2026, title: "The New SMB Visibility Checklist for 2026", cluster: ai_search, parent_pillar: get-cited-by-chatgpt-perplexity-ai-search, write_order: 112, priority: P2, target_keyword: "small business visibility 2026", word_count: 2000, authority_play: downloadable_checklist }
+
+  # --- Process / Cross-cluster (remaining) ---
+  - { slug: questions-to-ask-web-designer, title: "15 Questions to Ask Before Hiring a Web Designer", cluster: process, write_order: 113, priority: P1, target_keyword: "questions to ask web designer", word_count: 2000 }
+  - { slug: red-flags-hiring-web-design-agency, title: "Red Flags When Hiring a Web Design Agency", cluster: process, write_order: 114, priority: P2, target_keyword: "web design agency red flags", word_count: 1800 }
+  - { slug: smb-website-launch-checklist, title: "The SMB Website Launch Checklist (Downloadable)", cluster: process, write_order: 115, priority: P1, target_keyword: "website launch checklist", word_count: 2200, authority_play: downloadable_checklist }
+  - { slug: website-goals-what-to-measure, title: "Website Goals: What Small Businesses Should Actually Measure", cluster: process, write_order: 116, priority: P2, target_keyword: "website goals small business", word_count: 1800 }
+  - { slug: conversion-benchmarks-by-industry, title: "Conversion Rate Benchmarks for SMBs by Industry", cluster: process, write_order: 117, priority: P1, target_keyword: "small business conversion rate benchmarks", word_count: 2400, authority_play: original_benchmark_data }
+  - { slug: should-smbs-use-ai-for-website, title: "Should Small Businesses Use AI to Build Their Website?", cluster: process, write_order: 118, priority: P2, target_keyword: "AI website builder small business", word_count: 2200 }
