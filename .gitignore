@@ -13,3 +13,5 @@ Thumbs.db
 content-engine/node_modules/
 content-engine/_site/
 insights/
+**/__pycache__
+*.pyc

@@ -44,6 +44,9 @@ export default function (eleventyConfig) {
     const words = (text || "").split(/\s+/).length;
     return Math.max(1, Math.ceil(words / 220));
   });
+  eleventyConfig.addFilter("striptags", (str) =>
+    String(str || "").replace(/<[^>]*>/g, "")
+  );
 
   // ===========================================================================
   // Markdown — anchor links on H2/H3 for deep-linking from AI engines
@@ -66,7 +69,7 @@ export default function (eleventyConfig) {
       language: "en",
       title: "DesigXner — Web Design Insights for Small Businesses",
       subtitle: "Practical web design and development advice for SMBs.",
-      base: "https://designxner.com/",
+      base: "https://desigxner.com/",
       author: { name: "DesigXner" },
     },
   });
@@ -78,6 +81,8 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/images");
   eleventyConfig.addPassthroughCopy("src/downloads");
   eleventyConfig.addPassthroughCopy("src/tools");
+  // IndexNow key verification file
+  eleventyConfig.addPassthroughCopy("src/*.txt");
 
   return {
     dir: { input: "src", output: "_site", includes: "_includes" },

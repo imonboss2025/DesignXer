@@ -3,8 +3,9 @@ layout: base.njk
 permalink: "/insights/{{ cluster }}/{{ page.fileSlug }}/"
 ---
 
-<article class="article">
+<article class="pillar">
 
+  {# === Breadcrumbs — spans full width === #}
   <nav class="breadcrumbs" aria-label="Breadcrumb">
     <ol>
       <li><a href="/">Home</a></li>
@@ -14,61 +15,79 @@ permalink: "/insights/{{ cluster }}/{{ page.fileSlug }}/"
     </ol>
   </nav>
 
-  <header class="article-header">
+  {# === TOC sidebar (sticky on desktop, above content on mobile) === #}
+  {% if toc and toc.length %}
+  <nav class="toc" aria-label="Table of contents">
+    <h2>Contents</h2>
+    <ol>
+      {% for item in toc %}
+        <li><a href="#{{ item.id }}">{{ item.text }}</a></li>
+      {% endfor %}
+    </ol>
+  </nav>
+  {% endif %}
+
+  {# === Article header === #}
+  <header class="pillar-header">
     <p class="eyebrow">{{ cluster | replace("-", " ") | title }}</p>
     <h1>{{ title }}</h1>
     {% if subtitle %}<p class="subtitle">{{ subtitle }}</p>{% endif %}
     <p class="meta">
       <time datetime="{{ date | isoDate }}">{{ date | readableDate }}</time>
-      · {{ content | readingTime }} min read
-      {% if author %}· By {{ author }}{% endif %}
+      &nbsp;·&nbsp;{{ content | readingTime }} min read
     </p>
   </header>
 
-  <div class="article-body">
+  {# === Prose body === #}
+  <div class="pillar-body">
     {{ content | safe }}
   </div>
 
-  {# === Parent pillar link (topical authority signal) === #}
-  {% if parent_pillar %}
-    <aside class="pillar-link">
-      <p>This article is part of our pillar guide:
-        <a href="/insights/{{ cluster }}/{{ parent_pillar }}/">
-          See the full {{ cluster | replace("-", " ") }} guide →
-        </a>
-      </p>
-    </aside>
-  {% endif %}
-
-  {# === FAQ section (also emits FAQPage schema below) === #}
-  {% if faqs %}
-    <section class="faqs">
-      <h2>Frequently asked questions</h2>
-      {% for faq in faqs %}
-        <details>
-          <summary>{{ faq.q }}</summary>
-          <div>{{ faq.a | safe }}</div>
-        </details>
-      {% endfor %}
-    </section>
-  {% endif %}
-
-  {# === Related articles in same cluster === #}
-  <section class="related">
-    <h2>More on {{ cluster | replace("-", " ") }}</h2>
-    <ul>
-      {% set siblings = collections[cluster] | default([]) %}
+  {# === Sibling articles in same cluster === #}
+  {% set siblings = collections[cluster] | default([]) %}
+  {% if siblings.length > 1 %}
+  <section class="cluster-children">
+    <h2>More in {{ cluster | replace("-", " ") | title }}</h2>
+    <div class="cluster-grid">
       {% for item in siblings %}
-        {% if item.url != page.url and loop.index <= 5 %}
-          <li><a href="{{ item.url }}">{{ item.data.title }}</a></li>
+        {% if item.url != page.url and loop.index0 < 6 %}
+        <a href="{{ item.url }}" class="cluster-card">
+          <span class="cluster-card-label">{{ item.data.cluster | replace("-", " ") | title }}</span>
+          <span class="cluster-card-title">{{ item.data.title }}</span>
+        </a>
         {% endif %}
       {% endfor %}
-    </ul>
+    </div>
   </section>
+  {% endif %}
+
+  {# === FAQ accordion === #}
+  {% if faqs %}
+  <section class="faqs">
+    <h2>Frequently asked questions</h2>
+    {% for faq in faqs %}
+    <details>
+      <summary>{{ faq.q }}</summary>
+      <div>{{ faq.a | safe }}</div>
+    </details>
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  {# === Parent pillar back-link === #}
+  {% if parent_pillar and parent_pillar != slug %}
+  <aside class="pillar-link">
+    <p>Part of our complete guide:
+      <a href="/insights/{{ cluster }}/{{ parent_pillar }}/">
+        Read the full {{ cluster | replace("-", " ") }} guide →
+      </a>
+    </p>
+  </aside>
+  {% endif %}
 
 </article>
 
-{# === Schema markup === #}
+{# === Structured data — Article === #}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -76,30 +95,33 @@ permalink: "/insights/{{ cluster }}/{{ page.fileSlug }}/"
   "headline": "{{ title | escape }}",
   "description": "{{ (description or angle) | escape }}",
   "datePublished": "{{ date | isoDate }}",
-  "dateModified": "{{ (updated or date) | isoDate }}",
-  "author": { "@type": "Organization", "name": "DesigXner" },
+  "dateModified": "{{ (modified or date) | isoDate }}",
+  "author": { "@type": "Organization", "name": "DesigXner", "url": "https://desigxner.com" },
   "publisher": {
     "@type": "Organization",
     "name": "DesigXner",
-    "logo": { "@type": "ImageObject", "url": "https://designxner.com/images/logo.png" }
+    "url": "https://desigxner.com",
+    "logo": { "@type": "ImageObject", "url": "https://desigxner.com/images/logo.png" }
   },
-  "mainEntityOfPage": "https://designxner.com{{ page.url }}"
+  "mainEntityOfPage": "https://desigxner.com{{ page.url }}"
 }
 </script>
 
+{# === Structured data — BreadcrumbList === #}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://designxner.com/" },
-    { "@type": "ListItem", "position": 2, "name": "Insights", "item": "https://designxner.com/insights/" },
-    { "@type": "ListItem", "position": 3, "name": "{{ cluster | replace('-', ' ') | title }}", "item": "https://designxner.com/insights/{{ cluster }}/" },
-    { "@type": "ListItem", "position": 4, "name": "{{ title | escape }}" }
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://desigxner.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Insights", "item": "https://desigxner.com/insights/" },
+    { "@type": "ListItem", "position": 3, "name": "{{ cluster | replace('-', ' ') | title }}", "item": "https://desigxner.com/insights/{{ cluster }}/" },
+    { "@type": "ListItem", "position": 4, "name": "{{ title | escape }}", "item": "https://desigxner.com{{ page.url }}" }
   ]
 }
 </script>
 
+{# === Structured data — FAQPage === #}
 {% if faqs %}
 <script type="application/ld+json">
 {
@@ -107,11 +129,11 @@ permalink: "/insights/{{ cluster }}/{{ page.fileSlug }}/"
   "@type": "FAQPage",
   "mainEntity": [
     {% for faq in faqs %}
-      {
-        "@type": "Question",
-        "name": "{{ faq.q | escape }}",
-        "acceptedAnswer": { "@type": "Answer", "text": "{{ faq.a | striptags | escape }}" }
-      }{% if not loop.last %},{% endif %}
+    {
+      "@type": "Question",
+      "name": "{{ faq.q | escape }}",
+      "acceptedAnswer": { "@type": "Answer", "text": "{{ faq.a | striptags | escape }}" }
+    }{% if not loop.last %},{% endif %}
     {% endfor %}
   ]
 }

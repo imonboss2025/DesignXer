@@ -29,7 +29,7 @@ permalink: "/insights/{{ cluster }}/{{ page.fileSlug }}/"
       <h2>What's in this guide</h2>
       <ol>
         {% for item in toc %}
-          <li><a href="#{{ item.id }}">{{ item.label }}</a></li>
+          <li><a href="#{{ item.id }}">{{ item.text or item.label }}</a></li>
         {% endfor %}
       </ol>
     </nav>
@@ -78,13 +78,27 @@ permalink: "/insights/{{ cluster }}/{{ page.fileSlug }}/"
   "description": "{{ (description or angle) | escape }}",
   "datePublished": "{{ date | isoDate }}",
   "dateModified": "{{ (updated or date) | isoDate }}",
-  "author": { "@type": "Organization", "name": "DesigXner" },
+  "author": { "@type": "Organization", "name": "DesigXner", "url": "https://desigxner.com" },
   "publisher": {
     "@type": "Organization",
     "name": "DesigXner",
-    "logo": { "@type": "ImageObject", "url": "https://designxner.com/images/logo.png" }
+    "url": "https://desigxner.com",
+    "logo": { "@type": "ImageObject", "url": "https://desigxner.com/images/logo.png" }
   },
-  "mainEntityOfPage": "https://designxner.com{{ page.url }}"
+  "mainEntityOfPage": "https://desigxner.com{{ page.url }}"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://desigxner.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Insights", "item": "https://desigxner.com/insights/" },
+    { "@type": "ListItem", "position": 3, "name": "{{ cluster | replace('-', ' ') | title }}", "item": "https://desigxner.com/insights/{{ cluster }}/" },
+    { "@type": "ListItem", "position": 4, "name": "{{ title | escape }}", "item": "https://desigxner.com{{ page.url }}" }
+  ]
 }
 </script>
 
